@@ -2,10 +2,151 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Algometix</title>
-    <link>https://algometix.com/tags/</link>
+    <link>http://localhost:41239/tags/</link>
     <description>Recent content in Tags on Algometix</description>
     <generator>Hugo -- 0.143.1</generator>
     <language>en-us</language>
-    <atom:link href="https://algometix.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Feb 2025 04:00:15 +0000</lastBuildDate>
+    <atom:link href="http://localhost:41239/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Algorithmic Trading</title>
+      <link>http://localhost:41239/tags/algorithmic-trading/</link>
+      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
+      <guid>http://localhost:41239/tags/algorithmic-trading/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>http://localhost:41239/tags/c&#43;&#43;/</link>
+      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
+      <guid>http://localhost:41239/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>C&#43;&#43; Optimization</title>
+      <link>http://localhost:41239/tags/c&#43;&#43;-optimization/</link>
+      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
+      <guid>http://localhost:41239/tags/c&#43;&#43;-optimization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>C&#43;&#43; Performance Tuning</title>
+      <link>http://localhost:41239/tags/c&#43;&#43;-performance-tuning/</link>
+      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
+      <guid>http://localhost:41239/tags/c&#43;&#43;-performance-tuning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cache Miss</title>
+      <link>http://localhost:41239/tags/cache-miss/</link>
+      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
+      <guid>http://localhost:41239/tags/cache-miss/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cache Optimization</title>
+      <link>http://localhost:41239/tags/cache-optimization/</link>
+      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
+      <guid>http://localhost:41239/tags/cache-optimization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Concurrency</title>
+      <link>http://localhost:41239/tags/concurrency/</link>
+      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
+      <guid>http://localhost:41239/tags/concurrency/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CPU Caching</title>
+      <link>http://localhost:41239/tags/cpu-caching/</link>
+      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
+      <guid>http://localhost:41239/tags/cpu-caching/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data Locality</title>
+      <link>http://localhost:41239/tags/data-locality/</link>
+      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
+      <guid>http://localhost:41239/tags/data-locality/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>False Sharing</title>
+      <link>http://localhost:41239/tags/false-sharing/</link>
+      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
+      <guid>http://localhost:41239/tags/false-sharing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>High-Frequency Trading</title>
+      <link>http://localhost:41239/tags/high-frequency-trading/</link>
+      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
+      <guid>http://localhost:41239/tags/high-frequency-trading/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>High-Performance Computing</title>
+      <link>http://localhost:41239/tags/high-performance-computing/</link>
+      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
+      <guid>http://localhost:41239/tags/high-performance-computing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Low-Latency Programming</title>
+      <link>http://localhost:41239/tags/low-latency-programming/</link>
+      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
+      <guid>http://localhost:41239/tags/low-latency-programming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Memory Optimization</title>
+      <link>http://localhost:41239/tags/memory-optimization/</link>
+      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
+      <guid>http://localhost:41239/tags/memory-optimization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Microbenchmarking</title>
+      <link>http://localhost:41239/tags/microbenchmarking/</link>
+      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
+      <guid>http://localhost:41239/tags/microbenchmarking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Multithreading</title>
+      <link>http://localhost:41239/tags/multithreading/</link>
+      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
+      <guid>http://localhost:41239/tags/multithreading/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NUMA Optimization</title>
+      <link>http://localhost:41239/tags/numa-optimization/</link>
+      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
+      <guid>http://localhost:41239/tags/numa-optimization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Parallel Processing</title>
+      <link>http://localhost:41239/tags/parallel-processing/</link>
+      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
+      <guid>http://localhost:41239/tags/parallel-processing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Performance Optimization</title>
+      <link>http://localhost:41239/tags/performance-optimization/</link>
+      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
+      <guid>http://localhost:41239/tags/performance-optimization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Performance</title>
+      <link>http://localhost:41239/tags/performance/</link>
+      <pubDate>Sun, 02 Feb 2025 12:00:00 +0530</pubDate>
+      <guid>http://localhost:41239/tags/performance/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

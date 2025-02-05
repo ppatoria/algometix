@@ -1,24 +1,96 @@
-**Title**: "An Overview of Cache Coherence Protocols in Multi-Core Architectures"  
-**Date**: 2025-02-03T12:00:00+05:30  
-**Author**: "Pralay Patoria"  
-**Tags**: ["C++", "Performance", "Cache Optimization", "Multi-Core Architectures"]  
-**Categories**: ["Low-Latency Programming", "Computer Architecture"]  
-**Draft**: true  
+---
+title: "New Post"
+date: 2025-02-05T04:00:15
+author: "Pralay Patoria"
+tags: [
+"C++", 
+"Performance Optimization", 
+"Low-Latency Programming", 
+"Cache Optimization", 
+"High-Performance Computing", 
+"C++ Optimization", 
+"CPU Caching", 
+"Memory Optimization", 
+"Multithreading", 
+"False Sharing", 
+"Cache Miss", 
+"Data Locality", 
+"NUMA Optimization", 
+"Concurrency", 
+"Parallel Processing", 
+"Algorithmic Trading", 
+"High-Frequency Trading", 
+"Microbenchmarking", 
+"C++ Performance Tuning"
+]
+categories: [
+"C++ Programming", 
+"Performance Engineering", 
+"Low-Latency Systems", 
+"Cache Optimization", 
+"Memory Management", 
+"High-Performance Computing", 
+"Parallel Programming", 
+"Algorithmic Trading", 
+"Financial Programming", 
+"Tech Optimization"
+]
+layout: "page"
+summary: "Short description"
+draft: true
+meta_description: "Meta description for SEO (use ~150 characters)"
+open_graph_image: "Link to image for social media previews (optional)"
+open_graph_title: "New Post"
+open_graph_description: "Short description"
+twitter_card: "summary_large_image"  # Twitter card type; consider "summary" if no image
+structured_data: {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "New Post",
+  "author": {
+    "@type": "Person",
+    "name": "Pralay Patoria"
+  },
+  "datePublished": "date",
+  "dateModified": "date",
+  "keywords": "tags",
+  "articleBody": "Short description",
+  "publisher": {
+    "@type": "Organization",
+    "name": "AlgoMetix"
+  }
+}
+---
 
----  
 
-# Introduction  
 
-Modern multi-core processors rely on private caches to reduce latency and improve performance. However, when multiple cores access the same memory location, ensuring consistency across caches becomes essential. **Cache coherence** guarantees that all cores observe a consistent view of memory, preventing stale or incorrect data from affecting computations.
+# Introduction
 
-This article explores why cache coherence is crucial, common problems that arise without it, and how protocols address these issues.
+    Modern multi -
+    core processors rely on private caches to reduce latency and
+        improve performance.However,
+    when multiple cores access the same memory location,
+    ensuring consistency across caches becomes essential.**Cache coherence **
+        guarantees that all cores observe a consistent view of memory,
+    preventing stale or incorrect data from affecting computations.
 
-# Why Are Cache Coherence Protocols Important?  
+                        This article explores why cache coherence is crucial,
+    common problems that arise without it,
+    and how protocols address these issues.
 
-Cache coherence protocols ensure **data consistency across multiple cores** by preventing stale reads, lost updates, and synchronization failures. Here are some critical problems that arise without cache coherence:
+# Why Are Cache Coherence Protocols Important?
 
-## 1. Stale Reads (Reader-Writer Inconsistency)  
-- **Problem:** One core writes a value while another core reads the same memory but sees an old (stale) value due to delayed cache updates.
+        Cache coherence protocols ensure **
+            data consistency across multiple cores **by preventing stale reads,
+    lost updates,
+    and synchronization failures.Here
+            are some critical problems that arise without cache coherence :
+
+    ##1. Stale
+    Reads(Reader - Writer Inconsistency) -
+        **Problem : **One core writes a value
+                    while another core reads the same memory but sees an
+                    old(stale) value due to delayed cache updates.
 - **Example:** A flag-based synchronization where the reader sees the flag but not the updated data.
         - Core 1 writes flag = true but the change is only in its private cache.
         - Core 2 checks flag, but it still sees the old value (false) and proceeds incorrectly.
