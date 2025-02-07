@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>False Sharing on Algometix</title>
+    <link>http://localhost:44559/blog/cpu_cache/multicore-caching/false-sharing/</link>
+    <description>Recent content in False Sharing on Algometix</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 06 Feb 2025 23:30:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:44559/blog/cpu_cache/multicore-caching/false-sharing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Impact of Adjacent Variable Modification</title>
+      <link>http://localhost:44559/blog/cpu_cache/multicore-caching/false-sharing/false_sharing_adjacent_variables/</link>
+      <pubDate>Thu, 06 Feb 2025 23:30:00 +0000</pubDate>
+      <guid>http://localhost:44559/blog/cpu_cache/multicore-caching/false-sharing/false_sharing_adjacent_variables/</guid>
+      <description>Exploring false sharing scenarios when multiple threads modify adjacent variables, leading to performance degradation and cache inefficiencies.</description>
+    </item>
+  </channel>
+</rss>

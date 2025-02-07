@@ -1,0 +1,12 @@
+baseURL = "https://algometix.com/"
+languageCode = "en-us"
+title = "Algometix"
+theme = "hugo-book"
+
+[params]
+  BookTheme = "light"  # Can be "light", "dark", or "auto"
+  BookToC = true       # Enable table of contents
+  BookSection = "docs" # Change this if needed
+  bookPageTree = true
+  bookSection = "blog"
+

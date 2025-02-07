@@ -21,10 +21,7 @@ AlgoMetix is dedicated to exploring the depths of **C++, low-latency programming
 
 ## Explore More
 - [About Me](/about/) – Learn about my background and expertise.
-- [Blog](/posts/) – Deep-dive articles on C++ and performance tuning.
+- [Blog](/blog/) – Deep-dive articles on C++ and performance tuning.
 - [Consulting](/consulting/) – Get expert help with your high-performance systems.
-
-## Latest Articles
-{{< recentposts >}}
 
 ---

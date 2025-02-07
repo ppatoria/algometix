@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=44559&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Deep dive into C&#43;&#43;, performance optimization, and low-latency trading system development. Explore in-depth technical insights, best practices, and advanced programming techniques.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:44559/blog/">
+  <meta property="og:site_name" content="Algometix">
+  <meta property="og:title" content="Blog: C&#43;&#43;, Optimization, and Low-Latency Trading Systems">
+  <meta property="og:description" content="Deep dive into C&#43;&#43;, performance optimization, and low-latency trading system development. Explore in-depth technical insights, best practices, and advanced programming techniques.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+<title>Blog: C&#43;&#43;, Optimization, and Low-Latency Trading Systems | Algometix</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:44559/blog/">
+<link rel="stylesheet" href="/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css" integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.9ae1fc12fbc63183fb96bb852dbd0c779337c5e6978e779be1624dafb0cc19f1.js" integrity="sha256-muH8EvvGMYP7lruFLb0Md5M3xeaXjneb4WJNr7DMGfE=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="http://localhost:44559/blog/index.xml" title="Algometix" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Algometix</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cpu_cache/" class="">CPU Cache: Organization, Optimization and Challenges</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cpu_cache/cache-optimization/" class="">Cache Optimization Techniques</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cpu_cache/cache-optimization/cache-optimization-focusing-on-data-alignment/" class="">Data Alignment: Enhancing Contiguous Data Processing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cpu_cache/cache-optimization/cache-optimization-through-prefetching/" class="">Cache Prefetching: Enhancing Non-Contiguous Data Processing</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cpu_cache/multicore-caching/" class="">Multi-Core Caching Techniques</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cpu_cache/multicore-caching/cache-hierarchy/" class="">Cache Hierarchy and Sharing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cpu_cache/multicore-caching/cache_coherence_protocols/" class="">Cache Coherence and Protocols</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cpu_cache/multicore-caching/false-sharing/" class="">False Sharing</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cpu_cache/multicore-caching/false-sharing/false_sharing_adjacent_variables/" class="">Impact of Adjacent Variable Modification</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Blog: C&#43;&#43;, Optimization, and Low-Latency Trading Systems</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#welcome-to-the-algometix-blog">Welcome to the Algometix Blog</a>
+      <ul>
+        <li><a href="#topics-covered">Topics Covered:</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h2 id="welcome-to-the-algometix-blog">
+  Welcome to the Algometix Blog
+  <a class="anchor" href="#welcome-to-the-algometix-blog">#</a>
+</h2>
+<p>This blog is dedicated to in-depth technical discussions on C++ programming, system optimization, and low-latency development for high-performance trading applications.</p>
+<h3 id="topics-covered">
+  Topics Covered:
+  <a class="anchor" href="#topics-covered">#</a>
+</h3>
+<ul>
+<li><strong>Advanced C++ Concepts</strong>: Templates, memory management, concurrency, and STL internals.</li>
+<li><strong>Performance Optimization</strong>: Cache efficiency, branch prediction, SIMD optimizations.</li>
+<li><strong>Low-Latency Trading Systems</strong>: Market data handling, order book design, tick-to-trade latency improvements.</li>
+<li><strong>Algorithmic Trading Development</strong>: Execution strategies, risk management, and high-frequency trading infrastructure.</li>
+</ul>
+<p>Explore the categories in the sidebar to find relevant articles.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#welcome-to-the-algometix-blog">Welcome to the Algometix Blog</a>
+      <ul>
+        <li><a href="#topics-covered">Topics Covered:</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

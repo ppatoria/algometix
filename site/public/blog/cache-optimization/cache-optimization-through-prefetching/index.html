@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=43221&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Improve non-contiguous data processing with cache prefetching techniques to minimize cache misses and boost performance.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:43221/blog/cache-optimization/cache-optimization-through-prefetching/">
+  <meta property="og:site_name" content="Algometix">
+  <meta property="og:title" content="Cache Prefetching: Enhancing Non-Contiguous Data Processing">
+  <meta property="og:description" content="Improve non-contiguous data processing with cache prefetching techniques to minimize cache misses and boost performance.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-02-06T22:30:00+00:00">
+    <meta property="article:modified_time" content="2025-02-06T22:30:00+00:00">
+    <meta property="article:tag" content="C&#43;&#43;">
+    <meta property="article:tag" content="Performance Optimization">
+    <meta property="article:tag" content="Low-Latency Programming">
+    <meta property="article:tag" content="Cache Optimization">
+    <meta property="article:tag" content="High-Performance Computing">
+    <meta property="article:tag" content="C&#43;&#43; Optimization">
+<title>Cache Prefetching: Enhancing Non-Contiguous Data Processing | Algometix</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:43221/blog/cache-optimization/cache-optimization-through-prefetching/">
+<link rel="stylesheet" href="/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css" integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.ce0f2cedfcd06b6101c9f0cde71f9f29ff4555f6738f24644199373b40e99f4b.js" integrity="sha256-zg8s7fzQa2EByfDN5x&#43;fKf9FVfZzjyRkQZk3O0Dpn0s=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Algometix</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/multicore-caching/" class="">Multi-Core Caching Techniques</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/multicore-caching/false-sharing/" class="">False Sharing</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/multicore-caching/false-sharing/false_sharing_adjacent_variables/" class="">Impact of Adjacent Variable Modification</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/multicore-caching/cache_coherence_protocols/" class="">Cache Coherence and Protocols</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/multicore-caching/cache-hierarchy/" class="">Cache Hierarchy and Sharing</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cache-optimization/" class="">Cache Optimization Techniques</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cache-optimization/cache-optimization-through-prefetching/" class="active">Cache Prefetching: Enhancing Non-Contiguous Data Processing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cache-optimization/cache-optimization-focusing-on-data-alignment/" class="">Data Alignment: Enhancing Contiguous Data Processing</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Cache Prefetching: Enhancing Non-Contiguous Data Processing</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#cache-optimization-through-prefetching-enhancing-non-contiguous-data-processing"><strong>Cache Optimization through Prefetching: Enhancing Non-Contiguous Data Processing</strong></a>
+      <ul>
+        <li><a href="#what-is-prefetching"><strong>What is Prefetching?</strong></a></li>
+        <li><a href="#why-use-prefetching"><strong>Why Use Prefetching?</strong></a></li>
+        <li><a href="#example-order-processing-with-linked-list"><strong>Example: Order Processing with Linked List</strong></a></li>
+        <li><a href="#google-benchmark"><strong>Google Benchmark:</strong></a></li>
+        <li><a href="#conclusion"><strong>Conclusion</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h2 id="cache-optimization-through-prefetching-enhancing-non-contiguous-data-processing">
+  <strong>Cache Optimization through Prefetching: Enhancing Non-Contiguous Data Processing</strong>
+  <a class="anchor" href="#cache-optimization-through-prefetching-enhancing-non-contiguous-data-processing">#</a>
+</h2>
+<p>In the realm of high-performance computing, cache optimization is crucial for ensuring efficient data processing. My previous article focused on optimizing cache usage through data alignment, where we rearranged data structures and leveraged container alignment to maximize cache utilization. This technique works well for data stored in contiguous memory. However, in real-world scenarios, data might not always be stored in contiguous blocks. This article focuses on how to handle or optimize such data for cache using prefetching techniques.</p>
+<h3 id="what-is-prefetching">
+  <strong>What is Prefetching?</strong>
+  <a class="anchor" href="#what-is-prefetching">#</a>
+</h3>
+<p>Prefetching is a technique that tells the CPU to load data into the cache before it is needed. By doing this, we can reduce the time the CPU spends waiting for data from memory, which can significantly speed up processing.</p>
+<h3 id="why-use-prefetching">
+  <strong>Why Use Prefetching?</strong>
+  <a class="anchor" href="#why-use-prefetching">#</a>
+</h3>
+<p>When data is not stored contiguously (e.g., linked lists), accessing it can cause cache misses. Prefetching helps avoid these misses by bringing the required data into the cache in advance.</p>
+<h3 id="example-order-processing-with-linked-list">
+  <strong>Example: Order Processing with Linked List</strong>
+  <a class="anchor" href="#example-order-processing-with-linked-list">#</a>
+</h3>
+<p>Let’s consider a simple example of processing <code>Order</code> data stored in a linked list:</p>
+<h4 id="initial-structure-and-processing">
+  <strong>Initial Structure and Processing</strong>
+  <a class="anchor" href="#initial-structure-and-processing">#</a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Order</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">double</span> price;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> orderID;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> quantity;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p><strong>Processing orders in a linked list without prefetching:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">processOrdersWithoutPrefetching</span>(std<span style="color:#f92672">::</span>list<span style="color:#f92672">&lt;</span>Order<span style="color:#f92672">&gt;&amp;</span> orders) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> order : orders) {
+</span></span><span style="display:flex;"><span>        processOrder(order);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This straightforward approach may suffer from cache misses because linked lists store their elements in non-contiguous memory.</p>
+<h4 id="introducing-prefetching">
+  <strong>Introducing Prefetching</strong>
+  <a class="anchor" href="#introducing-prefetching">#</a>
+</h4>
+<p>Prefetching instructs the CPU to load data into the cache before it is accessed, reducing memory access latency. Modern CPUs support prefetching with non-blocking instructions, allowing subsequent instructions to execute while prefetching occurs in parallel. This non-blocking nature ensures that the CPU can continue executing other instructions while the data is being fetched into the cache.</p>
+<p><strong>Enhancing the above code with prefetching:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">processOrdersWithPrefetching</span>(std<span style="color:#f92672">::</span>list<span style="color:#f92672">&lt;</span>Order<span style="color:#f92672">&gt;&amp;</span> orders) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> it <span style="color:#f92672">=</span> orders.begin();
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Prefetch the first element
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (it <span style="color:#f92672">!=</span> orders.end()) {
+</span></span><span style="display:flex;"><span>        __builtin_prefetch(<span style="color:#f92672">&amp;</span>(<span style="color:#f92672">*</span>it));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (; it <span style="color:#f92672">!=</span> orders.end(); <span style="color:#f92672">++</span>it) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">auto</span> nextIt <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>next(it);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (nextIt <span style="color:#f92672">!=</span> orders.end()) {
+</span></span><span style="display:flex;"><span>            __builtin_prefetch(<span style="color:#f92672">&amp;</span>(<span style="color:#f92672">*</span>nextIt));
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        processOrder(<span style="color:#f92672">*</span>it);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Note:</strong> In this article, we provide a general overview of prefetching and use the default parameters for __builtin_prefetch. Detailed explanations of the parameters and their tuning are beyond the scope of this article.</p>
+<h5 id="key-points-about-prefetching">
+  <strong>Key Points About Prefetching</strong>
+  <a class="anchor" href="#key-points-about-prefetching">#</a>
+</h5>
+<h6 id="non-blocking-nature">
+  <strong>Non-Blocking Nature</strong>:
+  <a class="anchor" href="#non-blocking-nature">#</a>
+</h6>
+<ul>
+<li>Prefetching does not stop the CPU from executing other instructions. While the data is being fetched, the CPU continues to process.</li>
+</ul>
+<h6 id="optimal-distance">
+  <strong>Optimal Distance</strong>:
+  <a class="anchor" href="#optimal-distance">#</a>
+</h6>
+<ul>
+<li>The CPU needs time to fetch the prefetched data into the cache. Prefetching too close to the current access point may not give enough time, causing delays. Prefetching too far ahead may waste resources.</li>
+</ul>
+<p>####### <strong>Step-by-Step Example</strong>
+1. <strong>First Prefetch</strong>*:
+- At the start, we prefetch the first order before we enter the loop.
+- This ensures the first piece of data is ready to use right away.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>        <span style="color:#66d9ef">auto</span> it <span style="color:#f92672">=</span> orders.begin();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (it <span style="color:#f92672">!=</span> orders.end()) {
+</span></span><span style="display:flex;"><span>            __builtin_prefetch(<span style="color:#f92672">&amp;</span>(<span style="color:#f92672">*</span>it));
+</span></span><span style="display:flex;"><span>        }
+</span></span></code></pre></div><pre><code>    2. **Inside the Loop**:
+      - Inside the loop, we keep prefetching the next order while processing the current one.
+      - This keeps the next piece of data ready in advance.
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (; it <span style="color:#f92672">!=</span> orders.end(); <span style="color:#f92672">++</span>it) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">auto</span> nextIt <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>next(it);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (nextIt <span style="color:#f92672">!=</span> orders.end()) {
+</span></span><span style="display:flex;"><span>                __builtin_prefetch(<span style="color:#f92672">&amp;</span>(<span style="color:#f92672">*</span>it));
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            processOrder(<span style="color:#f92672">*</span>it);
+</span></span><span style="display:flex;"><span>        }
+</span></span></code></pre></div><pre><code>    3. **Platform-Specific Instructions**:
+      - `_mm_prefetch` works for Intel platforms. For other systems, check compiler-specific options, such as GCC’s `__builtin_prefetch`.
+</code></pre>
+<h4 id="improved-prefetching-with-batch-processing">
+  <strong>Improved Prefetching with Batch Processing</strong>
+  <a class="anchor" href="#improved-prefetching-with-batch-processing">#</a>
+</h4>
+<p>Batch processing involves fetching and processing multiple data items together to reduce cache misses and improve performance.</p>
+<h5 id="why-batch-processing">
+  <strong>Why Batch Processing?</strong>
+  <a class="anchor" href="#why-batch-processing">#</a>
+</h5>
+<ul>
+<li><strong>Cache Line Utilization</strong>: Modern CPUs fetch data in blocks (cache lines). Using data in batches ensures efficient use of these blocks.</li>
+</ul>
+<h5 id="example-code-for-batch-prefetching">
+  <strong>Example Code for Batch Prefetching</strong>
+  <a class="anchor" href="#example-code-for-batch-prefetching">#</a>
+</h5>
+<p>Let’s fetch and process orders in batches of 4:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">processOrdersInBatches</span>(std<span style="color:#f92672">::</span>list<span style="color:#f92672">&lt;</span>Order<span style="color:#f92672">&gt;&amp;</span> orders) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> it <span style="color:#f92672">=</span> orders.begin();
+</span></span><span style="display:flex;"><span>    Order<span style="color:#f92672">*</span> orderBatch[<span style="color:#ae81ff">4</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (it <span style="color:#f92672">!=</span> orders.end()) {
+</span></span><span style="display:flex;"><span>        size_t batchSize <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Prefetch the next 4 orders and collect them in a batch
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">&amp;&amp;</span> it <span style="color:#f92672">!=</span> orders.end(); <span style="color:#f92672">++</span>i, <span style="color:#f92672">++</span>it) {
+</span></span><span style="display:flex;"><span>            __builtin_prefetch(<span style="color:#f92672">&amp;</span>(<span style="color:#f92672">*</span>it));
+</span></span><span style="display:flex;"><span>            orderBatch[batchSize<span style="color:#f92672">++</span>] <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>(<span style="color:#f92672">*</span>it);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Process the batch of prefetched orders
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        processOrderBatch(orderBatch, batchSize);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h6 id="key-steps-in-batch-processing">
+  <strong>Key Steps in Batch Processing</strong>
+  <a class="anchor" href="#key-steps-in-batch-processing">#</a>
+</h6>
+<p>####### <strong>Why Size 4?</strong></p>
+<ul>
+<li><strong>Cache Line Size</strong>: A typical cache line is 64 bytes.</li>
+<li><strong>Order Size</strong>: Each <code>Order</code> struct is 16 bytes (after reordering).</li>
+<li><strong>Fit 4 Orders</strong>: Since ( 64 , \text{bytes} \div 16 , \text{bytes/order} = 4 ), we can fit 4 <code>Order</code> structs in one cache line.</li>
+</ul>
+<p>####### <strong>Step-by-Step Example</strong></p>
+<pre><code>  1. **Initialize Batch and Iterator**:
+    - We start by initializing an iterator and a batch array to hold 4 orders.
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>      <span style="color:#66d9ef">auto</span> it <span style="color:#f92672">=</span> orders.begin();
+</span></span><span style="display:flex;"><span>      Order<span style="color:#f92672">*</span> orderBatch[<span style="color:#ae81ff">4</span>];
+</span></span></code></pre></div><pre><code>  2. **Prefetch and Process in Batches**:
+    - Inside the loop, we prefetch the next 4 orders and store them in the batch array.
+    - This ensures that the next 4 orders are fetched into the cache before they are processed.
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (it <span style="color:#f92672">!=</span> orders.end()) {
+</span></span><span style="display:flex;"><span>          size_t batchSize <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    	<span style="color:#75715e">// Prefetch the next 4 orders and collect them in a batch
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">&amp;&amp;</span> it <span style="color:#f92672">!=</span> orders.end(); <span style="color:#f92672">++</span>i, <span style="color:#f92672">++</span>it) {
+</span></span><span style="display:flex;"><span>        	__builtin_prefetch(<span style="color:#f92672">&amp;</span>(<span style="color:#f92672">*</span>it));
+</span></span><span style="display:flex;"><span>        	orderBatch[batchSize<span style="color:#f92672">++</span>] <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>(<span style="color:#f92672">*</span>it);
+</span></span><span style="display:flex;"><span>    	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Process the batch of prefetched orders
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	processOrderBatch(orderBatch, batchSize);
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><pre><code>  3. **Prefetch 4 Orders**:
+    - The loop runs 4 times (if there are 4 orders available).
+    - Each iteration prefetches one order and adds it to the batch array.
+
+  4. **Process the Batch**:
+    - After collecting 4 orders (or fewer, if fewer are left), we process them in the batch.
+    - This ensures that the fetched orders are used efficiently.
+</code></pre>
+<h3 id="google-benchmark">
+  <strong>Google Benchmark:</strong>
+  <a class="anchor" href="#google-benchmark">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Run on <span style="color:#f92672">(</span><span style="color:#ae81ff">4</span> X <span style="color:#ae81ff">3300</span> MHz CPU s<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>CPU Caches:
+</span></span><span style="display:flex;"><span>  L1 Data <span style="color:#ae81ff">32</span> KiB <span style="color:#f92672">(</span>x2<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>  L1 Instruction <span style="color:#ae81ff">32</span> KiB <span style="color:#f92672">(</span>x2<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>  L2 Unified <span style="color:#ae81ff">256</span> KiB <span style="color:#f92672">(</span>x2<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>  L3 Unified <span style="color:#ae81ff">3072</span> KiB <span style="color:#f92672">(</span>x1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Load Average: 3.07, 2.56, 1.98
+</span></span><span style="display:flex;"><span>***WARNING*** CPU scaling is enabled, the benchmark real time measurements may be noisy and will incur extra overhead.
+</span></span><span style="display:flex;"><span>-----------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>Benchmark                                   Time             CPU   Iterations
+</span></span><span style="display:flex;"><span>-----------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>BM_ProcessOrdersWithoutPrefetching    <span style="color:#ae81ff">5556028</span> ns      <span style="color:#ae81ff">5548987</span> ns          <span style="color:#ae81ff">254</span>
+</span></span><span style="display:flex;"><span>BM_ProcessOrdersWithPrefetching       <span style="color:#ae81ff">5335091</span> ns      <span style="color:#ae81ff">5329073</span> ns          <span style="color:#ae81ff">263</span>
+</span></span><span style="display:flex;"><span>BM_ProcessOrdersWithPrefetchBatch     <span style="color:#ae81ff">4569271</span> ns      <span style="color:#ae81ff">4563944</span> ns          <span style="color:#ae81ff">312</span>
+</span></span></code></pre></div><h4 id="explanation">
+  <strong>Explanation:</strong>
+  <a class="anchor" href="#explanation">#</a>
+</h4>
+<ul>
+<li><strong>Compiler and Flags</strong>: The benchmark was built using GCC 13 with <code>-O3</code> optimization.</li>
+<li><strong>Observations</strong>:
+<ul>
+<li>Prefetching showed a modest improvement over the baseline (<code>WithoutPrefetching</code>).</li>
+<li>The difference between <code>WithoutPrefetching</code> and <code>WithPrefetching</code> was small, likely due to compiler optimizations and automatic vectorization.</li>
+<li>Batch prefetching demonstrated the most significant performance gain due to efficient cache utilization.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="conclusion">
+  <strong>Conclusion</strong>
+  <a class="anchor" href="#conclusion">#</a>
+</h3>
+<p>Prefetching is a powerful tool for optimizing cache usage, especially for non-contiguous data structures like linked lists. By understanding the non-blocking nature of prefetch instructions, combining them with batch processing, and tailoring them to specific hardware, you can significantly reduce cache misses and improve performance. This article complements the earlier discussion on data alignment, offering a comprehensive approach to cache optimization in diverse scenarios.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#cache-optimization-through-prefetching-enhancing-non-contiguous-data-processing"><strong>Cache Optimization through Prefetching: Enhancing Non-Contiguous Data Processing</strong></a>
+      <ul>
+        <li><a href="#what-is-prefetching"><strong>What is Prefetching?</strong></a></li>
+        <li><a href="#why-use-prefetching"><strong>Why Use Prefetching?</strong></a></li>
+        <li><a href="#example-order-processing-with-linked-list"><strong>Example: Order Processing with Linked List</strong></a></li>
+        <li><a href="#google-benchmark"><strong>Google Benchmark:</strong></a></li>
+        <li><a href="#conclusion"><strong>Conclusion</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
