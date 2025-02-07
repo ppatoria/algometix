@@ -1,0 +1,38 @@
+@startuml
+skinparam linetype ortho
+skinparam nodesep 10
+skinparam ranksep 20
+
+rectangle "Memory Layout (Data in RAM)" as Memory {
+    rectangle "   A   " as VarA
+    rectangle "   B   " as VarB
+}
+
+rectangle "Core 1" as Core1 {
+    rectangle "Private Cache (L1)" as Cache1 {
+        rectangle "Cache Line" as CacheLine1 {
+            rectangle "A (Thread 1)  " as CacheA
+            rectangle "B (Thread 2)  " as CacheB
+        }
+    }
+}
+
+rectangle "Core 2" as Core2 {
+    rectangle "Private Cache (L1)" as Cache2 {
+        rectangle "Cache Line" as CacheLine2 {
+            rectangle "A (Thread 1)  " as CacheA2
+            rectangle "B (Thread 2)  " as CacheB2
+        }
+    }
+}
+
+rectangle "Thread 1 (Modifies A)" as Thread1
+rectangle "Thread 2 (Modifies B)" as Thread2
+
+Memory --> CacheLine1
+Memory --> CacheLine2
+
+Thread1 --> CacheA
+Thread2 --> CacheB2
+
+@enduml

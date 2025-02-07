@@ -1,0 +1,40 @@
+@startuml
+title Single-Core vs Multi-Core Architecture
+
+skinparam linetype ortho
+
+' Single-Core Architecture
+rectangle "Single-Core CPU" {
+    rectangle "Core 1" as C1
+    rectangle "L1 Cache (Private)" as L1_1
+    rectangle "L2 Cache (Private)" as L2_1
+}
+rectangle "RAM" as RAM
+
+C1 -down-> L1_1
+L1_1 -down-> L2_1
+L2_1 -down-> RAM
+
+' Multi-Core Architecture
+rectangle "Multi-Core CPU" {
+    rectangle "Core 1" as MC1
+    rectangle "L1 Cache (Private)" as ML1_1
+    rectangle "L2 Cache (Private)" as ML2_1
+
+    rectangle "Core 2" as MC2
+    rectangle "L1 Cache (Private)" as ML1_2
+    rectangle "L2 Cache (Private)" as ML2_2
+}
+
+rectangle "L3 Cache (Shared)" as L3
+rectangle "RAM" as MRAM
+
+MC1 -down-> ML1_1
+ML1_1 -down-> ML2_1
+MC2 -down-> ML1_2
+ML1_2 -down-> ML2_2
+
+ML2_1 -down-> L3
+ML2_2 -down-> L3
+L3 -down-> MRAM
+@enduml
