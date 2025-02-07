@@ -2,70 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Cache Optimization on Algometix</title>
-    <link>http://localhost:41239/tags/cache-optimization/</link>
+    <link>http://localhost:40795/tags/cache-optimization/</link>
     <description>Recent content in Cache Optimization on Algometix</description>
     <generator>Hugo -- 0.143.1</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Feb 2025 04:00:15 +0000</lastBuildDate>
-    <atom:link href="http://localhost:41239/tags/cache-optimization/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Feb 2025 23:30:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:40795/tags/cache-optimization/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>New Post</title>
-      <link>http://localhost:41239/posts/cache_coherence_protocols/</link>
-      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
-      <guid>http://localhost:41239/posts/cache_coherence_protocols/</guid>
-      <description>Short description</description>
+      <title>False Sharing: Impact of Adjacent Variable Modification by Multiple Threads</title>
+      <link>http://localhost:40795/multicore-caching/false-sharing/false_sharing_adjacent_variables/</link>
+      <pubDate>Thu, 06 Feb 2025 23:30:00 +0000</pubDate>
+      <guid>http://localhost:40795/multicore-caching/false-sharing/false_sharing_adjacent_variables/</guid>
+      <description>Exploring false sharing scenarios when multiple threads modify adjacent variables, leading to performance degradation and cache inefficiencies.</description>
     </item>
     <item>
-      <title>New Post</title>
-      <link>http://localhost:41239/posts/what_is_false_sharing/</link>
-      <pubDate>Wed, 05 Feb 2025 02:25:41 +0000</pubDate>
-      <guid>http://localhost:41239/posts/what_is_false_sharing/</guid>
-      <description>Short description</description>
+      <title>False Sharing: A Hidden Performance Bottleneck in Multi-Core Systems</title>
+      <link>http://localhost:40795/multicore-caching/false-sharing/what_is_false_sharing/</link>
+      <pubDate>Thu, 06 Feb 2025 23:10:00 +0000</pubDate>
+      <guid>http://localhost:40795/multicore-caching/false-sharing/what_is_false_sharing/</guid>
+      <description>Understand false sharing, how it degrades multi-core performance due to cache line contention, and techniques to minimize its impact.</description>
+    </item>
+    <item>
+      <title>Cache Coherence and Protocols: Ensuring Data Consistency in Multi-Core Systems</title>
+      <link>http://localhost:40795/multicore-caching/cache_coherence_protocols/</link>
+      <pubDate>Thu, 06 Feb 2025 23:00:00 +0000</pubDate>
+      <guid>http://localhost:40795/multicore-caching/cache_coherence_protocols/</guid>
+      <description>Understand cache coherence, its role in multi-core systems, and how protocols like MESI, MOESI, and directory-based coherence ensure data consistency.</description>
     </item>
     <item>
       <title>Cache Hierarchy and Sharing in Multi-Processor Machines</title>
-      <link>http://localhost:41239/posts/cache-hierarchy-and-sharing-in-multi-processor-machines/</link>
-      <pubDate>Sun, 02 Feb 2025 12:00:00 +0530</pubDate>
-      <guid>http://localhost:41239/posts/cache-hierarchy-and-sharing-in-multi-processor-machines/</guid>
-      <description>&lt;h3 id=&#34;typical-cache-hierarchy&#34;&gt;Typical Cache Hierarchy&lt;/h3&gt;
-&lt;p&gt;In multi-core processors, the cache hierarchy plays a crucial role in improving performance by minimizing the time taken to access frequently used data. Here&amp;rsquo;s a breakdown of the typical cache levels:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;L1 Cache&lt;/strong&gt;: The smallest and fastest cache, private to each core.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;L2 Cache&lt;/strong&gt;: Larger than L1, usually private to each core but can also be shared in some systems.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;L3 Cache&lt;/strong&gt;: The largest cache, shared across all cores in the processor.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Main Memory (RAM)&lt;/strong&gt;: The largest and slowest storage layer, accessed when data is not found in the caches.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;single-core-vs-multi-core-architecture&#34;&gt;Single-Core vs Multi-Core Architecture&lt;/h3&gt;
-&lt;p&gt;We moved from single-core to multi-core processors, which made computers faster, especially by running tasks in parallel. However, this also increased complexity for developers, requiring careful optimization for efficient code execution. To understand this better, let’s examine the basic structure of multi-core processors and how they handle memory and cache.&lt;/p&gt;</description>
+      <link>http://localhost:40795/multicore-caching/cache-hierarchy-and-sharing-in-multi-processor-machines/</link>
+      <pubDate>Thu, 06 Feb 2025 22:45:00 +0000</pubDate>
+      <guid>http://localhost:40795/multicore-caching/cache-hierarchy-and-sharing-in-multi-processor-machines/</guid>
+      <description>Explore cache hierarchy and shared caching in multi-core architectures, including key challenges like cache coherence and false sharing.</description>
     </item>
     <item>
       <title>Cache Optimization through Prefetching: Enhancing Non-Contiguous Data Processing</title>
-      <link>http://localhost:41239/posts/cache-optimization-through-prefetching/</link>
-      <pubDate>Sun, 02 Feb 2025 12:00:00 +0530</pubDate>
-      <guid>http://localhost:41239/posts/cache-optimization-through-prefetching/</guid>
-      <description>&lt;p&gt;In the realm of high-performance computing, cache optimization is crucial for ensuring efficient data processing. My previous article focused on optimizing cache usage through data alignment, where we rearranged data structures and leveraged container alignment to maximize cache utilization. This technique works well for data stored in contiguous memory. However, in real-world scenarios, data might not always be stored in contiguous blocks. This article focuses on how to handle or optimize such data for cache using prefetching techniques.&lt;/p&gt;</description>
+      <link>http://localhost:40795/cache-optimization/cache-optimization-through-prefetching/</link>
+      <pubDate>Thu, 06 Feb 2025 22:30:00 +0000</pubDate>
+      <guid>http://localhost:40795/cache-optimization/cache-optimization-through-prefetching/</guid>
+      <description>Improve non-contiguous data processing with cache prefetching techniques to minimize cache misses and boost performance.</description>
     </item>
     <item>
       <title>Cache Optimization: Focusing on Data Alignment</title>
-      <link>http://localhost:41239/posts/cache-optimization-focusing-on-data-alignment/</link>
-      <pubDate>Sun, 02 Feb 2025 12:00:00 +0530</pubDate>
-      <guid>http://localhost:41239/posts/cache-optimization-focusing-on-data-alignment/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;Cache optimization is a cornerstone of high-performance computing. This article focuses on optimizing data alignment and data structures for improved cache utilization. By leveraging benchmarking results, we refine the design and implementation of a &lt;code&gt;MarketData&lt;/code&gt; struct to illustrate tangible performance gains through alignment techniques.&lt;/p&gt;
-&lt;h3 id=&#34;note&#34;&gt;Note&lt;/h3&gt;
-&lt;p&gt;This is the first article in a series on cache optimization, concentrating on alignment. To keep things simple, we omit multicore processing issues. In such scenarios, the shared nature of L1 and L2 caches introduces complexities like false sharing, fault tolerance, and more. These will be addressed in future articles. Techniques like buffering and prefetching, while omitted here, will also be covered in subsequent discussions.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>False Sharing Scenario: When Multiple Threads Modify Adjacent Variables</title>
-      <link>http://localhost:41239/posts/false_sharing_adjacent_variables/</link>
-      <pubDate>Sun, 02 Feb 2025 12:00:00 +0530</pubDate>
-      <guid>http://localhost:41239/posts/false_sharing_adjacent_variables/</guid>
-      <description>&lt;hr&gt;
-&lt;p&gt;False sharing occurs when multiple threads modify adjacent data stored in memory, leading to performance degradation due to unnecessary cache invalidations. In modern multi-core systems, where cache coherence protocols are crucial, minimizing false sharing becomes critical for optimizing performance in multithreaded applications.&lt;/p&gt;
-&lt;h4 id=&#34;cache-line-contention-visual-representation&#34;&gt;&lt;strong&gt;Cache Line Contention: Visual Representation&lt;/strong&gt;&lt;/h4&gt;
-&lt;h5 id=&#34;diagram-for-false-sharing-in-adjacent-data&#34;&gt;&lt;strong&gt;Diagram for False Sharing in Adjacent Data&lt;/strong&gt;&lt;/h5&gt;
-&lt;p&gt;&lt;img alt=&#34;False Sharing in Adjacent Data&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:41239/diagrams/false_sharing_adjacent_variables.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;In this diagram, &lt;code&gt;Variable A&lt;/code&gt; and &lt;code&gt;Variable B&lt;/code&gt; are stored in the same cache line, causing both cores to continuously invalidate each other&amp;rsquo;s cache when either variable is updated.&lt;/p&gt;</description>
+      <link>http://localhost:40795/cache-optimization/cache-optimization-focusing-on-data-alignment/</link>
+      <pubDate>Thu, 06 Feb 2025 22:10:09 +0000</pubDate>
+      <guid>http://localhost:40795/cache-optimization/cache-optimization-focusing-on-data-alignment/</guid>
+      <description>Optimizing cache performance by focusing on data alignment and reducing cache misses.</description>
     </item>
   </channel>
 </rss>

@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Multithreading on Algometix</title>
-    <link>http://localhost:41239/tags/multithreading/</link>
+    <link>http://localhost:40795/tags/multithreading/</link>
     <description>Recent content in Multithreading on Algometix</description>
     <generator>Hugo -- 0.143.1</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Feb 2025 04:00:15 +0000</lastBuildDate>
-    <atom:link href="http://localhost:41239/tags/multithreading/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Feb 2025 23:30:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:40795/tags/multithreading/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>New Post</title>
-      <link>http://localhost:41239/posts/cache_coherence_protocols/</link>
-      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
-      <guid>http://localhost:41239/posts/cache_coherence_protocols/</guid>
-      <description>Short description</description>
+      <title>False Sharing: Impact of Adjacent Variable Modification by Multiple Threads</title>
+      <link>http://localhost:40795/multicore-caching/false-sharing/false_sharing_adjacent_variables/</link>
+      <pubDate>Thu, 06 Feb 2025 23:30:00 +0000</pubDate>
+      <guid>http://localhost:40795/multicore-caching/false-sharing/false_sharing_adjacent_variables/</guid>
+      <description>Exploring false sharing scenarios when multiple threads modify adjacent variables, leading to performance degradation and cache inefficiencies.</description>
     </item>
     <item>
-      <title>New Post</title>
-      <link>http://localhost:41239/posts/what_is_false_sharing/</link>
-      <pubDate>Wed, 05 Feb 2025 02:25:41 +0000</pubDate>
-      <guid>http://localhost:41239/posts/what_is_false_sharing/</guid>
-      <description>Short description</description>
+      <title>False Sharing: A Hidden Performance Bottleneck in Multi-Core Systems</title>
+      <link>http://localhost:40795/multicore-caching/false-sharing/what_is_false_sharing/</link>
+      <pubDate>Thu, 06 Feb 2025 23:10:00 +0000</pubDate>
+      <guid>http://localhost:40795/multicore-caching/false-sharing/what_is_false_sharing/</guid>
+      <description>Understand false sharing, how it degrades multi-core performance due to cache line contention, and techniques to minimize its impact.</description>
     </item>
   </channel>
 </rss>

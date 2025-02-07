@@ -9,4 +9,19 @@ theme = 'PaperMod'
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
+  enableSidebar = true  # Ensure sidebar is enabled
 
+[[menu.sidebar]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.sidebar]]
+  name = "Cache Optimization"
+  url = "/categories/cache-optimization/"
+  weight = 2
+
+[[menu.sidebar]]
+  name = "Multicore Caching"
+  url = "/categories/multicore-caching/"
+  weight = 3

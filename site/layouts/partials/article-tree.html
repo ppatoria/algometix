@@ -1,0 +1,27 @@
+<div class="article-tree">
+    <ul>
+        {{ range .Site.Sections }}
+        <li>
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+            {{ if .Pages }}
+            <ul>
+                {{ range .Pages }}
+                <li>
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                    {{ if .Sections }}
+                    <ul>
+                        {{ range .Sections }}
+                        <li>
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                    {{ end }}
+                </li>
+                {{ end }}
+            </ul>
+            {{ end }}
+        </li>
+        {{ end }}
+    </ul>
+</div>

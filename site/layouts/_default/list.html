@@ -1,0 +1,16 @@
+<!-- layouts/_default/list.html -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ .Title }}</title>
+        <link rel="stylesheet" href="/css/article-tree.css">
+    </head>
+    <body>
+        {{ partial "header.html" . }}
+        {{ partial "article-tree.html" . }} <!-- Include the article tree here -->
+        <main>
+            {{ .Content }}
+        </main>
+        {{ partial "footer.html" . }}
+    </body>
+</html>

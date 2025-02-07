@@ -2,88 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on Algometix</title>
-    <link>http://localhost:41239/categories/</link>
+    <link>http://localhost:40795/categories/</link>
     <description>Recent content in Categories on Algometix</description>
     <generator>Hugo -- 0.143.1</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Feb 2025 04:00:15 +0000</lastBuildDate>
-    <atom:link href="http://localhost:41239/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Algorithmic Trading</title>
-      <link>http://localhost:41239/categories/algorithmic-trading/</link>
-      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
-      <guid>http://localhost:41239/categories/algorithmic-trading/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>C&#43;&#43; Programming</title>
-      <link>http://localhost:41239/categories/c&#43;&#43;-programming/</link>
-      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
-      <guid>http://localhost:41239/categories/c&#43;&#43;-programming/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Cache Optimization</title>
-      <link>http://localhost:41239/categories/cache-optimization/</link>
-      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
-      <guid>http://localhost:41239/categories/cache-optimization/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Financial Programming</title>
-      <link>http://localhost:41239/categories/financial-programming/</link>
-      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
-      <guid>http://localhost:41239/categories/financial-programming/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>High-Performance Computing</title>
-      <link>http://localhost:41239/categories/high-performance-computing/</link>
-      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
-      <guid>http://localhost:41239/categories/high-performance-computing/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Low-Latency Systems</title>
-      <link>http://localhost:41239/categories/low-latency-systems/</link>
-      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
-      <guid>http://localhost:41239/categories/low-latency-systems/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Memory Management</title>
-      <link>http://localhost:41239/categories/memory-management/</link>
-      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
-      <guid>http://localhost:41239/categories/memory-management/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Parallel Programming</title>
-      <link>http://localhost:41239/categories/parallel-programming/</link>
-      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
-      <guid>http://localhost:41239/categories/parallel-programming/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Performance Engineering</title>
-      <link>http://localhost:41239/categories/performance-engineering/</link>
-      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
-      <guid>http://localhost:41239/categories/performance-engineering/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tech Optimization</title>
-      <link>http://localhost:41239/categories/tech-optimization/</link>
-      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
-      <guid>http://localhost:41239/categories/tech-optimization/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Low-Latency Programming</title>
-      <link>http://localhost:41239/categories/low-latency-programming/</link>
-      <pubDate>Sun, 02 Feb 2025 12:00:00 +0530</pubDate>
-      <guid>http://localhost:41239/categories/low-latency-programming/</guid>
-      <description></description>
-    </item>
+    <atom:link href="http://localhost:40795/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

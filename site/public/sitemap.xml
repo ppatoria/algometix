@@ -2,130 +2,156 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:41239/tags/algorithmic-trading/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/c&#43;&#43;/</loc>
+    <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/categories/algorithmic-trading/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/c&#43;&#43;-performance-tuning/</loc>
+    <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/tags/c&#43;&#43;/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/cache-coherence/</loc>
+    <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/tags/c&#43;&#43;-optimization/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/cache-line-contention/</loc>
+    <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/tags/c&#43;&#43;-performance-tuning/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/cache-optimization/</loc>
+    <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/categories/c&#43;&#43;-programming/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/concurrency/</loc>
+    <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/tags/cache-miss/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/cpu-caching/</loc>
+    <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/tags/cache-optimization/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/data-locality/</loc>
+    <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/categories/cache-optimization/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/false-sharing/</loc>
+    <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/categories/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/multicore-caching/false-sharing/</loc>
+    <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/tags/concurrency/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/multicore-caching/false-sharing/false_sharing_adjacent_variables/</loc>
+    <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/tags/cpu-caching/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/high-performance-computing/</loc>
+    <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/tags/data-locality/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/low-latency-programming/</loc>
+    <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/tags/false-sharing/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/memory-optimization/</loc>
+    <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/categories/financial-programming/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/microbenchmarking/</loc>
+    <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/tags/high-frequency-trading/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/multi-core-architecture/</loc>
+    <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/tags/high-performance-computing/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/multicore-caching/</loc>
+    <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/categories/high-performance-computing/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/multithreading/</loc>
+    <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/tags/low-latency-programming/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/numa-optimization/</loc>
+    <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/categories/low-latency-systems/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/parallel-processing/</loc>
+    <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/categories/memory-management/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/performance-optimization/</loc>
+    <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/tags/memory-optimization/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/</loc>
+    <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/tags/microbenchmarking/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/thread-synchronization/</loc>
+    <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/tags/multithreading/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/multicore-caching/false-sharing/what_is_false_sharing/</loc>
+    <lastmod>2025-02-06T23:10:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/posts/cache_coherence_protocols/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/algorithmic-trading/</loc>
+    <lastmod>2025-02-06T23:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/tags/numa-optimization/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/multicore-caching/cache_coherence_protocols/</loc>
+    <lastmod>2025-02-06T23:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/tags/parallel-processing/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/cache-coherence-protocols/</loc>
+    <lastmod>2025-02-06T23:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/categories/parallel-programming/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/cache-synchronization/</loc>
+    <lastmod>2025-02-06T23:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/categories/performance-engineering/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/directory-based-coherence/</loc>
+    <lastmod>2025-02-06T23:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/tags/performance-optimization/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/memory-consistency/</loc>
+    <lastmod>2025-02-06T23:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/posts/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/mesi-protocol/</loc>
+    <lastmod>2025-02-06T23:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/tags/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/moesi-protocol/</loc>
+    <lastmod>2025-02-06T23:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/categories/tech-optimization/</loc>
-    <lastmod>2025-02-05T04:00:15+00:00</lastmod>
+    <loc>http://localhost:40795/tags/cache-hierarchy/</loc>
+    <lastmod>2025-02-06T22:45:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/posts/what_is_false_sharing/</loc>
-    <lastmod>2025-02-05T02:25:41+00:00</lastmod>
+    <loc>http://localhost:40795/multicore-caching/cache-hierarchy-and-sharing-in-multi-processor-machines/</loc>
+    <lastmod>2025-02-06T22:45:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/about/</loc>
+    <loc>http://localhost:40795/tags/numa-architecture/</loc>
+    <lastmod>2025-02-06T22:45:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:40795/tags/shared-cache/</loc>
+    <lastmod>2025-02-06T22:45:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:40795/tags/branch-prediction/</loc>
+    <lastmod>2025-02-06T22:30:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:40795/tags/c&#43;&#43;-optimization/</loc>
+    <lastmod>2025-02-06T22:30:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:40795/tags/cache-miss/</loc>
+    <lastmod>2025-02-06T22:30:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:40795/cache-optimization/cache-optimization-through-prefetching/</loc>
+    <lastmod>2025-02-06T22:30:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:40795/cache-optimization/</loc>
+    <lastmod>2025-02-06T22:30:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:40795/tags/cache-prefetching/</loc>
+    <lastmod>2025-02-06T22:30:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:40795/tags/high-frequency-trading/</loc>
+    <lastmod>2025-02-06T22:30:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:40795/tags/non-contiguous-data/</loc>
+    <lastmod>2025-02-06T22:30:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:40795/tags/cache-line-efficiency/</loc>
+    <lastmod>2025-02-06T22:10:09+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:40795/cache-optimization/cache-optimization-focusing-on-data-alignment/</loc>
+    <lastmod>2025-02-06T22:10:09+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:40795/tags/data-alignment/</loc>
+    <lastmod>2025-02-06T22:10:09+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:40795/tags/struct-padding/</loc>
+    <lastmod>2025-02-06T22:10:09+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:40795/about/</loc>
     <lastmod>2025-02-02T12:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:41239/posts/cache-hierarchy-and-sharing-in-multi-processor-machines/</loc>
-    <lastmod>2025-02-02T12:00:00+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:41239/posts/cache-optimization-through-prefetching/</loc>
-    <lastmod>2025-02-02T12:00:00+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:41239/posts/cache-optimization-focusing-on-data-alignment/</loc>
-    <lastmod>2025-02-02T12:00:00+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:41239/posts/false_sharing_adjacent_variables/</loc>
-    <lastmod>2025-02-02T12:00:00+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:41239/categories/low-latency-programming/</loc>
-    <lastmod>2025-02-02T12:00:00+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:41239/tags/performance/</loc>
-    <lastmod>2025-02-02T12:00:00+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:41239/</loc>
+    <loc>http://localhost:40795/</loc>
     <lastmod>2025-02-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:40795/categories/</loc>
   </url>
 </urlset>

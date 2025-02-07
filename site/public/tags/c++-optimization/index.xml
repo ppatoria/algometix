@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>C&#43;&#43; Optimization on Algometix</title>
-    <link>http://localhost:41239/tags/c&#43;&#43;-optimization/</link>
+    <link>http://localhost:40795/tags/c&#43;&#43;-optimization/</link>
     <description>Recent content in C&#43;&#43; Optimization on Algometix</description>
     <generator>Hugo -- 0.143.1</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Feb 2025 04:00:15 +0000</lastBuildDate>
-    <atom:link href="http://localhost:41239/tags/c++-optimization/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Feb 2025 22:30:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:40795/tags/c++-optimization/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>New Post</title>
-      <link>http://localhost:41239/posts/cache_coherence_protocols/</link>
-      <pubDate>Wed, 05 Feb 2025 04:00:15 +0000</pubDate>
-      <guid>http://localhost:41239/posts/cache_coherence_protocols/</guid>
-      <description>Short description</description>
+      <title>Cache Optimization through Prefetching: Enhancing Non-Contiguous Data Processing</title>
+      <link>http://localhost:40795/cache-optimization/cache-optimization-through-prefetching/</link>
+      <pubDate>Thu, 06 Feb 2025 22:30:00 +0000</pubDate>
+      <guid>http://localhost:40795/cache-optimization/cache-optimization-through-prefetching/</guid>
+      <description>Improve non-contiguous data processing with cache prefetching techniques to minimize cache misses and boost performance.</description>
     </item>
     <item>
-      <title>New Post</title>
-      <link>http://localhost:41239/posts/what_is_false_sharing/</link>
-      <pubDate>Wed, 05 Feb 2025 02:25:41 +0000</pubDate>
-      <guid>http://localhost:41239/posts/what_is_false_sharing/</guid>
-      <description>Short description</description>
+      <title>Cache Optimization: Focusing on Data Alignment</title>
+      <link>http://localhost:40795/cache-optimization/cache-optimization-focusing-on-data-alignment/</link>
+      <pubDate>Thu, 06 Feb 2025 22:10:09 +0000</pubDate>
+      <guid>http://localhost:40795/cache-optimization/cache-optimization-focusing-on-data-alignment/</guid>
+      <description>Optimizing cache performance by focusing on data alignment and reducing cache misses.</description>
     </item>
   </channel>
 </rss>
