@@ -26,7 +26,7 @@ tags: [
 ]
 layout: "page"
 summary: "Exploring false sharing scenarios when multiple threads modify adjacent variables, leading to performance degradation and cache inefficiencies."
-draft: true
+draft: false
 meta_description: "When multiple threads modify adjacent variables, false sharing can cause excessive cache invalidations, slowing down multi-threaded applications."
 open_graph_image: "Optional link for social media preview"
 open_graph_title: "False Sharing: Adjacent Variable Modification by Multiple Threads"

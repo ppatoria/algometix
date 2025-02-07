@@ -26,7 +26,7 @@ tags: [
 ]
 layout: "page"
 summary: "Understand false sharing, how it degrades multi-core performance due to cache line contention, and techniques to minimize its impact."
-draft: true
+draft: false
 meta_description: "False sharing in multi-core systems leads to unnecessary cache invalidations and performance bottlenecks. Learn how to detect and mitigate it."
 open_graph_image: "Optional link for social media preview"
 open_graph_title: "False Sharing: A Hidden Performance Bottleneck in Multi-Core Systems"

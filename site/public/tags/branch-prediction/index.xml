@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Branch Prediction on Algometix</title>
-    <link>http://localhost:44559/tags/branch-prediction/</link>
+    <link>http://localhost:41441/tags/branch-prediction/</link>
     <description>Recent content in Branch Prediction on Algometix</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 06 Feb 2025 22:30:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:44559/tags/branch-prediction/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:41441/tags/branch-prediction/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cache Prefetching: Enhancing Non-Contiguous Data Processing</title>
-      <link>http://localhost:44559/blog/cpu_cache/cache-optimization/cache-optimization-through-prefetching/</link>
+      <link>http://localhost:41441/blog/cpu_cache/cache-optimization/cache-optimization-through-prefetching/</link>
       <pubDate>Thu, 06 Feb 2025 22:30:00 +0000</pubDate>
-      <guid>http://localhost:44559/blog/cpu_cache/cache-optimization/cache-optimization-through-prefetching/</guid>
+      <guid>http://localhost:41441/blog/cpu_cache/cache-optimization/cache-optimization-through-prefetching/</guid>
       <description>Improve non-contiguous data processing with cache prefetching techniques to minimize cache misses and boost performance.</description>
     </item>
   </channel>

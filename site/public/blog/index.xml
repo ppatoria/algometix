@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog: C&#43;&#43;, Optimization, and Low-Latency Trading Systems on Algometix</title>
-    <link>http://localhost:44559/blog/</link>
+    <link>http://localhost:41441/blog/</link>
     <description>Recent content in Blog: C&#43;&#43;, Optimization, and Low-Latency Trading Systems on Algometix</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="http://localhost:44559/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:41441/blog/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

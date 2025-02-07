@@ -28,7 +28,7 @@ tags: [
 ]
 layout: "page"
 summary: "Optimizing cache performance by focusing on data alignment and reducing cache misses."
-draft: true
+draft: false
 meta_description: "Improve CPU caching by aligning contiguous data, reducing false sharing & optimizing memory access."
 open_graph_image: "Optional link for social media preview"
 open_graph_title: "Cache Optimization: Improve Performance with Data Alignment"

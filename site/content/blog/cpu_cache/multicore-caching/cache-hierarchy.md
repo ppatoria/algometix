@@ -25,7 +25,7 @@ tags: [
 ]
 layout: "page"
 summary: "Explore cache hierarchy and shared caching in multi-core architectures, including key challenges like cache coherence and false sharing."
-draft: true
+draft: false
 meta_description: "Understand cache hierarchy, shared caching, and the impact of multi-core architectures on performance, covering key issues like false sharing."
 open_graph_image: "Optional link for social media preview"
 open_graph_title: "Cache Hierarchy and Sharing in Multi-Processor Machines"

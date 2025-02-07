@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cache Hierarchy on Algometix</title>
-    <link>http://localhost:44559/tags/cache-hierarchy/</link>
+    <link>http://localhost:41441/tags/cache-hierarchy/</link>
     <description>Recent content in Cache Hierarchy on Algometix</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 06 Feb 2025 22:45:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:44559/tags/cache-hierarchy/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:41441/tags/cache-hierarchy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cache Hierarchy and Sharing</title>
-      <link>http://localhost:44559/blog/cpu_cache/multicore-caching/cache-hierarchy/</link>
+      <link>http://localhost:41441/blog/cpu_cache/multicore-caching/cache-hierarchy/</link>
       <pubDate>Thu, 06 Feb 2025 22:45:00 +0000</pubDate>
-      <guid>http://localhost:44559/blog/cpu_cache/multicore-caching/cache-hierarchy/</guid>
+      <guid>http://localhost:41441/blog/cpu_cache/multicore-caching/cache-hierarchy/</guid>
       <description>Explore cache hierarchy and shared caching in multi-core architectures, including key challenges like cache coherence and false sharing.</description>
     </item>
   </channel>

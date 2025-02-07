@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Performance Optimization on Algometix</title>
-    <link>http://localhost:44559/tags/performance-optimization/</link>
+    <link>http://localhost:41441/tags/performance-optimization/</link>
     <description>Recent content in Performance Optimization on Algometix</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 06 Feb 2025 23:30:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:44559/tags/performance-optimization/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:41441/tags/performance-optimization/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Data Alignment: Enhancing Contiguous Data Processing</title>
-      <link>http://localhost:44559/blog/cpu_cache/cache-optimization/cache-optimization-focusing-on-data-alignment/</link>
+      <link>http://localhost:41441/blog/cpu_cache/cache-optimization/cache-optimization-focusing-on-data-alignment/</link>
       <pubDate>Thu, 06 Feb 2025 22:10:09 +0000</pubDate>
-      <guid>http://localhost:44559/blog/cpu_cache/cache-optimization/cache-optimization-focusing-on-data-alignment/</guid>
+      <guid>http://localhost:41441/blog/cpu_cache/cache-optimization/cache-optimization-focusing-on-data-alignment/</guid>
       <description>Optimizing cache performance by focusing on data alignment and reducing cache misses.</description>
     </item>
     <item>
       <title>Cache Prefetching: Enhancing Non-Contiguous Data Processing</title>
-      <link>http://localhost:44559/blog/cpu_cache/cache-optimization/cache-optimization-through-prefetching/</link>
+      <link>http://localhost:41441/blog/cpu_cache/cache-optimization/cache-optimization-through-prefetching/</link>
       <pubDate>Thu, 06 Feb 2025 22:30:00 +0000</pubDate>
-      <guid>http://localhost:44559/blog/cpu_cache/cache-optimization/cache-optimization-through-prefetching/</guid>
+      <guid>http://localhost:41441/blog/cpu_cache/cache-optimization/cache-optimization-through-prefetching/</guid>
       <description>Improve non-contiguous data processing with cache prefetching techniques to minimize cache misses and boost performance.</description>
     </item>
     <item>
       <title>Cache Hierarchy and Sharing</title>
-      <link>http://localhost:44559/blog/cpu_cache/multicore-caching/cache-hierarchy/</link>
+      <link>http://localhost:41441/blog/cpu_cache/multicore-caching/cache-hierarchy/</link>
       <pubDate>Thu, 06 Feb 2025 22:45:00 +0000</pubDate>
-      <guid>http://localhost:44559/blog/cpu_cache/multicore-caching/cache-hierarchy/</guid>
+      <guid>http://localhost:41441/blog/cpu_cache/multicore-caching/cache-hierarchy/</guid>
       <description>Explore cache hierarchy and shared caching in multi-core architectures, including key challenges like cache coherence and false sharing.</description>
     </item>
     <item>
       <title>Cache Coherence and Protocols</title>
-      <link>http://localhost:44559/blog/cpu_cache/multicore-caching/cache_coherence_protocols/</link>
+      <link>http://localhost:41441/blog/cpu_cache/multicore-caching/cache_coherence_protocols/</link>
       <pubDate>Thu, 06 Feb 2025 23:00:00 +0000</pubDate>
-      <guid>http://localhost:44559/blog/cpu_cache/multicore-caching/cache_coherence_protocols/</guid>
+      <guid>http://localhost:41441/blog/cpu_cache/multicore-caching/cache_coherence_protocols/</guid>
       <description>Understand cache coherence, its role in multi-core systems, and how protocols like MESI, MOESI, and directory-based coherence ensure data consistency.</description>
     </item>
     <item>
       <title>False Sharing</title>
-      <link>http://localhost:44559/blog/cpu_cache/multicore-caching/false-sharing/</link>
+      <link>http://localhost:41441/blog/cpu_cache/multicore-caching/false-sharing/</link>
       <pubDate>Thu, 06 Feb 2025 23:10:00 +0000</pubDate>
-      <guid>http://localhost:44559/blog/cpu_cache/multicore-caching/false-sharing/</guid>
+      <guid>http://localhost:41441/blog/cpu_cache/multicore-caching/false-sharing/</guid>
       <description>Understand false sharing, how it degrades multi-core performance due to cache line contention, and techniques to minimize its impact.</description>
     </item>
     <item>
       <title>Impact of Adjacent Variable Modification</title>
-      <link>http://localhost:44559/blog/cpu_cache/multicore-caching/false-sharing/false_sharing_adjacent_variables/</link>
+      <link>http://localhost:41441/blog/cpu_cache/multicore-caching/false-sharing/false_sharing_adjacent_variables/</link>
       <pubDate>Thu, 06 Feb 2025 23:30:00 +0000</pubDate>
-      <guid>http://localhost:44559/blog/cpu_cache/multicore-caching/false-sharing/false_sharing_adjacent_variables/</guid>
+      <guid>http://localhost:41441/blog/cpu_cache/multicore-caching/false-sharing/false_sharing_adjacent_variables/</guid>
       <description>Exploring false sharing scenarios when multiple threads modify adjacent variables, leading to performance degradation and cache inefficiencies.</description>
     </item>
   </channel>
