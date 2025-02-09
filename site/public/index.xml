@@ -1,88 +1,88 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Algometix</title>
-    <link>http://localhost:46239/</link>
-    <description>Recent content on Algometix</description>
+    <title>Welcome to AlgoMetix on Algometix</title>
+    <link>http://localhost:35947/</link>
+    <description>Recent content in Welcome to AlgoMetix on Algometix</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 06 Feb 2025 23:30:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:46239/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:35947/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Data Alignment: Enhancing Contiguous Data Processing</title>
-      <link>http://localhost:46239/blog/cpu_cache/cache-optimization/cache-optimization-focusing-on-data-alignment/</link>
+      <link>http://localhost:35947/blog/cpu_cache/cache-optimization/cache-optimization-focusing-on-data-alignment/</link>
       <pubDate>Thu, 06 Feb 2025 22:10:09 +0000</pubDate>
-      <guid>http://localhost:46239/blog/cpu_cache/cache-optimization/cache-optimization-focusing-on-data-alignment/</guid>
+      <guid>http://localhost:35947/blog/cpu_cache/cache-optimization/cache-optimization-focusing-on-data-alignment/</guid>
       <description>Optimizing cache performance by focusing on data alignment and reducing cache misses.</description>
     </item>
     <item>
       <title>Cache Prefetching: Enhancing Non-Contiguous Data Processing</title>
-      <link>http://localhost:46239/blog/cpu_cache/cache-optimization/cache-optimization-through-prefetching/</link>
+      <link>http://localhost:35947/blog/cpu_cache/cache-optimization/cache-optimization-through-prefetching/</link>
       <pubDate>Thu, 06 Feb 2025 22:30:00 +0000</pubDate>
-      <guid>http://localhost:46239/blog/cpu_cache/cache-optimization/cache-optimization-through-prefetching/</guid>
+      <guid>http://localhost:35947/blog/cpu_cache/cache-optimization/cache-optimization-through-prefetching/</guid>
       <description>Improve non-contiguous data processing with cache prefetching techniques to minimize cache misses and boost performance.</description>
     </item>
     <item>
       <title>Cache Hierarchy and Sharing</title>
-      <link>http://localhost:46239/blog/cpu_cache/multicore-caching/cache-hierarchy/</link>
+      <link>http://localhost:35947/blog/cpu_cache/multicore-caching/cache-hierarchy/</link>
       <pubDate>Thu, 06 Feb 2025 22:45:00 +0000</pubDate>
-      <guid>http://localhost:46239/blog/cpu_cache/multicore-caching/cache-hierarchy/</guid>
+      <guid>http://localhost:35947/blog/cpu_cache/multicore-caching/cache-hierarchy/</guid>
       <description>Explore cache hierarchy and shared caching in multi-core architectures, including key challenges like cache coherence and false sharing.</description>
     </item>
     <item>
       <title>Cache Coherence and Protocols</title>
-      <link>http://localhost:46239/blog/cpu_cache/multicore-caching/cache_coherence_protocols/</link>
+      <link>http://localhost:35947/blog/cpu_cache/multicore-caching/cache_coherence_protocols/</link>
       <pubDate>Thu, 06 Feb 2025 23:00:00 +0000</pubDate>
-      <guid>http://localhost:46239/blog/cpu_cache/multicore-caching/cache_coherence_protocols/</guid>
+      <guid>http://localhost:35947/blog/cpu_cache/multicore-caching/cache_coherence_protocols/</guid>
       <description>Understand cache coherence, its role in multi-core systems, and how protocols like MESI, MOESI, and directory-based coherence ensure data consistency.</description>
     </item>
     <item>
       <title>Impact of Adjacent Variable Modification</title>
-      <link>http://localhost:46239/blog/cpu_cache/multicore-caching/false-sharing/false_sharing_adjacent_variables/</link>
+      <link>http://localhost:35947/blog/cpu_cache/multicore-caching/false-sharing/false_sharing_adjacent_variables/</link>
       <pubDate>Thu, 06 Feb 2025 23:30:00 +0000</pubDate>
-      <guid>http://localhost:46239/blog/cpu_cache/multicore-caching/false-sharing/false_sharing_adjacent_variables/</guid>
+      <guid>http://localhost:35947/blog/cpu_cache/multicore-caching/false-sharing/false_sharing_adjacent_variables/</guid>
       <description>Exploring false sharing scenarios when multiple threads modify adjacent variables, leading to performance degradation and cache inefficiencies.</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:46239/blog/cpu_cache/multicore-caching/cache_coherence_protocols_deepseek/</link>
+      <link>http://localhost:35947/blog/cpu_cache/multicore-caching/cache_coherence_protocols_deepseek/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:46239/blog/cpu_cache/multicore-caching/cache_coherence_protocols_deepseek/</guid>
+      <guid>http://localhost:35947/blog/cpu_cache/multicore-caching/cache_coherence_protocols_deepseek/</guid>
       <description>&lt;p&gt;Absolutely, I agree that enhancing the article to include &lt;strong&gt;memory ordering&lt;/strong&gt; alongside &lt;strong&gt;cache coherence&lt;/strong&gt; will provide a more complete picture of memory issues in multi-core systems. Memory ordering and cache coherence are deeply interconnected, and discussing them together will help readers understand how they work in tandem to ensure correctness and performance.&lt;/p&gt;&#xA;&lt;p&gt;Below is the updated article with a focus on &lt;strong&gt;memory ordering&lt;/strong&gt; and &lt;strong&gt;cache coherence&lt;/strong&gt;, along with the renamed section and additional explanations. I&amp;rsquo;ve also included PlantUML diagrams to illustrate key concepts.&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:46239/blog/cpu_cache/multicore-caching/cache_coherence_protocols_gemini/</link>
+      <link>http://localhost:35947/blog/cpu_cache/multicore-caching/cache_coherence_protocols_gemini/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:46239/blog/cpu_cache/multicore-caching/cache_coherence_protocols_gemini/</guid>
+      <guid>http://localhost:35947/blog/cpu_cache/multicore-caching/cache_coherence_protocols_gemini/</guid>
       <description>&lt;h2 id=&#34;cache-coherence-and--memory-ordering-ensuring-data-consistency-and-correct-execution-in-multi-core-systems&#34;&gt;&#xA;  &lt;strong&gt;Cache Coherence and  Memory Ordering: Ensuring Data Consistency and Correct Execution in Multi-Core Systems&lt;/strong&gt;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#cache-coherence-and--memory-ordering-ensuring-data-consistency-and-correct-execution-in-multi-core-systems&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Modern multi-core processors rely on private caches to reduce latency and improve performance. However, when multiple cores access the same memory location, ensuring consistency across caches &lt;em&gt;and&lt;/em&gt; the correct order of memory operations becomes essential. &lt;strong&gt;Cache coherence&lt;/strong&gt; guarantees that all cores observe a consistent view of memory, preventing stale or incorrect data from affecting computations. &lt;strong&gt;Memory ordering&lt;/strong&gt; defines the rules by which memory accesses (reads and writes) appear to occur, both to the core performing the operations and to other cores in the system.&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:46239/blog/cpu_cache/singlecore-caching/cache_coherence/</link>
+      <link>http://localhost:35947/blog/cpu_cache/singlecore-caching/cache_coherence/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:46239/blog/cpu_cache/singlecore-caching/cache_coherence/</guid>
+      <guid>http://localhost:35947/blog/cpu_cache/singlecore-caching/cache_coherence/</guid>
       <description>&lt;h1 id=&#34;load-and-store-buffers&#34;&gt;&#xA;  Load and Store Buffers&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#load-and-store-buffers&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;h3 id=&#34;understanding-write-buffering-in-a-non-coherent-shared-cache&#34;&gt;&#xA;  &lt;strong&gt;Understanding Write Buffering in a Non-Coherent Shared Cache&lt;/strong&gt;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#understanding-write-buffering-in-a-non-coherent-shared-cache&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;CPU Write Path:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;When a thread writes to memory, the CPU &lt;strong&gt;does not&lt;/strong&gt; always update the cache/memory immediately.&lt;/li&gt;&#xA;&lt;li&gt;Instead, the data may first go into a &lt;strong&gt;store buffer (write buffer)&lt;/strong&gt; inside the CPU.&lt;/li&gt;&#xA;&lt;li&gt;This buffer temporarily holds the write before it gets committed to the L1 cache.&lt;/li&gt;&#xA;&lt;li&gt;This delay causes another thread reading the same memory location to observe stale data, as the update isn&amp;rsquo;t immediately visible in the cache.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;CPU Read Path:&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:46239/blog/cpu_cache/singlecore-caching/gemini_singlecore_multicore/</link>
+      <link>http://localhost:35947/blog/cpu_cache/singlecore-caching/gemini_singlecore_multicore/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:46239/blog/cpu_cache/singlecore-caching/gemini_singlecore_multicore/</guid>
+      <guid>http://localhost:35947/blog/cpu_cache/singlecore-caching/gemini_singlecore_multicore/</guid>
       <description>&lt;p&gt;please review for correctness &amp;ldquo;## Cache Coherence and Protocols: Ensuring Data Consistency in Multi-Core Systems&#xA;Modern multi -  core processors rely on private caches to reduce latency and improve performance.However, when multiple cores access the same memory location, ensuring consistency across caches becomes essential. Cache coherence guarantees that all cores observe a consistent view of memory, preventing stale or incorrect data from affecting computations.&lt;/p&gt;&#xA;&lt;p&gt;This article explores why cache coherence is crucial, common problems that arise without it,and how protocols address these issues.&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:46239/blog/cpu_cache/singlecore-caching/reordeing/</link>
+      <link>http://localhost:35947/blog/cpu_cache/singlecore-caching/reordeing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:46239/blog/cpu_cache/singlecore-caching/reordeing/</guid>
+      <guid>http://localhost:35947/blog/cpu_cache/singlecore-caching/reordeing/</guid>
       <description>&lt;p&gt;Reordering issues occurs in single-core machines with multiple threads. It&amp;rsquo;s a common misconception that multi-core systems are a prerequisite for reordering problems. While the &lt;em&gt;consequences&lt;/em&gt; of reordering might be more dramatic in multi-core systems (due to cache coherence complexities), the &lt;em&gt;root cause&lt;/em&gt; – compiler and CPU optimizations – exists even in single-core environments.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;How Reordering Occurs in a Single-Core System:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Even though there&amp;rsquo;s only one core executing instructions, the compiler and the CPU can still reorder memory operations. Here&amp;rsquo;s why:&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:46239/blog/cpu_cache/singlecore-caching/single-multi-core-deepseek/</link>
+      <link>http://localhost:35947/blog/cpu_cache/singlecore-caching/single-multi-core-deepseek/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:46239/blog/cpu_cache/singlecore-caching/single-multi-core-deepseek/</guid>
+      <guid>http://localhost:35947/blog/cpu_cache/singlecore-caching/single-multi-core-deepseek/</guid>
       <description>&lt;p&gt;New chat&#xA;Please review the article for correctness &amp;ldquo;## &lt;strong&gt;Cache Coherence and Protocols: Ensuring Data Consistency in Multi-Core Systems&lt;/strong&gt;&#xA;Modern multi -  core processors rely on private caches to reduce latency and improve performance.However, when multiple cores access the same memory location, ensuring consistency across caches becomes essential. &lt;strong&gt;Cache coherence&lt;/strong&gt; guarantees that all cores observe a consistent view of memory, preventing stale or incorrect data from affecting computations.&lt;/p&gt;&#xA;&lt;p&gt;This article explores why cache coherence is crucial, common problems that arise without it,and how protocols address these issues.&lt;/p&gt;</description>
     </item>
   </channel>
