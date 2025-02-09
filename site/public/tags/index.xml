@@ -2,276 +2,276 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Algometix</title>
-    <link>http://localhost:35947/tags/</link>
+    <link>http://localhost:37033/tags/</link>
     <description>Recent content in Tags on Algometix</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 06 Feb 2025 23:30:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:35947/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:37033/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C&#43;&#43;</title>
-      <link>http://localhost:35947/tags/c&#43;&#43;/</link>
+      <link>http://localhost:37033/tags/c&#43;&#43;/</link>
       <pubDate>Thu, 06 Feb 2025 23:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/c&#43;&#43;/</guid>
+      <guid>http://localhost:37033/tags/c&#43;&#43;/</guid>
       <description></description>
     </item>
     <item>
       <title>C&#43;&#43; Performance Tuning</title>
-      <link>http://localhost:35947/tags/c&#43;&#43;-performance-tuning/</link>
+      <link>http://localhost:37033/tags/c&#43;&#43;-performance-tuning/</link>
       <pubDate>Thu, 06 Feb 2025 23:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/c&#43;&#43;-performance-tuning/</guid>
+      <guid>http://localhost:37033/tags/c&#43;&#43;-performance-tuning/</guid>
       <description></description>
     </item>
     <item>
       <title>Cache Coherence</title>
-      <link>http://localhost:35947/tags/cache-coherence/</link>
+      <link>http://localhost:37033/tags/cache-coherence/</link>
       <pubDate>Thu, 06 Feb 2025 23:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/cache-coherence/</guid>
+      <guid>http://localhost:37033/tags/cache-coherence/</guid>
       <description></description>
     </item>
     <item>
       <title>Cache Line Contention</title>
-      <link>http://localhost:35947/tags/cache-line-contention/</link>
+      <link>http://localhost:37033/tags/cache-line-contention/</link>
       <pubDate>Thu, 06 Feb 2025 23:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/cache-line-contention/</guid>
+      <guid>http://localhost:37033/tags/cache-line-contention/</guid>
       <description></description>
     </item>
     <item>
       <title>Cache Optimization</title>
-      <link>http://localhost:35947/tags/cache-optimization/</link>
+      <link>http://localhost:37033/tags/cache-optimization/</link>
       <pubDate>Thu, 06 Feb 2025 23:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/cache-optimization/</guid>
+      <guid>http://localhost:37033/tags/cache-optimization/</guid>
       <description></description>
     </item>
     <item>
       <title>Concurrency</title>
-      <link>http://localhost:35947/tags/concurrency/</link>
+      <link>http://localhost:37033/tags/concurrency/</link>
       <pubDate>Thu, 06 Feb 2025 23:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/concurrency/</guid>
+      <guid>http://localhost:37033/tags/concurrency/</guid>
       <description></description>
     </item>
     <item>
       <title>CPU Caching</title>
-      <link>http://localhost:35947/tags/cpu-caching/</link>
+      <link>http://localhost:37033/tags/cpu-caching/</link>
       <pubDate>Thu, 06 Feb 2025 23:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/cpu-caching/</guid>
+      <guid>http://localhost:37033/tags/cpu-caching/</guid>
       <description></description>
     </item>
     <item>
       <title>Data Locality</title>
-      <link>http://localhost:35947/tags/data-locality/</link>
+      <link>http://localhost:37033/tags/data-locality/</link>
       <pubDate>Thu, 06 Feb 2025 23:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/data-locality/</guid>
+      <guid>http://localhost:37033/tags/data-locality/</guid>
       <description></description>
     </item>
     <item>
       <title>False Sharing</title>
-      <link>http://localhost:35947/tags/false-sharing/</link>
+      <link>http://localhost:37033/tags/false-sharing/</link>
       <pubDate>Thu, 06 Feb 2025 23:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/false-sharing/</guid>
+      <guid>http://localhost:37033/tags/false-sharing/</guid>
       <description></description>
     </item>
     <item>
       <title>High-Performance Computing</title>
-      <link>http://localhost:35947/tags/high-performance-computing/</link>
+      <link>http://localhost:37033/tags/high-performance-computing/</link>
       <pubDate>Thu, 06 Feb 2025 23:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/high-performance-computing/</guid>
+      <guid>http://localhost:37033/tags/high-performance-computing/</guid>
       <description></description>
     </item>
     <item>
       <title>Low-Latency Programming</title>
-      <link>http://localhost:35947/tags/low-latency-programming/</link>
+      <link>http://localhost:37033/tags/low-latency-programming/</link>
       <pubDate>Thu, 06 Feb 2025 23:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/low-latency-programming/</guid>
+      <guid>http://localhost:37033/tags/low-latency-programming/</guid>
       <description></description>
     </item>
     <item>
       <title>Memory Optimization</title>
-      <link>http://localhost:35947/tags/memory-optimization/</link>
+      <link>http://localhost:37033/tags/memory-optimization/</link>
       <pubDate>Thu, 06 Feb 2025 23:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/memory-optimization/</guid>
+      <guid>http://localhost:37033/tags/memory-optimization/</guid>
       <description></description>
     </item>
     <item>
       <title>Microbenchmarking</title>
-      <link>http://localhost:35947/tags/microbenchmarking/</link>
+      <link>http://localhost:37033/tags/microbenchmarking/</link>
       <pubDate>Thu, 06 Feb 2025 23:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/microbenchmarking/</guid>
+      <guid>http://localhost:37033/tags/microbenchmarking/</guid>
       <description></description>
     </item>
     <item>
       <title>Multi-Core Architecture</title>
-      <link>http://localhost:35947/tags/multi-core-architecture/</link>
+      <link>http://localhost:37033/tags/multi-core-architecture/</link>
       <pubDate>Thu, 06 Feb 2025 23:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/multi-core-architecture/</guid>
+      <guid>http://localhost:37033/tags/multi-core-architecture/</guid>
       <description></description>
     </item>
     <item>
       <title>Multithreading</title>
-      <link>http://localhost:35947/tags/multithreading/</link>
+      <link>http://localhost:37033/tags/multithreading/</link>
       <pubDate>Thu, 06 Feb 2025 23:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/multithreading/</guid>
+      <guid>http://localhost:37033/tags/multithreading/</guid>
       <description></description>
     </item>
     <item>
       <title>NUMA Optimization</title>
-      <link>http://localhost:35947/tags/numa-optimization/</link>
+      <link>http://localhost:37033/tags/numa-optimization/</link>
       <pubDate>Thu, 06 Feb 2025 23:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/numa-optimization/</guid>
+      <guid>http://localhost:37033/tags/numa-optimization/</guid>
       <description></description>
     </item>
     <item>
       <title>Parallel Processing</title>
-      <link>http://localhost:35947/tags/parallel-processing/</link>
+      <link>http://localhost:37033/tags/parallel-processing/</link>
       <pubDate>Thu, 06 Feb 2025 23:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/parallel-processing/</guid>
+      <guid>http://localhost:37033/tags/parallel-processing/</guid>
       <description></description>
     </item>
     <item>
       <title>Performance Optimization</title>
-      <link>http://localhost:35947/tags/performance-optimization/</link>
+      <link>http://localhost:37033/tags/performance-optimization/</link>
       <pubDate>Thu, 06 Feb 2025 23:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/performance-optimization/</guid>
+      <guid>http://localhost:37033/tags/performance-optimization/</guid>
       <description></description>
     </item>
     <item>
       <title>Thread Synchronization</title>
-      <link>http://localhost:35947/tags/thread-synchronization/</link>
+      <link>http://localhost:37033/tags/thread-synchronization/</link>
       <pubDate>Thu, 06 Feb 2025 23:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/thread-synchronization/</guid>
+      <guid>http://localhost:37033/tags/thread-synchronization/</guid>
       <description></description>
     </item>
     <item>
       <title>Algorithmic Trading</title>
-      <link>http://localhost:35947/tags/algorithmic-trading/</link>
+      <link>http://localhost:37033/tags/algorithmic-trading/</link>
       <pubDate>Thu, 06 Feb 2025 23:00:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/algorithmic-trading/</guid>
+      <guid>http://localhost:37033/tags/algorithmic-trading/</guid>
       <description></description>
     </item>
     <item>
       <title>Cache Coherence Protocols</title>
-      <link>http://localhost:35947/tags/cache-coherence-protocols/</link>
+      <link>http://localhost:37033/tags/cache-coherence-protocols/</link>
       <pubDate>Thu, 06 Feb 2025 23:00:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/cache-coherence-protocols/</guid>
+      <guid>http://localhost:37033/tags/cache-coherence-protocols/</guid>
       <description></description>
     </item>
     <item>
       <title>Cache Synchronization</title>
-      <link>http://localhost:35947/tags/cache-synchronization/</link>
+      <link>http://localhost:37033/tags/cache-synchronization/</link>
       <pubDate>Thu, 06 Feb 2025 23:00:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/cache-synchronization/</guid>
+      <guid>http://localhost:37033/tags/cache-synchronization/</guid>
       <description></description>
     </item>
     <item>
       <title>Directory-Based Coherence</title>
-      <link>http://localhost:35947/tags/directory-based-coherence/</link>
+      <link>http://localhost:37033/tags/directory-based-coherence/</link>
       <pubDate>Thu, 06 Feb 2025 23:00:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/directory-based-coherence/</guid>
+      <guid>http://localhost:37033/tags/directory-based-coherence/</guid>
       <description></description>
     </item>
     <item>
       <title>Memory Consistency</title>
-      <link>http://localhost:35947/tags/memory-consistency/</link>
+      <link>http://localhost:37033/tags/memory-consistency/</link>
       <pubDate>Thu, 06 Feb 2025 23:00:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/memory-consistency/</guid>
+      <guid>http://localhost:37033/tags/memory-consistency/</guid>
       <description></description>
     </item>
     <item>
       <title>MESI Protocol</title>
-      <link>http://localhost:35947/tags/mesi-protocol/</link>
+      <link>http://localhost:37033/tags/mesi-protocol/</link>
       <pubDate>Thu, 06 Feb 2025 23:00:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/mesi-protocol/</guid>
+      <guid>http://localhost:37033/tags/mesi-protocol/</guid>
       <description></description>
     </item>
     <item>
       <title>MOESI Protocol</title>
-      <link>http://localhost:35947/tags/moesi-protocol/</link>
+      <link>http://localhost:37033/tags/moesi-protocol/</link>
       <pubDate>Thu, 06 Feb 2025 23:00:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/moesi-protocol/</guid>
+      <guid>http://localhost:37033/tags/moesi-protocol/</guid>
       <description></description>
     </item>
     <item>
       <title>Cache Hierarchy</title>
-      <link>http://localhost:35947/tags/cache-hierarchy/</link>
+      <link>http://localhost:37033/tags/cache-hierarchy/</link>
       <pubDate>Thu, 06 Feb 2025 22:45:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/cache-hierarchy/</guid>
+      <guid>http://localhost:37033/tags/cache-hierarchy/</guid>
       <description></description>
     </item>
     <item>
       <title>NUMA Architecture</title>
-      <link>http://localhost:35947/tags/numa-architecture/</link>
+      <link>http://localhost:37033/tags/numa-architecture/</link>
       <pubDate>Thu, 06 Feb 2025 22:45:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/numa-architecture/</guid>
+      <guid>http://localhost:37033/tags/numa-architecture/</guid>
       <description></description>
     </item>
     <item>
       <title>Shared Cache</title>
-      <link>http://localhost:35947/tags/shared-cache/</link>
+      <link>http://localhost:37033/tags/shared-cache/</link>
       <pubDate>Thu, 06 Feb 2025 22:45:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/shared-cache/</guid>
+      <guid>http://localhost:37033/tags/shared-cache/</guid>
       <description></description>
     </item>
     <item>
       <title>Branch Prediction</title>
-      <link>http://localhost:35947/tags/branch-prediction/</link>
+      <link>http://localhost:37033/tags/branch-prediction/</link>
       <pubDate>Thu, 06 Feb 2025 22:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/branch-prediction/</guid>
+      <guid>http://localhost:37033/tags/branch-prediction/</guid>
       <description></description>
     </item>
     <item>
       <title>C&#43;&#43; Optimization</title>
-      <link>http://localhost:35947/tags/c&#43;&#43;-optimization/</link>
+      <link>http://localhost:37033/tags/c&#43;&#43;-optimization/</link>
       <pubDate>Thu, 06 Feb 2025 22:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/c&#43;&#43;-optimization/</guid>
+      <guid>http://localhost:37033/tags/c&#43;&#43;-optimization/</guid>
       <description></description>
     </item>
     <item>
       <title>Cache Miss</title>
-      <link>http://localhost:35947/tags/cache-miss/</link>
+      <link>http://localhost:37033/tags/cache-miss/</link>
       <pubDate>Thu, 06 Feb 2025 22:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/cache-miss/</guid>
+      <guid>http://localhost:37033/tags/cache-miss/</guid>
       <description></description>
     </item>
     <item>
       <title>Cache Prefetching</title>
-      <link>http://localhost:35947/tags/cache-prefetching/</link>
+      <link>http://localhost:37033/tags/cache-prefetching/</link>
       <pubDate>Thu, 06 Feb 2025 22:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/cache-prefetching/</guid>
+      <guid>http://localhost:37033/tags/cache-prefetching/</guid>
       <description></description>
     </item>
     <item>
       <title>High-Frequency Trading</title>
-      <link>http://localhost:35947/tags/high-frequency-trading/</link>
+      <link>http://localhost:37033/tags/high-frequency-trading/</link>
       <pubDate>Thu, 06 Feb 2025 22:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/high-frequency-trading/</guid>
+      <guid>http://localhost:37033/tags/high-frequency-trading/</guid>
       <description></description>
     </item>
     <item>
       <title>Non-Contiguous Data</title>
-      <link>http://localhost:35947/tags/non-contiguous-data/</link>
+      <link>http://localhost:37033/tags/non-contiguous-data/</link>
       <pubDate>Thu, 06 Feb 2025 22:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/tags/non-contiguous-data/</guid>
+      <guid>http://localhost:37033/tags/non-contiguous-data/</guid>
       <description></description>
     </item>
     <item>
       <title>Cache Line Efficiency</title>
-      <link>http://localhost:35947/tags/cache-line-efficiency/</link>
+      <link>http://localhost:37033/tags/cache-line-efficiency/</link>
       <pubDate>Thu, 06 Feb 2025 22:10:09 +0000</pubDate>
-      <guid>http://localhost:35947/tags/cache-line-efficiency/</guid>
+      <guid>http://localhost:37033/tags/cache-line-efficiency/</guid>
       <description></description>
     </item>
     <item>
       <title>Data Alignment</title>
-      <link>http://localhost:35947/tags/data-alignment/</link>
+      <link>http://localhost:37033/tags/data-alignment/</link>
       <pubDate>Thu, 06 Feb 2025 22:10:09 +0000</pubDate>
-      <guid>http://localhost:35947/tags/data-alignment/</guid>
+      <guid>http://localhost:37033/tags/data-alignment/</guid>
       <description></description>
     </item>
     <item>
       <title>Struct Padding</title>
-      <link>http://localhost:35947/tags/struct-padding/</link>
+      <link>http://localhost:37033/tags/struct-padding/</link>
       <pubDate>Thu, 06 Feb 2025 22:10:09 +0000</pubDate>
-      <guid>http://localhost:35947/tags/struct-padding/</guid>
+      <guid>http://localhost:37033/tags/struct-padding/</guid>
       <description></description>
     </item>
   </channel>

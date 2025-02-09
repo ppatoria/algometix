@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Directory-Based Coherence on Algometix</title>
-    <link>http://localhost:35947/tags/directory-based-coherence/</link>
+    <link>http://localhost:37033/tags/directory-based-coherence/</link>
     <description>Recent content in Directory-Based Coherence on Algometix</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 06 Feb 2025 23:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:35947/tags/directory-based-coherence/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:37033/tags/directory-based-coherence/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cache Coherence and Protocols</title>
-      <link>http://localhost:35947/blog/cpu_cache/multicore-caching/cache_coherence_protocols/</link>
+      <link>http://localhost:37033/blog/cpu_cache/multicore-caching/cache_coherence_protocols/</link>
       <pubDate>Thu, 06 Feb 2025 23:00:00 +0000</pubDate>
-      <guid>http://localhost:35947/blog/cpu_cache/multicore-caching/cache_coherence_protocols/</guid>
+      <guid>http://localhost:37033/blog/cpu_cache/multicore-caching/cache_coherence_protocols/</guid>
       <description>Understand cache coherence, its role in multi-core systems, and how protocols like MESI, MOESI, and directory-based coherence ensure data consistency.</description>
     </item>
   </channel>

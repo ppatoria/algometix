@@ -2,173 +2,173 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:35947/blog/</loc>
+    <loc>http://localhost:37033/blog/</loc>
     <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/blog/cpu_cache/</loc>
+    <loc>http://localhost:37033/blog/cpu_cache/</loc>
     <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/blog/cpu_cache/cache-optimization/</loc>
+    <loc>http://localhost:37033/blog/cpu_cache/cache-optimization/</loc>
     <lastmod>2025-02-06T22:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/blog/cpu_cache/cache-optimization/cache-optimization-focusing-on-data-alignment/</loc>
+    <loc>http://localhost:37033/blog/cpu_cache/cache-optimization/cache-optimization-focusing-on-data-alignment/</loc>
     <lastmod>2025-02-06T22:10:09+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/blog/cpu_cache/cache-optimization/cache-optimization-through-prefetching/</loc>
+    <loc>http://localhost:37033/blog/cpu_cache/cache-optimization/cache-optimization-through-prefetching/</loc>
     <lastmod>2025-02-06T22:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/blog/cpu_cache/multicore-caching/</loc>
+    <loc>http://localhost:37033/blog/cpu_cache/multicore-caching/</loc>
     <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/blog/cpu_cache/multicore-caching/cache-hierarchy/</loc>
+    <loc>http://localhost:37033/blog/cpu_cache/multicore-caching/cache-hierarchy/</loc>
     <lastmod>2025-02-06T22:45:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/blog/cpu_cache/multicore-caching/cache_coherence_protocols/</loc>
+    <loc>http://localhost:37033/blog/cpu_cache/multicore-caching/cache_coherence_protocols/</loc>
     <lastmod>2025-02-06T23:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/blog/cpu_cache/multicore-caching/false-sharing/</loc>
+    <loc>http://localhost:37033/blog/cpu_cache/multicore-caching/false-sharing/</loc>
     <lastmod>2025-02-06T23:10:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/blog/cpu_cache/multicore-caching/false-sharing/false_sharing_adjacent_variables/</loc>
+    <loc>http://localhost:37033/blog/cpu_cache/multicore-caching/false-sharing/false_sharing_adjacent_variables/</loc>
     <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/c&#43;&#43;/</loc>
+    <loc>http://localhost:37033/tags/c&#43;&#43;/</loc>
     <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/c&#43;&#43;-performance-tuning/</loc>
+    <loc>http://localhost:37033/tags/c&#43;&#43;-performance-tuning/</loc>
     <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/cache-coherence/</loc>
+    <loc>http://localhost:37033/tags/cache-coherence/</loc>
     <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/cache-line-contention/</loc>
+    <loc>http://localhost:37033/tags/cache-line-contention/</loc>
     <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/cache-optimization/</loc>
+    <loc>http://localhost:37033/tags/cache-optimization/</loc>
     <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/concurrency/</loc>
+    <loc>http://localhost:37033/tags/concurrency/</loc>
     <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/cpu-caching/</loc>
+    <loc>http://localhost:37033/tags/cpu-caching/</loc>
     <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/data-locality/</loc>
+    <loc>http://localhost:37033/tags/data-locality/</loc>
     <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/false-sharing/</loc>
+    <loc>http://localhost:37033/tags/false-sharing/</loc>
     <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/high-performance-computing/</loc>
+    <loc>http://localhost:37033/tags/high-performance-computing/</loc>
     <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/low-latency-programming/</loc>
+    <loc>http://localhost:37033/tags/low-latency-programming/</loc>
     <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/memory-optimization/</loc>
+    <loc>http://localhost:37033/tags/memory-optimization/</loc>
     <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/microbenchmarking/</loc>
+    <loc>http://localhost:37033/tags/microbenchmarking/</loc>
     <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/multi-core-architecture/</loc>
+    <loc>http://localhost:37033/tags/multi-core-architecture/</loc>
     <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/multithreading/</loc>
+    <loc>http://localhost:37033/tags/multithreading/</loc>
     <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/numa-optimization/</loc>
+    <loc>http://localhost:37033/tags/numa-optimization/</loc>
     <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/parallel-processing/</loc>
+    <loc>http://localhost:37033/tags/parallel-processing/</loc>
     <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/performance-optimization/</loc>
+    <loc>http://localhost:37033/tags/performance-optimization/</loc>
     <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/</loc>
+    <loc>http://localhost:37033/tags/</loc>
     <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/thread-synchronization/</loc>
+    <loc>http://localhost:37033/tags/thread-synchronization/</loc>
     <lastmod>2025-02-06T23:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/algorithmic-trading/</loc>
+    <loc>http://localhost:37033/tags/algorithmic-trading/</loc>
     <lastmod>2025-02-06T23:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/cache-coherence-protocols/</loc>
+    <loc>http://localhost:37033/tags/cache-coherence-protocols/</loc>
     <lastmod>2025-02-06T23:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/cache-synchronization/</loc>
+    <loc>http://localhost:37033/tags/cache-synchronization/</loc>
     <lastmod>2025-02-06T23:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/directory-based-coherence/</loc>
+    <loc>http://localhost:37033/tags/directory-based-coherence/</loc>
     <lastmod>2025-02-06T23:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/memory-consistency/</loc>
+    <loc>http://localhost:37033/tags/memory-consistency/</loc>
     <lastmod>2025-02-06T23:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/mesi-protocol/</loc>
+    <loc>http://localhost:37033/tags/mesi-protocol/</loc>
     <lastmod>2025-02-06T23:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/moesi-protocol/</loc>
+    <loc>http://localhost:37033/tags/moesi-protocol/</loc>
     <lastmod>2025-02-06T23:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/cache-hierarchy/</loc>
+    <loc>http://localhost:37033/tags/cache-hierarchy/</loc>
     <lastmod>2025-02-06T22:45:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/numa-architecture/</loc>
+    <loc>http://localhost:37033/tags/numa-architecture/</loc>
     <lastmod>2025-02-06T22:45:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/shared-cache/</loc>
+    <loc>http://localhost:37033/tags/shared-cache/</loc>
     <lastmod>2025-02-06T22:45:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/branch-prediction/</loc>
+    <loc>http://localhost:37033/tags/branch-prediction/</loc>
     <lastmod>2025-02-06T22:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/c&#43;&#43;-optimization/</loc>
+    <loc>http://localhost:37033/tags/c&#43;&#43;-optimization/</loc>
     <lastmod>2025-02-06T22:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/cache-miss/</loc>
+    <loc>http://localhost:37033/tags/cache-miss/</loc>
     <lastmod>2025-02-06T22:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/cache-prefetching/</loc>
+    <loc>http://localhost:37033/tags/cache-prefetching/</loc>
     <lastmod>2025-02-06T22:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/high-frequency-trading/</loc>
+    <loc>http://localhost:37033/tags/high-frequency-trading/</loc>
     <lastmod>2025-02-06T22:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/non-contiguous-data/</loc>
+    <loc>http://localhost:37033/tags/non-contiguous-data/</loc>
     <lastmod>2025-02-06T22:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/cache-line-efficiency/</loc>
+    <loc>http://localhost:37033/tags/cache-line-efficiency/</loc>
     <lastmod>2025-02-06T22:10:09+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/data-alignment/</loc>
+    <loc>http://localhost:37033/tags/data-alignment/</loc>
     <lastmod>2025-02-06T22:10:09+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/tags/struct-padding/</loc>
+    <loc>http://localhost:37033/tags/struct-padding/</loc>
     <lastmod>2025-02-06T22:10:09+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/about/</loc>
+    <loc>http://localhost:37033/about/</loc>
     <lastmod>2025-02-02T12:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/</loc>
+    <loc>http://localhost:37033/</loc>
     <lastmod>2025-02-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:35947/blog/cpu_cache/multicore-caching/cache_coherence_protocols_deepseek/</loc>
+    <loc>http://localhost:37033/blog/cpu_cache/multicore-caching/cache_coherence_protocols_deepseek/</loc>
   </url><url>
-    <loc>http://localhost:35947/blog/cpu_cache/multicore-caching/cache_coherence_protocols_gemini/</loc>
+    <loc>http://localhost:37033/blog/cpu_cache/multicore-caching/cache_coherence_protocols_gemini/</loc>
   </url><url>
-    <loc>http://localhost:35947/blog/cpu_cache/singlecore-caching/cache_coherence/</loc>
+    <loc>http://localhost:37033/blog/cpu_cache/singlecore-caching/cache_coherence/</loc>
   </url><url>
-    <loc>http://localhost:35947/blog/cpu_cache/singlecore-caching/gemini_singlecore_multicore/</loc>
+    <loc>http://localhost:37033/blog/cpu_cache/singlecore-caching/gemini_singlecore_multicore/</loc>
   </url><url>
-    <loc>http://localhost:35947/blog/cpu_cache/singlecore-caching/reordeing/</loc>
+    <loc>http://localhost:37033/blog/cpu_cache/singlecore-caching/reordeing/</loc>
   </url><url>
-    <loc>http://localhost:35947/blog/cpu_cache/singlecore-caching/single-multi-core-deepseek/</loc>
+    <loc>http://localhost:37033/blog/cpu_cache/singlecore-caching/single-multi-core-deepseek/</loc>
   </url><url>
-    <loc>http://localhost:35947/categories/</loc>
+    <loc>http://localhost:37033/categories/</loc>
   </url><url>
-    <loc>http://localhost:35947/consulting/</loc>
+    <loc>http://localhost:37033/consulting/</loc>
   </url>
 </urlset>

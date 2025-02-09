@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Multi-Core Caching Techniques on Algometix</title>
-    <link>http://localhost:35947/blog/cpu_cache/multicore-caching/</link>
+    <link>http://localhost:37033/blog/cpu_cache/multicore-caching/</link>
     <description>Recent content in Multi-Core Caching Techniques on Algometix</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 06 Feb 2025 23:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:35947/blog/cpu_cache/multicore-caching/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:37033/blog/cpu_cache/multicore-caching/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cache Hierarchy and Sharing</title>
-      <link>http://localhost:35947/blog/cpu_cache/multicore-caching/cache-hierarchy/</link>
+      <link>http://localhost:37033/blog/cpu_cache/multicore-caching/cache-hierarchy/</link>
       <pubDate>Thu, 06 Feb 2025 22:45:00 +0000</pubDate>
-      <guid>http://localhost:35947/blog/cpu_cache/multicore-caching/cache-hierarchy/</guid>
+      <guid>http://localhost:37033/blog/cpu_cache/multicore-caching/cache-hierarchy/</guid>
       <description>Explore cache hierarchy and shared caching in multi-core architectures, including key challenges like cache coherence and false sharing.</description>
     </item>
     <item>
       <title>Cache Coherence and Protocols</title>
-      <link>http://localhost:35947/blog/cpu_cache/multicore-caching/cache_coherence_protocols/</link>
+      <link>http://localhost:37033/blog/cpu_cache/multicore-caching/cache_coherence_protocols/</link>
       <pubDate>Thu, 06 Feb 2025 23:00:00 +0000</pubDate>
-      <guid>http://localhost:35947/blog/cpu_cache/multicore-caching/cache_coherence_protocols/</guid>
+      <guid>http://localhost:37033/blog/cpu_cache/multicore-caching/cache_coherence_protocols/</guid>
       <description>Understand cache coherence, its role in multi-core systems, and how protocols like MESI, MOESI, and directory-based coherence ensure data consistency.</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:35947/blog/cpu_cache/multicore-caching/cache_coherence_protocols_deepseek/</link>
+      <link>http://localhost:37033/blog/cpu_cache/multicore-caching/cache_coherence_protocols_deepseek/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35947/blog/cpu_cache/multicore-caching/cache_coherence_protocols_deepseek/</guid>
+      <guid>http://localhost:37033/blog/cpu_cache/multicore-caching/cache_coherence_protocols_deepseek/</guid>
       <description>&lt;p&gt;Absolutely, I agree that enhancing the article to include &lt;strong&gt;memory ordering&lt;/strong&gt; alongside &lt;strong&gt;cache coherence&lt;/strong&gt; will provide a more complete picture of memory issues in multi-core systems. Memory ordering and cache coherence are deeply interconnected, and discussing them together will help readers understand how they work in tandem to ensure correctness and performance.&lt;/p&gt;&#xA;&lt;p&gt;Below is the updated article with a focus on &lt;strong&gt;memory ordering&lt;/strong&gt; and &lt;strong&gt;cache coherence&lt;/strong&gt;, along with the renamed section and additional explanations. I&amp;rsquo;ve also included PlantUML diagrams to illustrate key concepts.&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:35947/blog/cpu_cache/multicore-caching/cache_coherence_protocols_gemini/</link>
+      <link>http://localhost:37033/blog/cpu_cache/multicore-caching/cache_coherence_protocols_gemini/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35947/blog/cpu_cache/multicore-caching/cache_coherence_protocols_gemini/</guid>
+      <guid>http://localhost:37033/blog/cpu_cache/multicore-caching/cache_coherence_protocols_gemini/</guid>
       <description>&lt;h2 id=&#34;cache-coherence-and--memory-ordering-ensuring-data-consistency-and-correct-execution-in-multi-core-systems&#34;&gt;&#xA;  &lt;strong&gt;Cache Coherence and  Memory Ordering: Ensuring Data Consistency and Correct Execution in Multi-Core Systems&lt;/strong&gt;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#cache-coherence-and--memory-ordering-ensuring-data-consistency-and-correct-execution-in-multi-core-systems&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Modern multi-core processors rely on private caches to reduce latency and improve performance. However, when multiple cores access the same memory location, ensuring consistency across caches &lt;em&gt;and&lt;/em&gt; the correct order of memory operations becomes essential. &lt;strong&gt;Cache coherence&lt;/strong&gt; guarantees that all cores observe a consistent view of memory, preventing stale or incorrect data from affecting computations. &lt;strong&gt;Memory ordering&lt;/strong&gt; defines the rules by which memory accesses (reads and writes) appear to occur, both to the core performing the operations and to other cores in the system.&lt;/p&gt;</description>
     </item>
   </channel>

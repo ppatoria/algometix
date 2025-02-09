@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cache Optimization Techniques on Algometix</title>
-    <link>http://localhost:35947/blog/cpu_cache/cache-optimization/</link>
+    <link>http://localhost:37033/blog/cpu_cache/cache-optimization/</link>
     <description>Recent content in Cache Optimization Techniques on Algometix</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 06 Feb 2025 22:30:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:35947/blog/cpu_cache/cache-optimization/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:37033/blog/cpu_cache/cache-optimization/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Data Alignment: Enhancing Contiguous Data Processing</title>
-      <link>http://localhost:35947/blog/cpu_cache/cache-optimization/cache-optimization-focusing-on-data-alignment/</link>
+      <link>http://localhost:37033/blog/cpu_cache/cache-optimization/cache-optimization-focusing-on-data-alignment/</link>
       <pubDate>Thu, 06 Feb 2025 22:10:09 +0000</pubDate>
-      <guid>http://localhost:35947/blog/cpu_cache/cache-optimization/cache-optimization-focusing-on-data-alignment/</guid>
+      <guid>http://localhost:37033/blog/cpu_cache/cache-optimization/cache-optimization-focusing-on-data-alignment/</guid>
       <description>Optimizing cache performance by focusing on data alignment and reducing cache misses.</description>
     </item>
     <item>
       <title>Cache Prefetching: Enhancing Non-Contiguous Data Processing</title>
-      <link>http://localhost:35947/blog/cpu_cache/cache-optimization/cache-optimization-through-prefetching/</link>
+      <link>http://localhost:37033/blog/cpu_cache/cache-optimization/cache-optimization-through-prefetching/</link>
       <pubDate>Thu, 06 Feb 2025 22:30:00 +0000</pubDate>
-      <guid>http://localhost:35947/blog/cpu_cache/cache-optimization/cache-optimization-through-prefetching/</guid>
+      <guid>http://localhost:37033/blog/cpu_cache/cache-optimization/cache-optimization-through-prefetching/</guid>
       <description>Improve non-contiguous data processing with cache prefetching techniques to minimize cache misses and boost performance.</description>
     </item>
   </channel>
