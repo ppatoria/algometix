@@ -1,0 +1,37 @@
+# Ignore Hugo-generated output (public directory)
+public/
+resources/
+hugo_stats.json
+
+# Ignore temporary and cache files
+.cache/
+.DS_Store
+Thumbs.db
+
+# Ignore Hugo build artifacts
+hugo_stats.json
+*.log
+*.bak
+*.swp
+*.swo
+*.swn
+*.tmp
+
+# Ignore Hugo themes (if using Git submodules, track them separately)
+themes/*/
+!themes/exampleTheme # (Uncomment if you want to track a specific theme)
+
+# Ignore editor & system files
+.vscode/
+.idea/
+*.iml
+*.sublime-project
+*.sublime-workspace
+node_modules/
+npm-debug.log
+
+# Ignore personal config files
+config.toml.backup
+.env
+.envrc
+
