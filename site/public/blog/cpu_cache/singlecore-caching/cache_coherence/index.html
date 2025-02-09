@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=46239&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Load and Store Buffers
+  #
+
+
+  Understanding Write Buffering in a Non-Coherent Shared Cache
+  #
+
+
+
+CPU Write Path:
+
+When a thread writes to memory, the CPU does not always update the cache/memory immediately.
+Instead, the data may first go into a store buffer (write buffer) inside the CPU.
+This buffer temporarily holds the write before it gets committed to the L1 cache.
+This delay causes another thread reading the same memory location to observe stale data, as the update isn&rsquo;t immediately visible in the cache.
+
+
+
+CPU Read Path:">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:46239/blog/cpu_cache/singlecore-caching/cache_coherence/">
+  <meta property="og:site_name" content="Algometix">
+  <meta property="og:title" content="Algometix">
+  <meta property="og:description" content="Load and Store Buffers # Understanding Write Buffering in a Non-Coherent Shared Cache # CPU Write Path:
+When a thread writes to memory, the CPU does not always update the cache/memory immediately. Instead, the data may first go into a store buffer (write buffer) inside the CPU. This buffer temporarily holds the write before it gets committed to the L1 cache. This delay causes another thread reading the same memory location to observe stale data, as the update isn’t immediately visible in the cache. CPU Read Path:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+<title>Cache Coherence | Algometix</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:46239/blog/cpu_cache/singlecore-caching/cache_coherence/">
+<link rel="stylesheet" href="/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css" integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.95eedfd7f5665deb4059319a3f512f01e09607482606e34b6f8b753c1525b0d1.js" integrity="sha256-le7f1/VmXetAWTGaP1EvAeCWB0gmBuNLb4t1PBUlsNE=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Algometix</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cpu_cache/" class="">CPU Cache: Organization, Optimization and Challenges</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cpu_cache/cache-optimization/" class="">Cache Optimization Techniques</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cpu_cache/cache-optimization/cache-optimization-focusing-on-data-alignment/" class="">Data Alignment: Enhancing Contiguous Data Processing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cpu_cache/cache-optimization/cache-optimization-through-prefetching/" class="">Cache Prefetching: Enhancing Non-Contiguous Data Processing</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cpu_cache/multicore-caching/" class="">Multi-Core Caching Techniques</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cpu_cache/multicore-caching/cache-hierarchy/" class="">Cache Hierarchy and Sharing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cpu_cache/multicore-caching/cache_coherence_protocols/" class="">Cache Coherence and Protocols</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cpu_cache/multicore-caching/false-sharing/" class="">False Sharing</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cpu_cache/multicore-caching/false-sharing/false_sharing_adjacent_variables/" class="">Impact of Adjacent Variable Modification</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cpu_cache/multicore-caching/cache_coherence_protocols_deepseek/" class="">Cache Coherence Protocols Deepseek</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cpu_cache/multicore-caching/cache_coherence_protocols_gemini/" class="">Cache Coherence Protocols Gemini</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cpu_cache/singlecore-caching/cache_coherence/" class="active">Cache Coherence</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cpu_cache/singlecore-caching/gemini_singlecore_multicore/" class="">Gemini Singlecore Multicore</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cpu_cache/singlecore-caching/reordeing/" class="">Reordeing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/blog/cpu_cache/singlecore-caching/single-multi-core-deepseek/" class="">Single Multi Core Deepseek</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Cache Coherence</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#understanding-write-buffering-in-a-non-coherent-shared-cache"><strong>Understanding Write Buffering in a Non-Coherent Shared Cache</strong></a></li>
+        <li><a href="#block-diagram-using-plantuml"><strong>Block Diagram Using PlantUML</strong></a></li>
+        <li><a href="#size-of-the-store-buffer--difference-from-cpu-registers"><strong>Size of the Store Buffer &amp; Difference from CPU Registers</strong></a></li>
+        <li><a href="#1-block-diagram-for-load-buffer">1. Block Diagram for Load Buffer</a></li>
+        <li><a href="#2-speculative-execution-and-memory-disambiguation">2. Speculative Execution and Memory Disambiguation</a></li>
+        <li><a href="#plantuml-diagram-for-speculative-execution-and-memory-disambiguation">PlantUML Diagram for Speculative Execution and Memory Disambiguation</a></li>
+        <li><a href="#1-block-diagram-of-load-buffer-and-store-buffer"><strong>1. Block Diagram of Load Buffer and Store Buffer</strong></a></li>
+        <li><a href="#key-components-in-the-diagram"><strong>Key Components in the Diagram</strong></a></li>
+        <li><a href="#2-speculative-execution-and-memory-disambiguation-1"><strong>2. Speculative Execution and Memory Disambiguation</strong></a></li>
+        <li><a href="#key-takeaways"><strong>Key Takeaways</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="load-and-store-buffers">
+  Load and Store Buffers
+  <a class="anchor" href="#load-and-store-buffers">#</a>
+</h1>
+<h3 id="understanding-write-buffering-in-a-non-coherent-shared-cache">
+  <strong>Understanding Write Buffering in a Non-Coherent Shared Cache</strong>
+  <a class="anchor" href="#understanding-write-buffering-in-a-non-coherent-shared-cache">#</a>
+</h3>
+<ol>
+<li>
+<p><strong>CPU Write Path:</strong></p>
+<ul>
+<li>When a thread writes to memory, the CPU <strong>does not</strong> always update the cache/memory immediately.</li>
+<li>Instead, the data may first go into a <strong>store buffer (write buffer)</strong> inside the CPU.</li>
+<li>This buffer temporarily holds the write before it gets committed to the L1 cache.</li>
+<li>This delay causes another thread reading the same memory location to observe stale data, as the update isn&rsquo;t immediately visible in the cache.</li>
+</ul>
+</li>
+<li>
+<p><strong>CPU Read Path:</strong></p>
+<ul>
+<li>If a thread reads from memory, it checks the <strong>L1 cache</strong> first.</li>
+<li>If the latest value is still in the store buffer (and not yet written to L1 cache), the thread may get an older value from the cache instead.</li>
+</ul>
+</li>
+<li>
+<p><strong>Why Buffering Happens?</strong></p>
+<ul>
+<li>To improve performance, CPUs use <strong>write buffers</strong> to avoid stalling the pipeline while waiting for the memory subsystem.</li>
+<li>In a <strong>non-coherent</strong> cache system, these write buffers do not automatically synchronize across threads.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="block-diagram-using-plantuml">
+  <strong>Block Diagram Using PlantUML</strong>
+  <a class="anchor" href="#block-diagram-using-plantuml">#</a>
+</h3>
+<p>Below is a <strong>PlantUML block diagram</strong> that shows:</p>
+<ul>
+<li>The CPU cores</li>
+<li>The Write Buffer</li>
+<li>The Shared Cache (L1 in this case)</li>
+<li>The read/write flow</li>
+</ul>
+<p>I&rsquo;ll generate the PlantUML diagram now.</p>
+<p>This diagram shows:</p>
+<ul>
+<li><strong>Thread A writes <code>X = 42</code></strong>, but it first enters the <strong>Write Buffer</strong>.</li>
+<li>The <strong>Write Buffer</strong> eventually updates <strong>L1 Cache</strong>.</li>
+<li>Meanwhile, <strong>Thread B reads <code>X</code></strong> from L1 Cache, but if the write is still in the buffer, it may see an <strong>old value</strong>.</li>
+</ul>
+<p>This is why <strong>stale reads</strong> occur in a non-coherent cache. Let me know if you need further modifications!</p>
+<h3 id="size-of-the-store-buffer--difference-from-cpu-registers">
+  <strong>Size of the Store Buffer &amp; Difference from CPU Registers</strong>
+  <a class="anchor" href="#size-of-the-store-buffer--difference-from-cpu-registers">#</a>
+</h3>
+<ol>
+<li>
+<p><strong>Size of the Store Buffer</strong></p>
+<ul>
+<li>The <strong>store buffer</strong> size depends on the CPU architecture.</li>
+<li>Typically, it holds <strong>a few to a few dozen entries</strong> (e.g., Intel CPUs often have <strong>42-56 store buffer entries</strong> per core, AMD may vary).</li>
+<li>Each entry usually holds a <strong>memory address + data</strong> until the write is committed to cache or main memory.</li>
+<li>The exact size varies across architectures and microarchitectures.</li>
+</ul>
+</li>
+<li>
+<p><strong>Difference Between Store Buffer and CPU Registers</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th><strong>Store Buffer</strong></th>
+          <th><strong>CPU Registers</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Purpose</strong></td>
+          <td>Holds pending memory writes before committing to cache</td>
+          <td>Holds operands for computation, instruction execution</td>
+      </tr>
+      <tr>
+          <td><strong>Visibility</strong></td>
+          <td>Invisible to software, managed internally by CPU</td>
+          <td>Directly accessible by instructions (e.g., <code>mov eax, ebx</code>)</td>
+      </tr>
+      <tr>
+          <td><strong>Size</strong></td>
+          <td>A few dozen entries per core</td>
+          <td>Fixed number (e.g., x86-64 has 16 general-purpose registers)</td>
+      </tr>
+      <tr>
+          <td><strong>Lifespan</strong></td>
+          <td>Temporary, entries retire after flushing to memory</td>
+          <td>Persistent until modified by an instruction</td>
+      </tr>
+      <tr>
+          <td><strong>Access Speed</strong></td>
+          <td>Faster than memory but slower than registers</td>
+          <td>Fastest access (directly in CPU execution units)</td>
+      </tr>
+      <tr>
+          <td><strong>Physical Location</strong></td>
+          <td>Inside CPU core, near execution units</td>
+          <td>Inside CPU core, tightly integrated with execution units</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+<li>
+<p><strong>Is the Store Buffer Physically Part of the CPU?</strong></p>
+<ul>
+<li>Yes, the store buffer is physically <strong>inside the CPU core</strong>, just like registers.</li>
+<li>It is part of the <strong>memory ordering machinery</strong> and sits between the <strong>execution units and the L1 cache</strong>.</li>
+<li>It operates at <strong>different levels of visibility</strong> than registers:
+<ul>
+<li>Registers are directly accessible and manipulated by instructions.</li>
+<li>The store buffer is <strong>transparent to software</strong> and exists only to optimize memory operations.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>Let me know if you want a block diagram explaining how the store buffer fits inside the CPU!</p>
+<p>Okay, let&rsquo;s dive into load buffers, speculative execution, and memory disambiguation in a single-core, multi-threaded architecture.</p>
+<p><strong>1. Load Buffer Block Diagram</strong></p>
+<pre tabindex="0"><code class="language-plantuml" data-lang="plantuml">@startuml
+!theme minty
+
+box &#34;CPU Core&#34; {
+  participant &#34;Registers&#34; as Registers
+  participant &#34;ALU&#34; as ALU
+  participant &#34;Load Buffer&#34; as LoadBuffer {
+    participant &#34;Entry 1&#34; as LB1
+    participant &#34;Entry 2&#34; as LB2
+    participant &#34;...&#34; as LBdots
+  }
+}
+
+box &#34;Cache (Shared)&#34; {
+  participant &#34;Cache Controller&#34; as CacheController
+  participant &#34;Cache Memory&#34; as CacheMemory
+}
+
+participant &#34;Main Memory&#34; as MainMemory
+
+Registers -&gt; ALU : Data for Operation
+ALU -&gt; Registers : Result
+
+Registers -&gt; LoadBuffer : Load Request (Address)
+LoadBuffer -&gt; CacheController : Read Request (Address)
+
+CacheController -&gt; CacheMemory : Check Cache (Tag Lookup)
+
+alt Cache Hit
+    CacheMemory -&gt; CacheController : Data
+    CacheController -&gt; LoadBuffer : Data
+    LoadBuffer -&gt; Registers : Data
+else Cache Miss
+    CacheController -&gt; MainMemory : Read Request (Address)
+    MainMemory -&gt; CacheController : Data
+    CacheMemory -&gt; CacheController : Store Data
+    CacheController -&gt; LoadBuffer : Data
+    LoadBuffer -&gt; Registers : Data
+end
+
+note left of Registers: Thread A or Thread B
+note right of LoadBuffer: Load requests are buffered
+note right of LoadBuffer: Speculative Execution &amp; Memory Disambiguation
+
+@enduml
+</code></pre><p><strong>Explanation of the Load Buffer Diagram:</strong></p>
+<ul>
+<li>
+<p><strong>CPU Core:</strong></p>
+<ul>
+<li><strong>Registers:</strong> As before, used to hold operands and results.</li>
+<li><strong>ALU:</strong> Performs operations.</li>
+<li><strong>Load Buffer:</strong> This is the <em>new</em> component we&rsquo;re focusing on. It&rsquo;s a queue that temporarily holds load (read) requests.</li>
+</ul>
+</li>
+<li>
+<p><strong>Shared Cache and Main Memory:</strong> Same as before.</p>
+</li>
+<li>
+<p><strong>The Flow:</strong></p>
+<ol>
+<li>The CPU needs data at a specific address.</li>
+<li>The CPU places a load request (address) into the Load Buffer.</li>
+<li>The Load Buffer sends a read request to the Cache Controller.</li>
+<li>The Cache Controller checks the cache (hit or miss).</li>
+<li>The data (from cache or main memory) is retrieved and placed <em>back</em> into the Load Buffer.</li>
+<li>Finally, the data is sent from the Load Buffer to the Registers, where the CPU can use it.</li>
+</ol>
+</li>
+</ul>
+<p><strong>2. Speculative Execution and Memory Disambiguation Explained</strong></p>
+<p>Let&rsquo;s break down speculative execution and memory disambiguation with examples.</p>
+<p><strong>a) Speculative Execution</strong></p>
+<ul>
+<li>
+<p><strong>What it is:</strong> The CPU tries to predict what instructions will be needed in the future and executes them <em>before</em> it&rsquo;s certain they are actually needed. This can significantly improve performance. In the context of memory accesses, this means the CPU might load data into the registers <em>before</em> it knows for sure that it&rsquo;s the correct data to load.</p>
+</li>
+<li>
+<p><strong>Why it&rsquo;s useful:</strong> Hides memory latency. Waiting for data from the cache or main memory is slow. By starting the load operation early, the CPU can potentially have the data ready when it&rsquo;s needed.</p>
+</li>
+<li>
+<p><strong>The Problem:</strong> The prediction might be wrong.</p>
+</li>
+<li>
+<p><strong>Diagram and Example (Single-Core):</strong></p>
+</li>
+</ul>
+<pre tabindex="0"><code class="language-plantuml" data-lang="plantuml">@startuml
+participant &#34;Thread A (CPU)&#34; as A
+participant &#34;Load Buffer&#34; as LB
+participant &#34;Cache&#34; as Cache
+participant &#34;Main Memory&#34; as MM
+
+A -&gt; LB : Load x
+LB -&gt; Cache : Check for x
+Cache -&gt; MM : Miss - Fetch x
+MM -&gt; Cache : x (Data)
+Cache -&gt; LB : x (Data)
+
+note right of Cache: The CPU predicts that &#39;x&#39; will be needed\nand begins loading it speculatively
+
+A -&gt; A : if (condition) { ... use x ... }
+
+alt Condition is True
+  A -&gt; A : Use &#39;x&#39;
+  note right of A: Prediction was correct!
+else Condition is False
+  A -&gt; A : Discard &#39;x&#39;
+  note right of A: Prediction was wrong, discard speculative result
+end
+@enduml
+</code></pre><ul>
+<li>
+<p><strong>Real-World Example:</strong></p>
+<ul>
+<li>Consider the code:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (condition) {
+</span></span><span style="display:flex;"><span>    y <span style="color:#f92672">=</span> x <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>;
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    z <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>The CPU might <em>speculatively</em> load <code>x</code> into a register, even before it knows whether <code>condition</code> is true or false. If <code>condition</code> turns out to be true, the CPU has saved time because <code>x</code> is already loaded. If <code>condition</code> is false, the CPU simply discards the loaded value of <code>x</code>.</li>
+</ul>
+</li>
+</ul>
+<p><strong>b) Memory Disambiguation</strong></p>
+<ul>
+<li>
+<p><strong>What it is:</strong> The CPU tracks dependencies between load (read) and store (write) operations that target the <em>same</em> memory location. This is important because if a store is buffered, the CPU needs to ensure that subsequent loads from the same location get the <em>updated</em> value, not a stale value.</p>
+</li>
+<li>
+<p><strong>Why it&rsquo;s necessary:</strong> Store buffers cause a delay in visibility . The CPU needs a mechanism to detect when a load might be reading the wrong data because a store to the same address is still pending in the buffer.</p>
+</li>
+<li>
+<p><strong>The Problem:</strong> If a store hasn&rsquo;t completed, loads that depend on that store could get the wrong value.</p>
+</li>
+<li>
+<p><strong>Diagram and Example (Single-Core):</strong></p>
+</li>
+</ul>
+<pre tabindex="0"><code class="language-plantuml" data-lang="plantuml">@startuml
+participant &#34;Thread A (CPU)&#34; as A
+participant &#34;Load Buffer&#34; as LB
+participant &#34;Store Buffer&#34; as SB
+participant &#34;Cache&#34; as Cache
+
+A -&gt; SB : Store x = value
+A -&gt; LB : Load x
+
+note over A, LB, SB, Cache : The CPU doesn&#39;t yet know\nif the load and store refer\nto the same address
+
+alt Load and Store DO refer to same address
+  A -&gt; LB : Invalidate Load, Retry
+  note right of LB: Memory Disambiguation: Load\nneeds to be retried after the\nstore completes to guarantee correctness
+else Load and Store DO NOT refer to same address
+  A -&gt; A : Continue execution
+  note right of A: Load and Store are independent
+end
+@enduml
+</code></pre><ul>
+<li><strong>Real-World Example:</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>x <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;  <span style="color:#75715e">// Store operation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>y <span style="color:#f92672">=</span> x <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>; <span style="color:#75715e">// Load operation
+</span></span></span></code></pre></div><ul>
+<li>The compiler knows there is a dependency because the load from X is dependendnt on store to x, and the CPU might try to execute the load of <code>x</code> before the store of <code>10</code> to <code>x</code> is complete.</li>
+<li><strong>Memory Disambiguation in Action:</strong>
+<ol>
+<li><strong>Store <code>x = 10</code> in Store Buffer:</strong> The <code>store x = 10</code> instruction is placed in the store buffer.</li>
+<li><strong>Load <code>x</code> in Load Buffer:</strong> The <code>load x</code> instruction is placed in the load buffer.</li>
+<li><strong>Address Comparison:</strong> The CPU compares the address of the load in the load buffer with the address of the store in the store buffer. If it detects that they are the same address, it knows there&rsquo;s a potential dependency.</li>
+<li><strong>Stall or Invalidate and Retry:</strong> To guarantee correctness, the CPU might:
+<ul>
+<li><strong>Stall:</strong> Pause the execution of the <code>load x</code> instruction until the <code>store x = 10</code> completes.</li>
+<li><strong>Invalidate and Retry:</strong> Allow the <code>load x</code> to complete speculatively, but if the <code>store x = 10</code> completes later and changes the value of <code>x</code>, the CPU will invalidate the speculatively loaded value and retry the <code>load x</code> instruction.</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<p><strong>Key Points:</strong></p>
+<ul>
+<li><strong>Single-Core Relevance:</strong> Speculative execution and memory disambiguation are important optimizations even on single-core systems.</li>
+<li><strong>The Load Buffer&rsquo;s Role:</strong> The load buffer is a key component for managing these optimizations. It allows the CPU to track load requests and their dependencies.</li>
+<li><strong>Memory Barriers:</strong> Memory barriers can be used to enforce ordering constraints and prevent speculative execution in certain situations.</li>
+</ul>
+<p>The load buffer, speculative execution, and memory disambiguation are complex but crucial techniques that CPUs use to improve performance. They require careful management to ensure that memory operations are performed correctly, especially in multi-threaded environments.</p>
+<p>Got it! Let&rsquo;s tackle these one by one.</p>
+<h3 id="1-block-diagram-for-load-buffer">
+  1. Block Diagram for Load Buffer
+  <a class="anchor" href="#1-block-diagram-for-load-buffer">#</a>
+</h3>
+<p>Here’s a block diagram similar to the one for the Store Buffer, but focusing on the Load Buffer and how it interacts with the CPU core, cache, and memory in a multithreaded architecture:</p>
+<pre tabindex="0"><code class="language-plantuml" data-lang="plantuml">@startuml
+!define RECTANGLE class
+RECTANGLE CPU {
+  + Execute Instructions
+  + Read/Write Operations
+}
+RECTANGLE &#34;Load Buffer&#34; as LB {
+  + Buffer Read Data
+  + Track Dependencies
+}
+RECTANGLE Cache {
+  + Store Cached Data
+  + Read/Write Operations
+}
+RECTANGLE &#34;Main Memory&#34; as MM {
+  + Store Persistent Data
+}
+
+CPU --&gt; LB : Reads/Writes
+LB --&gt; Cache : Buffer Reads
+Cache --&gt; MM : Memory Access
+CPU --&gt; Cache : Reads/Writes
+@enduml
+</code></pre><h3 id="2-speculative-execution-and-memory-disambiguation">
+  2. Speculative Execution and Memory Disambiguation
+  <a class="anchor" href="#2-speculative-execution-and-memory-disambiguation">#</a>
+</h3>
+<h4 id="speculative-execution">
+  Speculative Execution
+  <a class="anchor" href="#speculative-execution">#</a>
+</h4>
+<p>Speculative execution is an optimization technique used by modern CPUs to improve performance. Here’s how it works:</p>
+<ol>
+<li>
+<p><strong>Speculative Load:</strong> If a load (read) operation depends on a store (write) that hasn&rsquo;t completed yet, the CPU might speculatively execute the load. This means the CPU makes an educated guess and proceeds with the read operation.</p>
+</li>
+<li>
+<p><strong>Flush and Retry:</strong> If the speculation is incorrect (for example, the guessed value turns out to be wrong due to store buffer dependencies), the CPU must flush the speculatively executed instructions and retry the correct load.</p>
+</li>
+</ol>
+<p><strong>Real-World Example:</strong></p>
+<p>Consider a scenario where a program is reading a configuration setting right after writing to it:</p>
+<ul>
+<li>Thread A writes a configuration value.</li>
+<li>Thread B reads the configuration value.</li>
+<li>If Thread B&rsquo;s read operation is speculatively executed before Thread A&rsquo;s write completes, the CPU might read an incorrect value. If the speculation is wrong, the CPU must invalidate the read and retry.</li>
+</ul>
+<h4 id="memory-disambiguation">
+  Memory Disambiguation
+  <a class="anchor" href="#memory-disambiguation">#</a>
+</h4>
+<p>Memory disambiguation helps the CPU keep track of dependencies between loads and stores, ensuring correct execution:</p>
+<ol>
+<li>
+<p><strong>Tracking Dependencies:</strong> If a load and a store target the same address, but the CPU doesn’t know it yet, the load buffer helps track these dependencies. The load buffer temporarily holds the load data until the dependencies are resolved.</p>
+</li>
+<li>
+<p><strong>Invalidation and Retry:</strong> If a store to the same address completes later, the CPU may need to invalidate the speculative load and retry it with the correct data.</p>
+</li>
+</ol>
+<p><strong>Real-World Example:</strong></p>
+<p>Consider a database application that updates and reads records:</p>
+<ul>
+<li>Thread A updates a record (store operation).</li>
+<li>Thread B reads the same record (load operation).</li>
+<li>If the CPU speculatively executes the read before the update completes, the load buffer tracks this dependency.</li>
+<li>Once the update completes, if the read is found to be incorrect, the CPU invalidates the read and retries with the updated data.</li>
+</ul>
+<h3 id="plantuml-diagram-for-speculative-execution-and-memory-disambiguation">
+  PlantUML Diagram for Speculative Execution and Memory Disambiguation
+  <a class="anchor" href="#plantuml-diagram-for-speculative-execution-and-memory-disambiguation">#</a>
+</h3>
+<p>Here&rsquo;s a diagram to illustrate speculative execution and memory disambiguation:</p>
+<pre tabindex="0"><code class="language-plantuml" data-lang="plantuml">@startuml
+!define RECTANGLE class
+RECTANGLE CPU {
+  + Execute Instructions
+  + Speculative Execution
+}
+RECTANGLE &#34;Store Buffer&#34; as SB {
+  + Buffer Write Data
+  + Track Dependencies
+}
+RECTANGLE &#34;Load Buffer&#34; as LB {
+  + Buffer Read Data
+  + Speculative Loads
+}
+RECTANGLE Cache {
+  + Store Cached Data
+}
+RECTANGLE &#34;Main Memory&#34; as MM {
+  + Store Persistent Data
+}
+
+CPU --&gt; SB : Write Operations
+CPU --&gt; LB : Read Operations
+SB --&gt; Cache : Buffer Writes
+LB --&gt; Cache : Speculative Reads
+Cache --&gt; MM : Memory Access
+@enduml
+</code></pre><p>I hope this provides a clearer picture of how these mechanisms work! If you have any more questions or need further explanations, feel free to ask.</p>
+<p>Got it! Let’s focus on a <strong>single-core machine</strong> with a <strong>multi-threaded architecture</strong> and dive into the concepts of <strong>load buffers</strong>, <strong>store buffers</strong>, <strong>speculative execution</strong>, and <strong>memory disambiguation</strong>. I’ll provide detailed explanations, real-world examples, and PlantUML diagrams to illustrate these concepts.</p>
+<hr>
+<h3 id="1-block-diagram-of-load-buffer-and-store-buffer">
+  <strong>1. Block Diagram of Load Buffer and Store Buffer</strong>
+  <a class="anchor" href="#1-block-diagram-of-load-buffer-and-store-buffer">#</a>
+</h3>
+<p>In a single-core machine, the CPU uses <strong>load buffers</strong> and <strong>store buffers</strong> to manage memory operations efficiently. These buffers act as temporary storage for memory requests, allowing the CPU to continue executing instructions while waiting for memory accesses to complete.</p>
+<p>Here’s the block diagram showing the <strong>load buffer</strong>, <strong>store buffer</strong>, and the flow of data between the CPU core, cache, and memory:</p>
+<pre tabindex="0"><code class="language-plantuml" data-lang="plantuml">@startuml
+package &#34;CPU Core&#34; {
+    component &#34;Thread A&#34; as ThreadA
+    component &#34;Thread B&#34; as ThreadB
+    component &#34;Registers&#34; as Registers
+}
+
+package &#34;Buffers&#34; {
+    component &#34;Load Buffer&#34; as LoadBuffer
+    component &#34;Store Buffer&#34; as StoreBuffer
+}
+
+package &#34;Cache&#34; {
+    component &#34;Cache Memory&#34; as CacheMemory
+}
+
+package &#34;Main Memory&#34; {
+    component &#34;RAM&#34; as RAM
+}
+
+ThreadA --&gt; Registers : Read/Write
+ThreadB --&gt; Registers : Read/Write
+Registers --&gt; LoadBuffer : Load (Read) Requests
+Registers --&gt; StoreBuffer : Store (Write) Requests
+LoadBuffer --&gt; CacheMemory : Fetch Data
+StoreBuffer --&gt; CacheMemory : Commit Data
+CacheMemory --&gt; RAM : Write-Back (if needed)
+CacheMemory --&gt; LoadBuffer : Return Data (on Cache Hit)
+RAM --&gt; CacheMemory : Fetch Data (on Cache Miss)
+
+note right of StoreBuffer
+    The Store Buffer temporarily holds
+    writes before they are committed
+    to the Cache Memory.
+end note
+
+note right of LoadBuffer
+    The Load Buffer holds pending
+    read requests until the data
+    is available in the Cache Memory.
+end note
+@enduml
+</code></pre><hr>
+<h3 id="key-components-in-the-diagram">
+  <strong>Key Components in the Diagram</strong>
+  <a class="anchor" href="#key-components-in-the-diagram">#</a>
+</h3>
+<ol>
+<li>
+<p><strong>CPU Core</strong>:</p>
+<ul>
+<li>Contains <strong>Thread A</strong> and <strong>Thread B</strong>, which execute instructions independently.</li>
+<li>Each thread has its own set of <strong>registers</strong> for temporary storage.</li>
+</ul>
+</li>
+<li>
+<p><strong>Load Buffer</strong>:</p>
+<ul>
+<li>Temporarily holds <strong>read requests</strong> (loads) until the data is available in the cache.</li>
+<li>Ensures that the CPU can continue executing instructions while waiting for memory reads to complete.</li>
+</ul>
+</li>
+<li>
+<p><strong>Store Buffer</strong>:</p>
+<ul>
+<li>Temporarily holds <strong>write requests</strong> (stores) before they are committed to the cache.</li>
+<li>Allows the CPU to continue executing instructions without waiting for writes to complete.</li>
+</ul>
+</li>
+<li>
+<p><strong>Cache Memory</strong>:</p>
+<ul>
+<li>A shared cache that stores frequently accessed data.</li>
+<li>Divided into <strong>cache lines</strong>, which are the smallest units of data transfer between the cache and main memory.</li>
+</ul>
+</li>
+<li>
+<p><strong>Main Memory (RAM)</strong>:</p>
+<ul>
+<li>Slower, larger storage that holds all data.</li>
+<li>The cache memory acts as a faster intermediary between the CPU and main memory.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="2-speculative-execution-and-memory-disambiguation-1">
+  <strong>2. Speculative Execution and Memory Disambiguation</strong>
+  <a class="anchor" href="#2-speculative-execution-and-memory-disambiguation-1">#</a>
+</h3>
+<h4 id="speculative-execution-1">
+  <strong>Speculative Execution</strong>
+  <a class="anchor" href="#speculative-execution-1">#</a>
+</h4>
+<p>Speculative execution is a technique used by modern CPUs to improve performance by executing instructions <strong>before knowing whether they are actually needed</strong>. This is particularly useful for <strong>loads</strong> (reads) that depend on <strong>stores</strong> (writes) that haven’t completed yet.</p>
+<h5 id="how-it-works">
+  <strong>How It Works</strong>
+  <a class="anchor" href="#how-it-works">#</a>
+</h5>
+<ol>
+<li>The CPU encounters a <strong>load</strong> instruction that depends on a <strong>store</strong> instruction (e.g., the load reads from a memory location that the store is writing to).</li>
+<li>The CPU <strong>speculatively executes</strong> the load, assuming that the store will not affect the load.</li>
+<li>If the assumption is correct, the result of the load is used.</li>
+<li>If the assumption is wrong (e.g., the store modifies the same memory location), the CPU must <strong>flush</strong> the speculative execution and <strong>retry</strong> the load.</li>
+</ol>
+<h5 id="real-world-example">
+  <strong>Real-World Example</strong>
+  <a class="anchor" href="#real-world-example">#</a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> y <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">threadA</span>() {
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> <span style="color:#ae81ff">42</span>; <span style="color:#75715e">// Store
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    y <span style="color:#f92672">=</span> x <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>; <span style="color:#75715e">// Load depends on the store
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">threadB</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (y <span style="color:#f92672">==</span> <span style="color:#ae81ff">43</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Do something
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>The CPU speculatively executes the load <code>y = x + 1</code> before the store <code>x = 42</code> completes.</li>
+<li>If the store <code>x = 42</code> modifies the value of <code>x</code>, the CPU must flush and retry the load.</li>
+</ul>
+<h5 id="plantuml-diagram">
+  <strong>PlantUML Diagram</strong>
+  <a class="anchor" href="#plantuml-diagram">#</a>
+</h5>
+<pre tabindex="0"><code class="language-plantuml" data-lang="plantuml">@startuml
+participant &#34;Thread A&#34; as ThreadA
+participant &#34;Load Buffer&#34; as LoadBuffer
+participant &#34;Store Buffer&#34; as StoreBuffer
+participant &#34;Cache Memory&#34; as CacheMemory
+
+ThreadA -&gt; StoreBuffer : Store x = 42 (Buffered)
+ThreadA -&gt; LoadBuffer : Load y = x + 1 (Speculative)
+LoadBuffer -&gt; CacheMemory : Fetch x (Speculative)
+StoreBuffer -&gt; CacheMemory : Commit x = 42 (Delayed)
+CacheMemory --&gt; LoadBuffer : Return x = 42 (After Commit)
+note right of LoadBuffer
+    The speculative load is flushed
+    and retried after the store completes.
+end note
+@enduml
+</code></pre><hr>
+<h4 id="memory-disambiguation-1">
+  <strong>Memory Disambiguation</strong>
+  <a class="anchor" href="#memory-disambiguation-1">#</a>
+</h4>
+<p>Memory disambiguation is a technique used by the CPU to resolve dependencies between <strong>loads</strong> and <strong>stores</strong> that target the same memory location. The CPU uses the <strong>load buffer</strong> and <strong>store buffer</strong> to track these dependencies and ensure correct execution.</p>
+<h5 id="how-it-works-1">
+  <strong>How It Works</strong>
+  <a class="anchor" href="#how-it-works-1">#</a>
+</h5>
+<ol>
+<li>The CPU encounters a <strong>load</strong> and a <strong>store</strong> that target the same memory location.</li>
+<li>The CPU does not initially know whether the load depends on the store.</li>
+<li>The <strong>load buffer</strong> and <strong>store buffer</strong> track the addresses of pending loads and stores.</li>
+<li>If a store to the same address later completes, the CPU may need to <strong>invalidate</strong> the load and <strong>retry</strong> it.</li>
+</ol>
+<h5 id="real-world-example-1">
+  <strong>Real-World Example</strong>
+  <a class="anchor" href="#real-world-example-1">#</a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">threadA</span>() {
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> <span style="color:#ae81ff">42</span>; <span style="color:#75715e">// Store
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">threadB</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> y <span style="color:#f92672">=</span> x; <span style="color:#75715e">// Load
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><ul>
+<li>The CPU speculatively executes the load <code>y = x</code> before the store <code>x = 42</code> completes.</li>
+<li>If the store <code>x = 42</code> modifies the value of <code>x</code>, the CPU must invalidate and retry the load.</li>
+</ul>
+<h5 id="plantuml-diagram-1">
+  <strong>PlantUML Diagram</strong>
+  <a class="anchor" href="#plantuml-diagram-1">#</a>
+</h5>
+<pre tabindex="0"><code class="language-plantuml" data-lang="plantuml">@startuml
+participant &#34;Thread A&#34; as ThreadA
+participant &#34;Thread B&#34; as ThreadB
+participant &#34;Load Buffer&#34; as LoadBuffer
+participant &#34;Store Buffer&#34; as StoreBuffer
+participant &#34;Cache Memory&#34; as CacheMemory
+
+ThreadA -&gt; StoreBuffer : Store x = 42 (Buffered)
+ThreadB -&gt; LoadBuffer : Load y = x (Speculative)
+LoadBuffer -&gt; CacheMemory : Fetch x (Speculative)
+StoreBuffer -&gt; CacheMemory : Commit x = 42 (Delayed)
+CacheMemory --&gt; LoadBuffer : Return x = 42 (After Commit)
+note right of LoadBuffer
+    The speculative load is invalidated
+    and retried after the store completes.
+end note
+@enduml
+</code></pre><hr>
+<h3 id="key-takeaways">
+  <strong>Key Takeaways</strong>
+  <a class="anchor" href="#key-takeaways">#</a>
+</h3>
+<ol>
+<li>
+<p><strong>Load Buffer</strong>:</p>
+<ul>
+<li>Temporarily holds <strong>read requests</strong> until the data is available in the cache.</li>
+<li>Helps manage speculative execution and memory disambiguation.</li>
+</ul>
+</li>
+<li>
+<p><strong>Store Buffer</strong>:</p>
+<ul>
+<li>Temporarily holds <strong>write requests</strong> before they are committed to the cache.</li>
+<li>Allows the CPU to continue executing instructions without waiting for writes to complete.</li>
+</ul>
+</li>
+<li>
+<p><strong>Speculative Execution</strong>:</p>
+<ul>
+<li>The CPU executes instructions speculatively to improve performance.</li>
+<li>If the speculation is wrong, the CPU must flush and retry the execution.</li>
+</ul>
+</li>
+<li>
+<p><strong>Memory Disambiguation</strong>:</p>
+<ul>
+<li>The CPU resolves dependencies between loads and stores using the load buffer and store buffer.</li>
+<li>If a store modifies a memory location that a load depends on, the CPU must invalidate and retry the load.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>This explanation and diagrams should help you understand the <strong>load buffer</strong>, <strong>store buffer</strong>, <strong>speculative execution</strong>, and <strong>memory disambiguation</strong> in a single-core, multi-threaded system. Let me know if you need further clarification! 😊</p>
+<p>Let&rsquo;s isolate the cache coherence (or rather, <em>lack</em> of coherence) issues in a single-core, multi-threaded system where the cache is shared. This scenario is somewhat artificial because, in practice, modern single-core systems typically <em>do</em> have some level of cache coherence mechanisms, but let&rsquo;s assume a hypothetical system where the cache acts as a simple, shared storage without any coherence protocols. Also, as requested, we are ignoring reordering issues.</p>
+<p>Here&rsquo;s a breakdown of the data visibility issues:</p>
+<ol>
+<li>
+<p><strong>Stale Reads (Thread A Writes, Thread B Reads Stale Data):</strong></p>
+<ul>
+<li><strong>Scenario:</strong> Thread A writes to a memory location. The value is updated in the shared cache. Later, Thread B reads from the same memory location. <em>However</em>, due to internal cache operations, Thread B might still read a <em>stale</em> value from the cache. There&rsquo;s no guarantee that the updated value written by Thread A will be immediately visible to Thread B.</li>
+<li><strong>Cause:</strong> The delay is because Thread A&rsquo;s write might be buffered within the cache before actually updating the cache line. In a non-coherent cache, there is nothing that ensures Thread B will see that update when the cache line has been updated.</li>
+</ul>
+</li>
+<li>
+<p><strong>Lost Updates (Thread A and Thread B Both Modify Data):</strong></p>
+<ul>
+<li><strong>Scenario:</strong> Thread A reads a value from the shared cache, modifies it, and writes it back. Thread B <em>also</em> reads the same value from the shared cache, modifies it, and writes it back. If Thread B&rsquo;s write happens after Thread A&rsquo;s write, Thread A&rsquo;s update will be lost.</li>
+<li><strong>Cause:</strong> Without cache coherence or explicit synchronization, there&rsquo;s no mechanism to prevent multiple threads from simultaneously operating on the same data.</li>
+</ul>
+</li>
+<li>
+<p><strong>Visibility Delays (A Writes, B Doesn&rsquo;t See Update Immediately):</strong></p>
+<ul>
+<li><strong>Scenario:</strong> Thread A writes to a memory location. Thread B attempts to read from that same location &ldquo;soon&rdquo; after Thread A&rsquo;s write. Thread B might read the old value because there&rsquo;s a delay before the update is visible in the shared cache.</li>
+<li><strong>Cause:</strong> The update written by A might be in a write buffer in the cache and not immediately visible to other threads.</li>
+</ul>
+</li>
+<li>
+<p><strong>Locking and Synchronization Problems:</strong></p>
+<ul>
+<li><strong>Scenario:</strong> If multiple threads attempt to acquire a lock variable (e.g., a spinlock) without a proper synchronization mechanism, multiple threads could enter a critical section simultaneously.</li>
+<li><strong>Cause:</strong> A thread may see a stale version of the lock variable, leading it to falsely believe it can enter the critical section.</li>
+</ul>
+</li>
+<li>
+<p><strong>Incorrect Data Sharing:</strong> If threads communicate by writing data into shared data structures (e.g., message queues), without proper cache coherence and synch, inconsistent values may appear to other threads.</p>
+</li>
+</ol>
+<p><strong>Important Considerations</strong></p>
+<ul>
+<li><strong>Cache Line Granularity:</strong> The &ldquo;unit&rdquo; of sharing and potential staleness is the cache line, not individual bytes.</li>
+<li><strong>Lack of Atomicity:</strong> These problems are closely related to the lack of atomicity. Without synchronization, multiple threads can be executing operations simultaneously, thus resulting in visibility issues.</li>
+</ul>
+<p><strong>Single-Core vs. Multi-Core:</strong></p>
+<p>Even in this hypothetical single-core system, these cache-related issues are significant.</p>
+<ul>
+<li><strong>Correctness is Affected:</strong> The results of the program will be unpredictable.</li>
+<li><strong>Synchronization Becomes Crucial:</strong> Proper synchronization primitives, such as mutexes, semaphores, and critical sections, are necessary to prevent these issues.</li>
+</ul>
+<p>These issues illustrate the need for proper synchronization primitives to ensure correct multi-threaded execution, even in the absence of multiple cores. The presence of cache coherence protocols would alleviate some of these issues, but the fundamental need for synchronization remains.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#understanding-write-buffering-in-a-non-coherent-shared-cache"><strong>Understanding Write Buffering in a Non-Coherent Shared Cache</strong></a></li>
+        <li><a href="#block-diagram-using-plantuml"><strong>Block Diagram Using PlantUML</strong></a></li>
+        <li><a href="#size-of-the-store-buffer--difference-from-cpu-registers"><strong>Size of the Store Buffer &amp; Difference from CPU Registers</strong></a></li>
+        <li><a href="#1-block-diagram-for-load-buffer">1. Block Diagram for Load Buffer</a></li>
+        <li><a href="#2-speculative-execution-and-memory-disambiguation">2. Speculative Execution and Memory Disambiguation</a></li>
+        <li><a href="#plantuml-diagram-for-speculative-execution-and-memory-disambiguation">PlantUML Diagram for Speculative Execution and Memory Disambiguation</a></li>
+        <li><a href="#1-block-diagram-of-load-buffer-and-store-buffer"><strong>1. Block Diagram of Load Buffer and Store Buffer</strong></a></li>
+        <li><a href="#key-components-in-the-diagram"><strong>Key Components in the Diagram</strong></a></li>
+        <li><a href="#2-speculative-execution-and-memory-disambiguation-1"><strong>2. Speculative Execution and Memory Disambiguation</strong></a></li>
+        <li><a href="#key-takeaways"><strong>Key Takeaways</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

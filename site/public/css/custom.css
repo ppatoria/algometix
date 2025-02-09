@@ -1,0 +1,149 @@
+/* Custom CSS for AlgoMetix Homepage */
+
+/* General Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* Header Section */
+.homepage-header {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: #fff;
+    border-bottom: 4px solid #e67e22;
+}
+
+.homepage-header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.homepage-header p {
+    font-size: 1.25rem;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+/* Main Content Section */
+.homepage-content {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.homepage-content h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.homepage-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.homepage-content strong {
+    color: #e67e22;
+}
+
+.homepage-content ul {
+    list-style-type: disc;
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.homepage-content ul li {
+    margin-bottom: 0.5rem;
+}
+
+.homepage-content blockquote {
+    font-style: italic;
+    color: #555;
+    border-left: 4px solid #e67e22;
+    padding-left: 1rem;
+    margin: 2rem 0;
+}
+
+/* Explore More Section */
+.homepage-explore {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.homepage-explore h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.homepage-explore ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.homepage-explore ul li {
+    margin-bottom: 1rem;
+}
+
+.homepage-explore ul li a {
+    text-decoration: none;
+    color: #e67e22;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.homepage-explore ul li a:hover {
+    color: #d35400;
+}
+
+/* Footer Section */
+.homepage-footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #2c3e50;
+    color: #fff;
+    margin-top: 4rem;
+}
+
+.homepage-footer p {
+    margin: 0;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .homepage-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .homepage-header p {
+        font-size: 1.1rem;
+    }
+
+    .homepage-content {
+        padding: 0 1rem;
+    }
+
+    .homepage-content h2 {
+        font-size: 1.75rem;
+    }
+
+    .homepage-explore h2 {
+        font-size: 1.5rem;
+    }
+}

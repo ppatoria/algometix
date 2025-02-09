@@ -53,32 +53,17 @@ structured_data: {
 ---
 
 ## **Cache Coherence and Protocols: Ensuring Data Consistency in Multi-Core Systems**
+Modern multi -  core processors rely on private caches to reduce latency and improve performance.However, when multiple cores access the same memory location, ensuring consistency across caches becomes essential. **Cache coherence** guarantees that all cores observe a consistent view of memory, preventing stale or incorrect data from affecting computations.
 
-    Modern multi -
-    core processors rely on private caches to reduce latency and
-        improve performance.However,
-    when multiple cores access the same memory location,
-    ensuring consistency across caches becomes essential.**Cache coherence **
-        guarantees that all cores observe a consistent view of memory,
-    preventing stale or incorrect data from affecting computations.
-
-                        This article explores why cache coherence is crucial,
-    common problems that arise without it,
-    and how protocols address these issues.
+This article explores why cache coherence is crucial, common problems that arise without it,and how protocols address these issues.
 
 ### **Why Are Cache Coherence Protocols Important?**
 
-        Cache coherence protocols ensure **
-            data consistency across multiple cores **by preventing stale reads,
-    lost updates,
-    and synchronization failures.Here
-            are some critical problems that arise without cache coherence :
+Cache coherence protocols ensure **data consistency across multiple cores** by preventing stale reads, lost updates, and synchronization failures.
+Here are some critical problems that arise without cache coherence :
 
-    ##1. Stale
-    Reads(Reader - Writer Inconsistency) -
-        **Problem : **One core writes a value
-                    while another core reads the same memory but sees an
-                    old(stale) value due to delayed cache updates.
+##1. Stale Reads(Reader - Writer Inconsistency) -
+- **Problem :** One core writes a value while another core reads the same memory but sees an old(stale) value due to delayed cache updates.
 - **Example:** A flag-based synchronization where the reader sees the flag but not the updated data.
         - Core 1 writes flag = true but the change is only in its private cache.
         - Core 2 checks flag, but it still sees the old value (false) and proceeds incorrectly.

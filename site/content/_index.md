@@ -1,27 +1,25 @@
----
-title: "Welcome to AlgoMetix"
-description: "Deep insights into C++, low-latency programming, and algorithmic trading."
-date: 2025-02-02
-menu:
-  main:
-    weight: 1
----
+![AlgoMetix](/diagrams/algometix.webp)
+<div class="homepage-header">
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+</div>
 
-# Welcome to AlgoMetix
+<div class="homepage-content">
+    ## **What is AlgoMetix?**
 
-**Mastering High-Performance C++ & Low-Latency Trading Systems**
+    AlgoMetix is a platform dedicated to mastering **high-performance C++** and **low-latency trading systems**...
 
-AlgoMetix is dedicated to exploring the depths of **C++, low-latency programming, performance optimization, and algorithmic trading**. With over 20 years of experience in **front-office trading desks** at investment banks like Credit Suisse and BNP Paribas, I share practical insights into building real-world, high-performance systems.
+    > *"If you're looking to build ultra-fast, highly efficient trading systems, you're in the right place!"*
+</div>
 
-## What You’ll Find Here
-- **Advanced C++ Techniques** – Templates, multi-threading, lock-free structures.
-- **Low-Latency Optimization** – CPU cache efficiency, NUMA-aware programming.
-- **Algorithmic Trading** – Order execution, market data handling, risk management.
-- **Real-World Performance Tuning** – Practical case studies & best practices.
+<div class="homepage-explore">
+    ## **Explore More**
 
-## Explore More
-- [About Me](/about/) – Learn about my background and expertise.
-- [Blog](/blog/) – Deep-dive articles on C++ and performance tuning.
-- [Consulting](/consulting/) – Get expert help with your high-performance systems.
+    🔹 **[About Me](/about/)** – My journey, expertise & experience.  
+    🔹 **[Blog](/blog/)** – Deep-dive articles on C++, low-latency programming & performance tuning.  
+    🔹 **[Consulting](/consulting/)** – Need expert help? Let’s work together!  
+</div>
 
----
+<div class="homepage-footer">
+    <p>Stay ahead in high-performance programming – dive in now!</p>
+</div>

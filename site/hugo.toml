@@ -9,4 +9,5 @@ theme = "hugo-book"
   BookSection = "docs" # Change this if needed
   bookPageTree = true
   bookSection = "blog"
-
+  assetsDir = "static"
+  custom_css = ["css/custom.css"]
