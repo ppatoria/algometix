@@ -2,6 +2,10 @@
 public/
 resources/
 hugo_stats.json
+.hugo_build.lock
+themes/hugo-book/exampleSite/
+static/katex/
+static/mermaid.min.js
 
 # Ignore temporary and cache files
 .cache/

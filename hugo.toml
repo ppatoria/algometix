@@ -1,0 +1,14 @@
+baseURL = "https://algometix.com/"
+languageCode = "en-us"
+title = "Algometix"
+theme = "hugo-book"
+
+[params]
+  BookTheme = "auto"  # Can be "light", "dark", or "auto"
+  BookToC = true       # Enable table of contents
+  BookMenuBundle = "/menu" # Ensures correct sidebar loading
+  BookSection = "docs" # Change this if needed
+  bookPageTree = true
+  bookSection = "blog"
+  assetsDir = "static"
+  custom_css = ["css/custom.css"]
