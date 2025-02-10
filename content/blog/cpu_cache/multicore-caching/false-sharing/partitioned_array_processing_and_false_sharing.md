@@ -51,22 +51,25 @@ structured_data: {
 }
 ---
 
-## **Scenario: Impact of Adjacent Element Modification While Loop Processing with Separate Indices**
+## **Scenario: Impact of Adjacent Element Modification During Parallel Loop Processing**
 
-- Threads process separate parts of an array, but **adjacent elements share the same cache line**.
-- Example: Each thread processes a **different index**, but due to cache alignment, they keep invalidating each other's work.
+- Threads process separate parts of an array. When adjacent array elements reside within the same cache line, modifications by different threads can lead to performance degradation.
+- This is because even though threads are working on logically distinct elements, cache line invalidation forces threads to reload data unnecessarily.
 
-### **Figure showing false sharing when adjacent array indices share the same cache line.**
+### **False Sharing Illustration**
+
 ![False Sharing: Adjacent array indices share the same cache line](/diagrams/false_sharing_adjacent_array_indices.png)
 
-### **Code: Parallel Order Book Modification with Potential False Sharing**
+### **Code: Parallel Order Book Modification (Illustrating Potential False Sharing)**
 
-#### Introduction to the Order Book and Price Level Orders
-In financial markets, an **order book** is a real-time list of buy and sell orders for a particular asset. Each order has:
-1. **Price**: The price at which the order is placed.
-2. **Volume**: The amount of the asset to be bought or sold at the specified price.
+#### Introduction to Order Books and Price Level Orders
 
-Orders are placed at various price levels, and each level represents a price point in the order book.
+In financial markets, an **order book** aggregates buy and sell orders for an asset. Each order specifies:
+
+1.  **Price**: The price at which the order is placed.
+2.  **Volume**: The amount of the asset to be bought or sold at that price.
+
+Orders are grouped by price level, representing the available buy and sell interest at different price points.
 
 #### Code Breakdown
 
@@ -77,38 +80,38 @@ Orders are placed at various price levels, and each level represents a price poi
 #include <atomic>
 #include <chrono>
 
-const int NUM_THREADS = 4;  // Number of threads to use for modifying orders
+const int NUM_THREADS = 4;  // Number of threads to use
 
-// Structure for representing an order book level
-struct OrderBookLevel {  
-    int price;    // Price of the order at this level
-    int volume;   // Volume of the order at this price level
+// Structure for an order book level
+struct OrderBookLevel {
+    int price;    // Price of the order
+    int volume;   // Volume of the order
 };
 
-std::vector<OrderBookLevel> order_book;  // Global vector to hold the order book
+std::vector<OrderBookLevel> order_book;  // Global vector holding the order book
 
 // Function to modify orders in the order book
-void modify_orders(int thread_id) {    
-    int start_index = thread_id * (order_book.size() / NUM_THREADS);  // Starting index for the thread's portion
-    int end_index = start_index + (order_book.size() / NUM_THREADS);  // Ending index for the thread's portion
+void modify_orders(int thread_id) {
+    int start_index = thread_id * (order_book.size() / NUM_THREADS);  // Starting index for this thread's partition
+    int end_index   = start_index + (order_book.size() / NUM_THREADS);  // Ending index for this thread's partition
 
     for (int i = start_index; i < end_index; ++i) {
-        // Simulating order cancellation or modification
+        // Simulate order cancellation/modification
         if (order_book[i].volume > 100) {
-            order_book[i].volume -= 100;  // Partial cancellation of orders at this price level
+            order_book[i].volume -= 100;  // Reduce volume (partial cancellation)
         }
     }
 }
 
-int main() { 
+int main() {
     std::vector<std::thread> threads;  // Vector to hold threads
 
-    // Create and start the threads
+    // Create and start threads
     for (int i = 0; i < NUM_THREADS; ++i) {
         threads.emplace_back(modify_orders, i);  // Launch threads to modify orders in parallel
     }
 
-    // Join all threads to ensure they complete their execution
+    // Wait for threads to complete
     for (auto& t : threads) {
         t.join();
     }
@@ -117,44 +120,61 @@ int main() {
 }
 ```
 
-#### Explanation of the Code:
-1. **OrderBookLevel Structure**:
-    - Represents a single order in the order book, containing `price` and `volume`.
+#### Explanation:
 
-2. **Global Order Book (`order_book`)**:
-    - A vector holding all orders in the order book, with each entry representing an order at a specific price level.
+1.  **`OrderBookLevel` Structure:** Represents a single order at a given price level, containing its `price` and `volume`.
+2.  **`order_book` (Global):** A vector holding all orders, with each entry representing a specific price level.
+3.  **Parallel Modification:** The code uses multi-threading to parallelize order book modifications. Each thread processes a portion of the `order_book`, reducing order volume if it exceeds 100.
+4.  **`modify_orders` Function:** Each thread works on a segment of the order book defined by `start_index` and `end_index`. It simulates order modification by decreasing the volume (if greater than 100).
+5.  **Thread Management:** Threads are created and joined to ensure parallel execution and completion.
 
-3. **Multithreading and Multicore Processing**:
-    - The code leverages **multi-threading** to parallelize the modification of the order book, taking advantage of multicore processors to enhance performance.
-    - Each thread modifies a portion of the `order_book` vector independently, reducing the volume of orders by 100 if the volume is greater than 100.
+#### Potential False Sharing
 
-4. **The `modify_orders` Function**:
-    - Each thread processes a segment of the order book, determined by `start_index` and `end_index`.
-    - It simulates order cancellation or modification by decreasing the volume by 100 (if the volume is greater than 100).
+**False sharing** occurs when multiple threads modify logically independent data that happens to reside within the same cache line. This leads to unnecessary cache invalidations and reloads, significantly degrading performance.
 
-5. **Thread Creation and Joining**:
-    - Threads are created using `std::thread` and joined after execution to ensure completion.
+**In this code:**
 
-#### Possible False Sharing Issue in This Code
+- The `order_book` vector is shared, and each thread modifies different `OrderBookLevel` objects.
+- If adjacent `OrderBookLevel` objects happen to fall on the same cache line, modifying them from different threads can trigger false sharing.
 
-**False Sharing** occurs when multiple threads modify variables on the same cache line, even if the variables are logically independent. This causes cache invalidations and reloads, leading to performance degradation.
+For example, if `OrderBookLevel[i].price` and `OrderBookLevel[i+1].volume` reside on the same cache line, modifying them concurrently will cause cache invalidations, even though the data is logically distinct.
 
-#### In the Provided Code:
-- The `order_book` vector is shared among all threads, and each thread modifies different `OrderBookLevel` objects.
-- If adjacent `OrderBookLevel` objects share the same cache line, threads modifying different objects could invalidate the cache line unnecessarily.
+## Mitigation Strategies for False Sharing (Ordered by Potential Efficiency)
 
-For example:
-- If `OrderBookLevel[i].price` is modified by one thread and `OrderBookLevel[i+1].volume` is modified by another, both modifications could be on the same cache line.
-- This causes **false sharing**, as the cache line is invalidated whenever one thread modifies its data, even though the variables are independent.
+### 1. SoA: Separate Arrays (Optionally Grouped in a Struct)
 
+Instead of using an Array of Structures (AoS), the key idea is to store each field (price, volume, etc.) in *separate arrays*. This organization reduces false sharing and can improve memory access patterns.
 
-## Possible solutions to False Sharing (Ordered by Efficiency)
+**Option A: Separate Arrays Only**
 
-### 1. Structure of Arrays (SoA) - Most Efficient
+This is the simplest implementation, where you declare separate arrays for each field:
 
-Instead of storing **price** and **volume** together in a single structure (Array of Structures), we use **separate arrays** for each field.
+```cpp
+// Separate arrays for prices and volumes
+// std::vector<int> prices(ORDER_BOOK_SIZE);  //Uncomment this line in main as well
+// std::vector<int> volumes(ORDER_BOOK_SIZE);  //Uncomment this line in main as well
+```
 
-#### Example:
+**Option B: Separate Arrays Grouped in a Struct**
+
+For better organization, you can group the separate arrays within a `struct`:
+
+```cpp
+// Structure to hold the separate arrays
+struct OrderBook {
+    std::vector<int> prices;
+    std::vector<int> volumes;
+};
+```
+
+**Advantages and Disadvantages (Concise):**
+
+*   **Organization:** Option B (struct) provides better logical grouping of related arrays.
+*   **Access:** Option A (separate arrays) uses direct access; Option B (struct) accesses via struct members.
+
+**Complete Example Code (Option B - Separate Arrays in a Struct):**
+
+The following code demonstrates how to modify volumes using **Option B** and addresses the issues mentioned:
 
 ```cpp
 #include <iostream>
@@ -164,120 +184,73 @@ Instead of storing **price** and **volume** together in a single structure (Arra
 const int NUM_THREADS = 4;
 const int ORDER_BOOK_SIZE = 1000;
 
-// Separate arrays for prices and volumes
-std::vector<int> prices(ORDER_BOOK_SIZE);
-std::vector<int> volumes(ORDER_BOOK_SIZE);
-
-void modify_volumes(int thread_id) {
-    int start_index = thread_id * (volumes.size() / NUM_THREADS);
-    int end_index = start_index + (volumes.size() / NUM_THREADS);
-
-    for (int i = start_index; i < end_index; ++i) {
-        if (volumes[i] > 100) {
-            volumes[i] -= 100; // Modify only volumes, preventing false sharing
-        }
-    }
-}
+// Structure to hold the separate arrays
+struct OrderBook {
+    std::vector<int> prices;
+    std::vector<int> volumes;
+};  // Don't forget the semicolon!
 
 int main() {
-    std::vector<std::thread> volume_threads;
-    
-    for (int i = 0; i < NUM_THREADS; ++i) {
-        volume_threads.emplace_back(modify_volumes, i);
-    }
+    OrderBook order_book; //declare the struct so that its member can be accessed.
+    order_book.prices.resize(ORDER_BOOK_SIZE); //initialize struct and its member
+    order_book.volumes.resize(ORDER_BOOK_SIZE);
 
-    for (auto& t : volume_threads) t.join();
-    return 0;
-}
-```
-
-### When SoA May Not Be Applicable:
-If **price and volume are tightly coupled** (e.g., volume modifications depend on price), then separating them into different arrays **may not work**. In such cases, other solutions are needed.
-
-
-### 3. Aligning Data with Padding
-
-Use `alignas(64)` to enforce cache-line alignment.
-
-```cpp
-struct alignas(64) OrderBookLevel {  
-    int price;    
-    int volume;   
-    char padding[CACHE_LINE_SIZE - sizeof(int) * 2];  // Padding to ensure isolation in cache
-
-```
-1. **`alignas(CACHE_LINE_SIZE)`**: Ensures the struct's starting address aligns with a cache line boundary, preventing multiple threads from accessing the same cache line.  
-2. **Explicit Padding `char padding[CACHE_LINE_SIZE - sizeof(int) * 2]`** : Guarantees the struct's size matches the cache line size, avoiding overlap into adjacent cache lines.  
-3. **Combination**: For single instances, use both `alignas` and padding to ensure proper alignment and size. For arrays, `alignas` alone suffices, as it ensures proper alignment and size without manual padding.  
-4. **Purpose Solved**: Optimizes memory access patterns, reduces cache invalidation, and improves performance in multi-threaded applications.
-
-
-### 4. Efficient or Smart parittioning using padding after each partition.
-```cpp
-#include <iostream>
-#include <vector>
-#include <thread>
-#include <span>
-
-const int NUM_THREADS = 4;  // Number of threads to use for modifying orders
-const int ORDER_BOOK_SIZE = 1000;  // Size of the order book
-const int CACHE_LINE_SIZE = 64;  // Cache line size (in bytes)
-
-// Structure for representing an order book level
-struct OrderBookLevel {
-    int price;    // Price of the order at this level
-    int volume;   // Volume of the order at this price level
-
-// Global vector to hold the order book
-std::vector<OrderBookLevel> order_book(ORDER_BOOK_SIZE);
-
-// Function to modify orders in a partition of the order book
-void modify_orders(std::span<OrderBookLevel> partition) {
-    // Each thread processes its own partition of the order book
-    for (auto& level : partition) {
-        // Simulating order cancellation or modification
-        if (level.volume > 100) {
-            level.volume -= 100;  // Partial cancellation of orders at this price level
-        }
-    }
-}
-
-int main() {
-    // Example: Initialize order book with some data
+    // Initialize the data (example)
     for (int i = 0; i < ORDER_BOOK_SIZE; ++i) {
-        order_book[i].price = 100 + i;  // Example price
-        order_book[i].volume = 500 + (i % 10) * 10;  // Example volume
+        order_book.prices[i] = 100 + i;
+        order_book.volumes[i] = 500 + (i % 10) * 10;
     }
 
-    std::vector<std::thread> threads;  // Vector to hold threads
-
-    // Calculate the size of each partition (including padding)
-    int base_partition_size = ORDER_BOOK_SIZE / NUM_THREADS;
-    int padding_elements = CACHE_LINE_SIZE / sizeof(OrderBookLevel);  // Padding in terms of OrderBookLevel elements
-    int partition_size = base_partition_size + padding_elements;
-
-    // Create and start the threads
+    // Create and launch threads
+    std::vector<std::thread> threads;
     for (int i = 0; i < NUM_THREADS; ++i) {
-        int start_index = i * base_partition_size;  // Starting index for the thread's partition
-        int end_index = start_index + base_partition_size;  // Ending index for the thread's partition
-
-        // Create a span for the partition (including padding at the end)
-        std::span<OrderBookLevel> partition(&order_book[start_index], partition_size);
-
-        // Launch threads to modify orders in parallel
-        threads.emplace_back(modify_orders, partition);
+        threads.emplace_back([&, i]() {
+            int start_index = i * (order_book.volumes.size() / NUM_THREADS);
+            int end_index = start_index + (order_book.volumes.size() / NUM_THREADS);
+            for (int j = start_index; j < end_index; ++j) {  //Correct the loop counter
+                if (order_book.volumes[j] > 100) {
+                    order_book.volumes[j] -= 100;
+                }
+            }
+        });
     }
 
-    // Join all threads to ensure they complete their execution
+    // Join the threads
     for (auto& t : threads) {
         t.join();
     }
 
-    std::cout << "Order book modified successfully." << std::endl;
-
+    std::cout << "Volumes modified successfully!" << std::endl;
     return 0;
 }
 ```
+
+### 2. Data Alignment with Padding
+
+Use `alignas(64)` to enforce cache-line alignment and add padding within the structure to prevent adjacent elements from sharing a cache line.
+
+```cpp
+const int CACHE_LINE_SIZE = 64;
+
+struct alignas(CACHE_LINE_SIZE) OrderBookLevel {
+    int price;
+    int volume;
+    char padding[CACHE_LINE_SIZE - sizeof(int) * 2];  // Padding to fill the cache line
+};
+```
+
+**Explanation:**
+
+1.  **`alignas(CACHE_LINE_SIZE)`:** Ensures the `OrderBookLevel` struct starts at a cache line boundary.
+2.  **`padding` Member:** Guarantees that each `OrderBookLevel` occupies a full cache line, preventing overlap and false sharing.
+3.  **Usage:** For single instances of the struct, use both `alignas` and padding. For arrays, `alignas` applied to the array's element type is generally sufficient.
+4.  **Benefits:** Improves memory access patterns, reduces cache invalidation, and enhances performance in multi-threaded applications.
+
+### 3. Partitioning with Padding
+
+Divide the `order_book` into partitions, adding padding after each partition to ensure separation on cache lines. This strategy leverages `std::span` for efficient access to the partitions. The goal is to *isolate* the data accessed by each thread onto its own cache lines, preventing false sharing.
+
+**Code:**
 
 ```cpp
 #include <iostream>
@@ -286,11 +259,11 @@ int main() {
 #include <span>
 #include <cstdint>
 
-const int NUM_THREADS = 4;  // Number of threads
-const int ORDER_BOOK_SIZE = 1000;  // Number of actual orders
-const int CACHE_LINE_SIZE = 64;  // Cache line size in bytes
-const int ELEMENT_SIZE = sizeof(OrderBookLevel);  // Each OrderBookLevel has 2 ints (8 bytes)
-const int PADDING_ELEMENTS = CACHE_LINE_SIZE / ELEMENT_SIZE;  // Number of extra elements to pad
+const int NUM_THREADS = 4;                // Number of threads
+const int ORDER_BOOK_SIZE = 1000;           // Number of actual orders
+const int CACHE_LINE_SIZE = 64;             // Cache line size in bytes
+const int ELEMENT_SIZE = sizeof(OrderBookLevel); // Size of OrderBookLevel struct
+const int PADDING_ELEMENTS = CACHE_LINE_SIZE / ELEMENT_SIZE; // Padding elements
 
 // Structure representing an order book level
 struct OrderBookLevel {
@@ -339,15 +312,99 @@ int main() {
 }
 ```
 
+**Walkthrough of Partitioning Logic:**
 
-### 5. Using Local Buffers and Merging Results
-Each thread processes data in its **local buffer**, then merges it back after completion.
+1.  **Goal:** Divide the `order_book` into `NUM_THREADS` partitions. Each thread will work on its own partition. We want to ensure that the data each thread works on resides on separate cache lines to avoid false sharing.
+2.  **Constants:**
+    *   `ORDER_BOOK_SIZE`: The number of *actual* `OrderBookLevel` elements we want to store.
+    *   `CACHE_LINE_SIZE`: The size of a cache line on the target architecture (e.g., 64 bytes).
+    *   `ELEMENT_SIZE`: The size of the `OrderBookLevel` struct in bytes.
+    *   `PADDING_ELEMENTS`: The number of `OrderBookLevel` elements needed to fill a full cache line.
+3.  **`PADDING_ELEMENTS` Calculation:**
 
-Ah, I see! You're asking for a solution where each thread works on a **local buffer** and then merges the results back into the shared global data. This method can help reduce false sharing, as each thread operates on its own local copy of the data, avoiding the cache-line conflicts that would arise if threads directly modified the shared `order_book`.
+    This is the most important calculation:
 
-Here's an efficient version of the buffering solution that **does not require alignment** and follows the **local buffer and merging** approach:
+    ```cpp
+    const int PADDING_ELEMENTS = CACHE_LINE_SIZE / ELEMENT_SIZE;
+    ```
 
-### Updated Code Using Local Buffers and Merging
+    This tells us how many *extra* `OrderBookLevel` elements we need to add as padding after each partition to ensure that the *next* partition starts on a new cache line. If a cache line is 64 bytes, and each `OrderBookLevel` element is 8 bytes (2 `int`s), then `PADDING_ELEMENTS` will be 64 / 8 = 8. So we will insert eight padding elements at the end of each partition.
+4.  **`order_book` Size:**
+
+    The total size of the `order_book` vector includes the actual order elements *plus* the padding:
+
+    ```cpp
+    std::vector<OrderBookLevel> order_book(ORDER_BOOK_SIZE + (NUM_THREADS * PADDING_ELEMENTS));
+    ```
+
+    So the total size is `ORDER_BOOK_SIZE` plus `PADDING_ELEMENTS` for *each* thread.
+
+5.  **Partition size:**
+
+    Each thread gets the same number of elements to work on this is achieved through the use of this line.
+
+    ```cpp
+    int partition_size = ORDER_BOOK_SIZE / NUM_THREADS;
+    ```
+
+6.  **`start_index` Calculation:**
+
+    The `start_index` determines where each thread's partition begins within the `order_book`. This calculation *includes* the padding from previous partitions:
+
+    ```cpp
+    int start_index = i * (partition_size + PADDING_ELEMENTS);
+    ```
+
+    For example: If you have three threads; the `start_index` of the partition would be the number of elements from previous partion added with padding from previous parition. If each partition is assigned `partion_size` elements and padded with `PADDING_ELEMENTS` this is the total that is mulitplied the thread number to assigned the `start_index`.
+7.  **`std::span` Construction:**
+
+    The `std::span` provides a *view* of the data within the `order_book` that a thread is allowed to access. *Crucially*, the `std::span` only covers the *actual* order elements within the partition, *excluding* the padding:
+
+    ```cpp
+    std::span<OrderBookLevel> partition(order_book.data() + start_index, partition_size);
+    ```
+
+    The span starts at the correct `start_index`, but its length is only `partition_size` (the number of actual order elements). The span prevents the thread from accidentally accessing or modifying the padding.
+8.  **Iteration:**
+
+    The `modify_orders` function uses a `std::span` to iterate only though a partion which is the `order_book` which is allocated to the current thread.
+
+    ```cpp
+        for (auto& level : partition) {
+            if (level.volume > 100) {
+                level.volume -= 100;
+            }
+        }
+    ```
+
+**Example Calculation:**
+
+Let's say:
+
+*   `NUM_THREADS = 4`
+*   `ORDER_BOOK_SIZE = 1000`
+*   `CACHE_LINE_SIZE = 64` bytes
+*   `sizeof(OrderBookLevel) = 8` bytes (2 `int`s)
+
+Then:
+
+*   `PADDING_ELEMENTS = 64 / 8 = 8`
+*   The total size of `order_book` is `1000 + (4 * 8) = 1032`
+*   `partition_size = 1000 / 4 = 250`
+
+For Thread 1 (`i = 1`):
+
+*   `start_index = 1 * (250 + 8) = 258`
+*   The `std::span` for Thread 1 will start at index 258 and have a length of 250.
+*   Thread 1 can access element from `order_book[258]` to `order_book[507]` without any risks.
+
+This detailed explanation and calculation example should make the partitioning logic much clearer to your readers.
+
+### 4. Local Buffers and Merging Results
+
+Each thread processes data in its local buffer and then merges it back into the shared data after completion. This strategy eliminates false sharing but introduces a copying overhead.
+
+**Code:**
 
 ```cpp
 #include <iostream>
@@ -356,13 +413,13 @@ Here's an efficient version of the buffering solution that **does not require al
 #include <atomic>
 #include <chrono>
 
-const int NUM_THREADS = 4;  // Number of threads to use for modifying orders
+const int NUM_THREADS = 4;  // Number of threads
 const int ORDER_BOOK_SIZE = 1000;  // Size of the order book
 
 // Structure for representing an order book level
 struct OrderBookLevel {
-    int price;    // Price of the order at this level
-    int volume;   // Volume of the order at this price level
+    int price;
+    int volume;
 };
 
 // Global vector to hold the order book
@@ -374,40 +431,40 @@ void modify_orders(int thread_id) {
     std::vector<OrderBookLevel> local_buffer(ORDER_BOOK_SIZE / NUM_THREADS);
 
     // Determine which portion of the order book the thread is responsible for
-    int start_index = thread_id * (ORDER_BOOK_SIZE / NUM_THREADS);  // Starting index for the thread's portion
-    int end_index = start_index + (ORDER_BOOK_SIZE / NUM_THREADS);  // Ending index for the thread's portion
+    int start_index = thread_id * (ORDER_BOOK_SIZE / NUM_THREADS);  // Starting index
+    int end_index   = start_index + (ORDER_BOOK_SIZE / NUM_THREADS);  // Ending index
 
-    // Each thread processes its own local buffer (work is done on the local copy)
+    // Each thread processes its local buffer (work is done on the local copy)
     for (int i = start_index; i < end_index; ++i) {
-        local_buffer[i - start_index] = order_book[i];  // Copy the data into the local buffer
+        local_buffer[i - start_index] = order_book[i];  // Copy data to local buffer
 
-        // Simulating order cancellation or modification
+        // Simulate order cancellation/modification
         if (local_buffer[i - start_index].volume > 100) {
-            local_buffer[i - start_index].volume -= 100;  // Partial cancellation of orders at this price level
+            local_buffer[i - start_index].volume -= 100;
         }
     }
 
-    // After local processing, merge the results back into the main order book
+    // After local processing, merge results back into the main order book
     for (int i = start_index; i < end_index; ++i) {
-        order_book[i] = local_buffer[i - start_index];  // Copy the modified data back to the global order book
+        order_book[i] = local_buffer[i - start_index];  // Copy modified data back
     }
 }
 
 int main() {
-    // Example: Initialize order book with some data
+    // Initialize order book
     for (int i = 0; i < ORDER_BOOK_SIZE; ++i) {
-        order_book[i].price = 100 + i;  // Example price
-        order_book[i].volume = 500 + (i % 10) * 10;  // Example volume
+        order_book[i].price = 100 + i;
+        order_book[i].volume = 500 + (i % 10) * 10;
     }
 
-    std::vector<std::thread> threads;  // Vector to hold threads
+    std::vector<std::thread> threads;
 
-    // Create and start the threads
+    // Create and start threads
     for (int i = 0; i < NUM_THREADS; ++i) {
-        threads.emplace_back(modify_orders, i);  // Launch threads to modify orders in parallel
+        threads.emplace_back(modify_orders, i);
     }
 
-    // Join all threads to ensure they complete their execution
+    // Wait for threads to complete
     for (auto& t : threads) {
         t.join();
     }
@@ -418,21 +475,18 @@ int main() {
 }
 ```
 
-### Explanation of Changes:
+**Explanation and Considerations:**
 
-1. **Local Buffer**: Each thread operates on a **local buffer** (a temporary copy of its portion of the `order_book`). This avoids direct modification of the global `order_book` and reduces contention between threads. Each thread works on its own isolated buffer, thus preventing cache invalidation across threads.
+1.  **Local Buffer:** Each thread operates on a local buffer, thus avoiding direct modifications to the global `order_book`.
+2.  **Merging:** After processing, the thread merges back the data by merging it in main `order_book`
+3.  **Benefit:** Working on local copies prevent false sharing.
+4.  **Limitations:** This technique involves extra memory copy, which may outweigh the advantage of using multiple cores as the threads have to process the volume on their local copy. Also we cannot be sure whether this solution provides better efficiency than performing on an array on single process. It depends whether copying the data is more cheaper that overhead caused by cache invalidation due to false sharing.
 
-2. **Merging Results**: After the thread has processed its portion of the data in the local buffer, the changes are merged back into the main `order_book`. This is done after the local processing to minimize conflicts between threads when accessing the shared global data.
+**When to Consider Local Buffers:**
 
-3. **Avoiding False Sharing**: Since each thread works on a copy of the data, false sharing is avoided. Threads only write back to the global array once they are finished processing, so there is no need to worry about multiple threads modifying the same memory locations at the same time.
+*   **Complex Processing:** If the processing within the loop is very complex and computationally intensive, the overhead of copying might be small compared to the overall processing time.
+*   **High Contention:** When there's very high contention (frequent cache invalidation) due to false sharing, the local buffer approach might be beneficial.
 
-### Why This Works:
+**Important Note:**
 
-- **Local Buffers**: By using local buffers, threads don’t directly operate on the global `order_book`. This reduces the need for synchronization mechanisms like locks, as threads don’t step on each other’s data.
-  
-- **Efficient Merging**: The merging step happens only once at the end of the computation, minimizing the performance overhead from accessing shared data. This ensures that the threads' local work doesn’t interfere with each other during processing.
-
-- **No False Sharing**: Since the threads work on separate chunks of the `order_book` (in their local buffers), there is no danger of false sharing, even though the data might be accessed or modified in parallel.
-
-### Conclusion:
-This solution is **false-sharing safe**
+It's crucial to benchmark and profile your code to determine whether this approach is actually improving performance compared to other techniques or even a single-threaded solution. The optimal strategy depends on the specific workload and hardware characteristics.
