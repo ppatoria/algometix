@@ -1,8 +1,8 @@
 ---
-title: "Scenario: Impact of Adjacent Element Modification While Loop Processing with Separate Indices"
+title: "Impact of Adjacent Array Indices Modification"
 date: 2025-02-06T23:30:00
 author: "Pralay Patoria"
-weight: 10
+weight: 11
 tags: [
   "C++", 
   "Performance Optimization", 
@@ -139,9 +139,9 @@ int main() {
 
 For example, if `OrderBookLevel[i].price` and `OrderBookLevel[i+1].volume` reside on the same cache line, modifying them concurrently will cause cache invalidations, even though the data is logically distinct.
 
-## Mitigation Strategies for False Sharing (Ordered by Potential Efficiency)
+## **Mitigation Strategies for False Sharing (Ordered by Potential Efficiency)**
 
-### 1. SoA: Separate Arrays (Optionally Grouped in a Struct)
+### 1. **SoA: Separate Arrays (Optionally Grouped in a Struct)**
 
 Instead of using an Array of Structures (AoS), the key idea is to store each field (price, volume, etc.) in *separate arrays*. This organization reduces false sharing and can improve memory access patterns.
 
@@ -225,7 +225,7 @@ int main() {
 }
 ```
 
-### 2. Data Alignment with Padding
+### 2. **Data Alignment with Padding**
 
 Use `alignas(64)` to enforce cache-line alignment and add padding within the structure to prevent adjacent elements from sharing a cache line.
 
@@ -246,7 +246,7 @@ struct alignas(CACHE_LINE_SIZE) OrderBookLevel {
 3.  **Usage:** For single instances of the struct, use both `alignas` and padding. For arrays, `alignas` applied to the array's element type is generally sufficient.
 4.  **Benefits:** Improves memory access patterns, reduces cache invalidation, and enhances performance in multi-threaded applications.
 
-### 3. Partitioning with Padding
+### 3. **Partitioning with Padding**
 
 Divide the `order_book` into partitions, adding padding after each partition to ensure separation on cache lines. This strategy leverages `std::span` for efficient access to the partitions. The goal is to *isolate* the data accessed by each thread onto its own cache lines, preventing false sharing.
 
@@ -312,70 +312,70 @@ int main() {
 }
 ```
 
-**Walkthrough of Partitioning Logic:**
+#### **Walkthrough of Partitioning Logic:**
 
-1.  **Goal:** Divide the `order_book` into `NUM_THREADS` partitions. Each thread will work on its own partition. We want to ensure that the data each thread works on resides on separate cache lines to avoid false sharing.
-2.  **Constants:**
-    *   `ORDER_BOOK_SIZE`: The number of *actual* `OrderBookLevel` elements we want to store.
-    *   `CACHE_LINE_SIZE`: The size of a cache line on the target architecture (e.g., 64 bytes).
-    *   `ELEMENT_SIZE`: The size of the `OrderBookLevel` struct in bytes.
-    *   `PADDING_ELEMENTS`: The number of `OrderBookLevel` elements needed to fill a full cache line.
-3.  **`PADDING_ELEMENTS` Calculation:**
+**Goal:** Divide the `order_book` into `NUM_THREADS` partitions. Each thread will work on its own partition. We want to ensure that the data each thread works on resides on separate cache lines to avoid false sharing.
+ **Constants:**
+   *   `ORDER_BOOK_SIZE`: The number of *actual* `OrderBookLevel` elements we want to store.
+   *   `CACHE_LINE_SIZE`: The size of a cache line on the target architecture (e.g., 64 bytes).
+   *   `ELEMENT_SIZE`: The size of the `OrderBookLevel` struct in bytes.
+   *   `PADDING_ELEMENTS`: The number of `OrderBookLevel` elements needed to fill a full cache line.
+ **`PADDING_ELEMENTS` Calculation:**
 
-    This is the most important calculation:
+This is the most important calculation:
 
-    ```cpp
-    const int PADDING_ELEMENTS = CACHE_LINE_SIZE / ELEMENT_SIZE;
-    ```
+```cpp
+const int PADDING_ELEMENTS = CACHE_LINE_SIZE / ELEMENT_SIZE;
+```
 
-    This tells us how many *extra* `OrderBookLevel` elements we need to add as padding after each partition to ensure that the *next* partition starts on a new cache line. If a cache line is 64 bytes, and each `OrderBookLevel` element is 8 bytes (2 `int`s), then `PADDING_ELEMENTS` will be 64 / 8 = 8. So we will insert eight padding elements at the end of each partition.
-4.  **`order_book` Size:**
+This tells us how many **extra** `OrderBookLevel` elements we need to add as padding after each partition to ensure that the *next* partition starts on a new cache line. If a cache line is 64 bytes, and each `OrderBookLevel` element is 8 bytes (2 `int`s), then `PADDING_ELEMENTS` will be 64 / 8 = 8. So we will insert eight padding elements at the end of each partition.
+ **`order_book` Size:**
 
-    The total size of the `order_book` vector includes the actual order elements *plus* the padding:
+The total size of the `order_book` vector includes the actual order elements **plus** the padding:
 
-    ```cpp
-    std::vector<OrderBookLevel> order_book(ORDER_BOOK_SIZE + (NUM_THREADS * PADDING_ELEMENTS));
-    ```
+```cpp
+std::vector<OrderBookLevel> order_book(ORDER_BOOK_SIZE + (NUM_THREADS * PADDING_ELEMENTS));
+```
 
-    So the total size is `ORDER_BOOK_SIZE` plus `PADDING_ELEMENTS` for *each* thread.
+So the total size is `ORDER_BOOK_SIZE` plus `PADDING_ELEMENTS` for *each* thread.
 
-5.  **Partition size:**
+ **Partition size:**
 
-    Each thread gets the same number of elements to work on this is achieved through the use of this line.
+Each thread gets the same number of elements to work on this is achieved through the use of this line.
 
-    ```cpp
-    int partition_size = ORDER_BOOK_SIZE / NUM_THREADS;
-    ```
+```cpp
+int partition_size = ORDER_BOOK_SIZE / NUM_THREADS;
+```
 
-6.  **`start_index` Calculation:**
+**`start_index` Calculation:**
 
-    The `start_index` determines where each thread's partition begins within the `order_book`. This calculation *includes* the padding from previous partitions:
+The `start_index` determines where each thread's partition begins within the `order_book`. This calculation *includes* the padding from previous partitions:
 
-    ```cpp
-    int start_index = i * (partition_size + PADDING_ELEMENTS);
-    ```
+```cpp
+int start_index = i * (partition_size + PADDING_ELEMENTS);
+```
 
-    For example: If you have three threads; the `start_index` of the partition would be the number of elements from previous partion added with padding from previous parition. If each partition is assigned `partion_size` elements and padded with `PADDING_ELEMENTS` this is the total that is mulitplied the thread number to assigned the `start_index`.
-7.  **`std::span` Construction:**
+For example: If you have three threads; the `start_index` of the partition would be the number of elements from previous partion added with padding from previous parition. If each partition is assigned `partion_size` elements and padded with `PADDING_ELEMENTS` this is the total that is mulitplied the thread number to assigned the `start_index`.
+ **`std::span` Construction:**
 
-    The `std::span` provides a *view* of the data within the `order_book` that a thread is allowed to access. *Crucially*, the `std::span` only covers the *actual* order elements within the partition, *excluding* the padding:
+The `std::span` provides a *view* of the data within the `order_book` that a thread is allowed to access. *Crucially*, the `std::span` only covers the *actual* order elements within the partition, *excluding* the padding:
 
-    ```cpp
-    std::span<OrderBookLevel> partition(order_book.data() + start_index, partition_size);
-    ```
+```cpp
+std::span<OrderBookLevel> partition(order_book.data() + start_index, partition_size);
+```
 
-    The span starts at the correct `start_index`, but its length is only `partition_size` (the number of actual order elements). The span prevents the thread from accidentally accessing or modifying the padding.
-8.  **Iteration:**
+The span starts at the correct `start_index`, but its length is only `partition_size` (the number of actual order elements). The span prevents the thread from accidentally accessing or modifying the padding.
+ **Iteration:**
 
-    The `modify_orders` function uses a `std::span` to iterate only though a partion which is the `order_book` which is allocated to the current thread.
+The `modify_orders` function uses a `std::span` to iterate only though a partion which is the `order_book` which is allocated to the current thread.
 
-    ```cpp
-        for (auto& level : partition) {
-            if (level.volume > 100) {
-                level.volume -= 100;
-            }
-        }
-    ```
+```cpp
+for (auto& level : partition) {
+    if (level.volume > 100) {
+        level.volume -= 100;
+    }
+}
+```
 
 **Example Calculation:**
 
@@ -400,7 +400,7 @@ For Thread 1 (`i = 1`):
 
 This detailed explanation and calculation example should make the partitioning logic much clearer to your readers.
 
-### 4. Local Buffers and Merging Results
+### 4. **Local Buffers and Merging Results**
 
 Each thread processes data in its local buffer and then merges it back into the shared data after completion. This strategy eliminates false sharing but introduces a copying overhead.
 
