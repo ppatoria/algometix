@@ -56,59 +56,10 @@ structured_data: {
 - Threads process separate parts of an array, but **adjacent elements share the same cache line**.
 - Example: Each thread processes a **different index**, but due to cache alignment, they keep invalidating each other's work.
 
-<!--
-#### Diagram
+### **Figure showing false sharing when adjacent array indices share the same cache line.**
+![False Sharing: Adjacent array indices share the same cache line](/diagrams/false_sharing_adjacent_array_indices.png)
 
-
-```plantuml
-@startuml
-skinparam linetype ortho
-skinparam nodesep 10
-skinparam ranksep 20
-
-rectangle "Core 1" as Core1 {
-    rectangle "Private Cache (L1)" as Cache1 {
-        rectangle "Cache Line 1" as CacheLine1 {
-            rectangle "order_book[0 ... N/2-1]" as portion1
-            note right of CacheLine1
-                Thread 1 modifies
-                indices 0 ... N/2-1
-                in this cache line.
-            end note
-        }
-    }
-}
-
-rectangle "Core 2" as Core2 {
-    rectangle "Private Cache (L1)" as Cache2 {
-        rectangle "Cache Line 2" as CacheLine2 {
-            rectangle "order_book[N/2 ... N-1]" as portion2
-            note left of CacheLine2
-                Thread 2 modifies
-                indices N/2 ... N-1
-                in this cache line.
-            end note
-        }
-    }
-}
-
-rectangle "Thread 1 (Modifies order_book[0 ... N/2-1])" as Thread1
-rectangle "Thread 2 (Modifies order_book[N/2 ... N-1])" as Thread2
-
-Thread1 --> portion1 
-Thread2 --> portion2 
-
-note bottom of CacheLine1
-    False sharing occurs when threads modify adjacent memory locations
-    in different cache lines, causing cache invalidation and potential
-    performance degradation.
-end note
-@enduml
-```
--->
-
-![False Sharing: Adjacent array indices share the same cache line](diagrams/false_sharing_adjacent_array_indices.png)
-### Code: Parallel Order Book Modification with Potential False Sharing
+### **Code: Parallel Order Book Modification with Potential False Sharing**
 
 #### Introduction to the Order Book and Price Level Orders
 In financial markets, an **order book** is a real-time list of buy and sell orders for a particular asset. Each order has:
