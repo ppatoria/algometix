@@ -1,3 +1,56 @@
+---
+title: "Cache Coherence and Protocols"
+date: 2025-02-06T23:00:00
+author: "Pralay Patoria"
+weight: 8
+tags: [
+  "C++", 
+  "Performance Optimization", 
+  "Low-Latency Programming", 
+  "Cache Optimization", 
+  "Multi-Core Architecture", 
+  "Cache Coherence", 
+  "Cache Coherence Protocols", 
+  "Memory Consistency", 
+  "CPU Caching", 
+  "Cache Synchronization", 
+  "False Sharing", 
+  "MESI Protocol", 
+  "MOESI Protocol", 
+  "Directory-Based Coherence", 
+  "Parallel Processing", 
+  "Concurrency", 
+  "High-Performance Computing", 
+  "Algorithmic Trading", 
+  "Microbenchmarking", 
+  "C++ Performance Tuning"
+]
+layout: "page"
+summary: "Understand cache coherence, its role in multi-core systems, and how protocols like MESI, MOESI, and directory-based coherence ensure data consistency."
+draft: true
+meta_description: "Explore cache coherence in multi-core architectures, why it matters, and how protocols like MESI, MOESI, and directory-based coherence maintain data consistency."
+open_graph_image: "Optional link for social media preview"
+open_graph_title: "Cache Coherence and Protocols: Ensuring Data Consistency in Multi-Core Systems"
+open_graph_description: "Learn about cache coherence, its impact on system performance, and how protocols like MESI and MOESI manage data consistency across CPU caches."
+twitter_card: "summary_large_image"
+structured_data: {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Cache Coherence and Protocols: Ensuring Data Consistency in Multi-Core Systems",
+  "author": {
+    "@type": "Person",
+    "name": "Pralay Patoria"
+  },
+  "datePublished": "2025-02-06T23:00:00",
+  "dateModified": "2025-02-06T23:00:00",
+  "keywords": "C++, Cache Coherence, Cache Coherence Protocols, MESI Protocol, MOESI Protocol, Memory Consistency, Shared Cache, False Sharing, CPU Caching, High-Performance Computing",
+  "articleBody": "This article explains the importance of cache coherence in multi-core architectures, how cache coherence protocols work, and the advantages they offer in maintaining data consistency across CPU caches.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "AlgoMetix"
+  }
+}
+---
 ## **Cache Coherence and  Memory Ordering: Ensuring Data Consistency and Correct Execution in Multi-Core Systems**
 
 Modern multi-core processors rely on private caches to reduce latency and improve performance. However, when multiple cores access the same memory location, ensuring consistency across caches *and* the correct order of memory operations becomes essential. **Cache coherence** guarantees that all cores observe a consistent view of memory, preventing stale or incorrect data from affecting computations. **Memory ordering** defines the rules by which memory accesses (reads and writes) appear to occur, both to the core performing the operations and to other cores in the system.

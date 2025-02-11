@@ -1,3 +1,55 @@
+---
+title: "Cache Hierarchy and Sharing"
+date: 2025-02-06T22:45:00
+author: "Pralay Patoria"
+weight: 7
+tags: [
+  "C++", 
+  "Performance Optimization", 
+  "Low-Latency Programming", 
+  "Cache Optimization", 
+  "Multi-Core Architecture", 
+  "Cache Hierarchy", 
+  "Shared Cache", 
+  "CPU Caching", 
+  "Memory Optimization", 
+  "Cache Coherence", 
+  "False Sharing", 
+  "NUMA Architecture", 
+  "Concurrency", 
+  "Parallel Processing", 
+  "High-Performance Computing", 
+  "Algorithmic Trading", 
+  "Microbenchmarking", 
+  "C++ Performance Tuning"
+]
+layout: "page"
+summary: "Explore cache hierarchy and shared caching in multi-core architectures, including key challenges like cache coherence and false sharing."
+draft: true
+meta_description: "Understand cache hierarchy, shared caching, and the impact of multi-core architectures on performance, covering key issues like false sharing."
+open_graph_image: "Optional link for social media preview"
+open_graph_title: "Cache Hierarchy and Sharing in Multi-Processor Machines"
+open_graph_description: "Learn how multi-core architectures manage cache hierarchy and sharing, along with the challenges of cache coherence and performance bottlenecks."
+twitter_card: "summary_large_image"
+structured_data: {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Cache Hierarchy and Sharing in Multi-Processor Machines",
+  "author": {
+    "@type": "Person",
+    "name": "Pralay Patoria"
+  },
+  "datePublished": "2025-02-06T22:45:00",
+  "dateModified": "2025-02-06T22:45:00",
+  "keywords": "C++, Multi-Core Architecture, Cache Hierarchy, Shared Cache, Cache Coherence, False Sharing, CPU Caching, High-Performance Computing",
+  "articleBody": "This article explores the cache hierarchy in multi-core architectures, how shared caching impacts performance, and briefly touches on key challenges like cache coherence and false sharing.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "AlgoMetix"
+  }
+}
+---
+
 Absolutely, I agree that enhancing the article to include **memory ordering** alongside **cache coherence** will provide a more complete picture of memory issues in multi-core systems. Memory ordering and cache coherence are deeply interconnected, and discussing them together will help readers understand how they work in tandem to ensure correctness and performance.
 
 Below is the updated article with a focus on **memory ordering** and **cache coherence**, along with the renamed section and additional explanations. I've also included PlantUML diagrams to illustrate key concepts.

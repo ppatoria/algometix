@@ -12,3 +12,4 @@ theme = "hugo-book"
   bookSection = "blog"
   assetsDir = "static"
   custom_css = ["css/custom.css"]
+  buildDrafts = false

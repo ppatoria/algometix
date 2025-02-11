@@ -1,3 +1,8 @@
+---
+title: "Load and Store Draft"
+date: 2025-02-06T23:00:00
+draft: true
+---
 # Load and Store Buffers
 ### **Understanding Write Buffering in a Non-Coherent Shared Cache**
 1. **CPU Write Path:**

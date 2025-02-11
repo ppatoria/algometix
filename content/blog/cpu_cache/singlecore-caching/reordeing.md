@@ -1,3 +1,9 @@
+---
+title: "reordering draft"
+date: 2025-02-06T23:00:00
+author: "Pralay Patoria"
+draft: true
+---
 Reordering issues occurs in single-core machines with multiple threads. It's a common misconception that multi-core systems are a prerequisite for reordering problems. While the *consequences* of reordering might be more dramatic in multi-core systems (due to cache coherence complexities), the *root cause* – compiler and CPU optimizations – exists even in single-core environments.
 
 **How Reordering Occurs in a Single-Core System:**

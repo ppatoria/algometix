@@ -1,3 +1,8 @@
+---
+title: "single core draft 1"
+date: 2025-02-06T23:00:00
+draft: true
+---
 please review for correctness "## Cache Coherence and Protocols: Ensuring Data Consistency in Multi-Core Systems
 Modern multi -  core processors rely on private caches to reduce latency and improve performance.However, when multiple cores access the same memory location, ensuring consistency across caches becomes essential. Cache coherence guarantees that all cores observe a consistent view of memory, preventing stale or incorrect data from affecting computations.
 

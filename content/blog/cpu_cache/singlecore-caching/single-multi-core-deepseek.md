@@ -1,3 +1,10 @@
+---
+title: "Single Core Cache Coherence and Protocols"
+date: 2025-02-06T23:00:00
+author: "Pralay Patoria"
+layout: "page"
+draft: true
+---
 
 
 New chat

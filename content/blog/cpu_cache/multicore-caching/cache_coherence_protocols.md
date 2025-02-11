@@ -27,7 +27,7 @@ tags: [
 ]
 layout: "page"
 summary: "Understand cache coherence, its role in multi-core systems, and how protocols like MESI, MOESI, and directory-based coherence ensure data consistency."
-draft: false
+draft: true
 meta_description: "Explore cache coherence in multi-core architectures, why it matters, and how protocols like MESI, MOESI, and directory-based coherence maintain data consistency."
 open_graph_image: "Optional link for social media preview"
 open_graph_title: "Cache Coherence and Protocols: Ensuring Data Consistency in Multi-Core Systems"
