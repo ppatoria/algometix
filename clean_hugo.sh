@@ -1,14 +1,40 @@
 #!/bin/bash
 
-# Clean previous Hugo build
-echo "🧹 Cleaning previous Hugo build..."
-rm -rf public/ resources/ .hugo_build.lock
+echo "Cleaning Hugo cache, generated resources, and public directory..."
 
-# Generate a fresh Hugo build
-echo "🚀 Running Hugo clean build..."
-hugo --cleanDestinationDir
+# Remove Hugo cache
+if [ -d "$HOME/.cache/hugo" ]; then
+    rm -rf "$HOME/.cache/hugo"
+    echo "Deleted Hugo cache: $HOME/.cache/hugo"
+else
+    echo "No Hugo cache found."
+fi
 
-# Start Hugo server with full rebuild
-echo "🌐 Starting Hugo server..."
-hugo server --disableFastRender
+# Remove generated resources (_gen directory)
+if [ -d "resources/_gen" ]; then
+    rm -rf "resources/_gen"
+    echo "Deleted generated resources: resources/_gen"
+else
+    echo "No generated resources found."
+fi
+
+# Remove public directory
+if [ -d "public" ]; then
+    rm -rf "public"
+    echo "Deleted public directory."
+else
+    echo "No public directory found."
+fi
+
+# Remove Hugo module cache (if using modules)
+hugo mod clean
+echo "Cleared Hugo module cache."
+
+# Optionally start Hugo server with --ignoreCache
+read -p "Do you want to start Hugo server with --ignoreCache? (y/n): " choice
+if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
+    hugo server --ignoreCache
+fi
+
+echo "Hugo cleanup complete."
 
