@@ -15,7 +15,7 @@ buildDrafts = false
 
 # Optional: Add if needed
 [outputs]
-  home = ["HTML", "JSON"]
+  home = ["HTML"]
   page = ["HTML"]
 
 [markup]
