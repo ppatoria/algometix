@@ -2,16 +2,24 @@ baseURL = "https://algometix.com/"
 languageCode = "en-us"
 title = "Algometix"
 theme = "hugo-book"
+buildDrafts = false
 
 [params]
-  BookTheme = "auto"  # Can be "light", "dark", or "auto"
-  BookToC = true       # Enable table of contents
-  BookMenuBundle = "/menu" # Ensures correct sidebar loading
-  BookSection = "docs" # Change this if needed
-  bookPageTree = true
-  bookSection = "blog"
-  assetsDir = "static"
-  custom_css = ["css/custom.css"]
-  buildDrafts = false
-  BookShowToC = true        # Show Table of Contents in the sidebar
-  BookCollapseMenu = false  # Keep the sidebar expanded by default
+  BookTheme = "auto"          # Can be "light", "dark", or "auto"
+  BookShowToC = true          # Show Table of Contents in the sidebar
+  BookSection = "blog"        # Default section for the theme
+  BookPageTree = true         # Enable page tree view in the sidebar
+  BookCollapseMenu = false    # Keep the sidebar expanded by default
+  assetsDir = "static"        # Directory for static assets
+  custom_css = ["css/custom.css"] # Custom CSS file
+
+# Optional: Add if needed
+[outputs]
+  home = ["HTML", "JSON"]
+  page = ["HTML"]
+
+[markup]
+  [markup.highlight]
+    style = "monokai"
+  [markup.goldmark.renderer]
+    unsafe = true
