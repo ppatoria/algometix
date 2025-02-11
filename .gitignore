@@ -1,5 +1,4 @@
 # Ignore Hugo-generated output (public directory)
-public/
 resources/
 hugo_stats.json
 .hugo_build.lock
