@@ -8,7 +8,7 @@ echo "Navigating to ~/dev/algometix..."
 cd ~/dev/algometix || { echo "Failed to navigate to root directory"; exit 1; }
 
 echo "Starting Hugo server in the background..."
-hugo server -D > "$LOG_FILE" 2>&1 &
+hugo server > "$LOG_FILE" 2>&1 &
 
 # Wait a few seconds to allow Hugo to start
 sleep 3
