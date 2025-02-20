@@ -1,4 +1,11 @@
-# **Overview of the Load-Store Unit (LSU)**  
+---
+title: "Overview of the Load-Store Unit (LSU)"
+
+draft: true
+date: 2025-02-16T22:45:00
+author: "Pralay Patoria"
+---
+
 The **Load-Store Unit (LSU)** is a core component that manages memory access in the CPU.
 It handles the **loading** of data from memory into registers and **storing** of data back to memory, which directly impacts performance.
 
