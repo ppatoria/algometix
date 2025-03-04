@@ -1,80 +1,17 @@
 ---
-title: "Impact of Adjacent Variable Modification"
+title: "False Sharing: Multiple Thread-Local variables allocated adjacent in memory"
 date: 2025-02-06T23:30:00
 author: "Pralay Patoria"
 draft: false
 ---
 
-### Scenario 3: Thread-Local Variables Packed Together
+### Scenario : Thread-Local Variables Packed Together
 - When multiple **thread-local variables** are allocated **adjacent in memory**, they may share the same cache line.
 - Despite being **logically separate**, parallel updates can cause performance issues due to false sharing.
 
 #### Diagram
-```plantuml
-@startuml
-skinparam linetype ortho
-skinparam nodesep 10
-skinparam ranksep 20
 
-title False Sharing in Thread-Local Variables
-
-rectangle "Thread 1" as Thread1 {
-    rectangle "thread_local int A" as TL_A_Thread1
-}
-
-rectangle "Thread 2" as Thread2 {
-    rectangle "thread_local int A" as TL_A_Thread2
-}
-
-rectangle "Memory Layout (Compiler Allocates)" as Memory {
-    rectangle "A (Thread 1)" as MemA_Thread1
-    rectangle "A (Thread 2)" as MemA_Thread2
-}
-
-rectangle "Core 1" as Core1 {
-    rectangle "Private Cache (L1)" as Cache1 {
-        rectangle "Cache Line" as CacheLine1 {
-            rectangle "A (Thread 1)" as CacheA_Thread1
-            rectangle "A (Thread 2)" as CacheA_Thread2
-        }
-    }
-}
-
-rectangle "Core 2" as Core2 {
-    rectangle "Private Cache (L1)" as Cache2 {
-        rectangle "Cache Line" as CacheLine2 {
-            rectangle "A (Thread 1)" as CacheA_Thread1_Core2
-            rectangle "A (Thread 2)" as CacheA_Thread2_Core2
-        }
-    }
-}
-
-Thread1 --> TL_A_Thread1
-Thread2 --> TL_A_Thread2
-
-TL_A_Thread1 --> MemA_Thread1
-TL_A_Thread2 --> MemA_Thread2
-
-MemA_Thread1 --> CacheA_Thread1
-MemA_Thread2 --> CacheA_Thread2
-
-MemA_Thread1 --> CacheA_Thread1_Core2
-MemA_Thread2 --> CacheA_Thread2_Core2
-
-note bottom of CacheLine1
-    False sharing occurs because 
-    thread-local variables from different threads 
-    are placed adjacently in memory.
-end note
-
-note bottom of CacheLine2
-    When one thread modifies A, 
-    the cache line is invalidated 
-    for the other thread, causing performance degradation.
-end note
-
-@enduml
-```
+![Thread-Local Variables Packed Together](/diagrams/false_sharing_adjacent_thread_local_variables.png)
 
 #### Code
 ```cpp
