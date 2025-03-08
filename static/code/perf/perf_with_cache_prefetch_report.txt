@@ -1,0 +1,456 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 5  of event 'cycles:P'
+# Event count (approx.): 43812526
+#
+# Children      Self  Command          Shared Object      Symbol                                     
+# ........  ........  ...............  .................  ...........................................
+#
+    99.77%    99.77%  with_cache_pref  [kernel.kallsyms]  [k] slab_update_freelist.constprop.0.isra.0
+            |
+            ---0x1239b1ceb08b
+               entry_SYSCALL_64
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_execve
+               do_execveat_common.isra.0
+               bprm_execve
+               bprm_execve.part.0
+               exec_binprm
+               search_binary_handler
+               load_elf_binary
+               elf_load
+               vm_munmap
+               __vm_munmap
+               do_vmi_munmap
+               do_vmi_align_munmap
+               mas_store_gfp
+               mas_wr_store_entry.isra.0
+               mas_wr_modify
+               mas_wr_node_store
+               mas_node_count_gfp
+               mas_alloc_nodes
+               kmem_cache_alloc
+               ___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+    99.77%     0.00%  with_cache_pref  [unknown]          [k] 0x00001239b1ceb08b
+            |
+            ---0x1239b1ceb08b
+               entry_SYSCALL_64
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_execve
+               do_execveat_common.isra.0
+               bprm_execve
+               bprm_execve.part.0
+               exec_binprm
+               search_binary_handler
+               load_elf_binary
+               elf_load
+               vm_munmap
+               __vm_munmap
+               do_vmi_munmap
+               do_vmi_align_munmap
+               mas_store_gfp
+               mas_wr_store_entry.isra.0
+               mas_wr_modify
+               mas_wr_node_store
+               mas_node_count_gfp
+               mas_alloc_nodes
+               kmem_cache_alloc
+               ___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+    99.77%     0.00%  with_cache_pref  [kernel.kallsyms]  [k] entry_SYSCALL_64
+            |
+            ---entry_SYSCALL_64
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_execve
+               do_execveat_common.isra.0
+               bprm_execve
+               bprm_execve.part.0
+               exec_binprm
+               search_binary_handler
+               load_elf_binary
+               elf_load
+               vm_munmap
+               __vm_munmap
+               do_vmi_munmap
+               do_vmi_align_munmap
+               mas_store_gfp
+               mas_wr_store_entry.isra.0
+               mas_wr_modify
+               mas_wr_node_store
+               mas_node_count_gfp
+               mas_alloc_nodes
+               kmem_cache_alloc
+               ___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+    99.77%     0.00%  with_cache_pref  [kernel.kallsyms]  [k] do_syscall_64
+            |
+            ---do_syscall_64
+               x64_sys_call
+               __x64_sys_execve
+               do_execveat_common.isra.0
+               bprm_execve
+               bprm_execve.part.0
+               exec_binprm
+               search_binary_handler
+               load_elf_binary
+               elf_load
+               vm_munmap
+               __vm_munmap
+               do_vmi_munmap
+               do_vmi_align_munmap
+               mas_store_gfp
+               mas_wr_store_entry.isra.0
+               mas_wr_modify
+               mas_wr_node_store
+               mas_node_count_gfp
+               mas_alloc_nodes
+               kmem_cache_alloc
+               ___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+    99.77%     0.00%  with_cache_pref  [kernel.kallsyms]  [k] x64_sys_call
+            |
+            ---x64_sys_call
+               __x64_sys_execve
+               do_execveat_common.isra.0
+               bprm_execve
+               bprm_execve.part.0
+               exec_binprm
+               search_binary_handler
+               load_elf_binary
+               elf_load
+               vm_munmap
+               __vm_munmap
+               do_vmi_munmap
+               do_vmi_align_munmap
+               mas_store_gfp
+               mas_wr_store_entry.isra.0
+               mas_wr_modify
+               mas_wr_node_store
+               mas_node_count_gfp
+               mas_alloc_nodes
+               kmem_cache_alloc
+               ___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+    99.77%     0.00%  with_cache_pref  [kernel.kallsyms]  [k] __x64_sys_execve
+            |
+            ---__x64_sys_execve
+               do_execveat_common.isra.0
+               bprm_execve
+               bprm_execve.part.0
+               exec_binprm
+               search_binary_handler
+               load_elf_binary
+               elf_load
+               vm_munmap
+               __vm_munmap
+               do_vmi_munmap
+               do_vmi_align_munmap
+               mas_store_gfp
+               mas_wr_store_entry.isra.0
+               mas_wr_modify
+               mas_wr_node_store
+               mas_node_count_gfp
+               mas_alloc_nodes
+               kmem_cache_alloc
+               ___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+    99.77%     0.00%  with_cache_pref  [kernel.kallsyms]  [k] do_execveat_common.isra.0
+            |
+            ---do_execveat_common.isra.0
+               bprm_execve
+               bprm_execve.part.0
+               exec_binprm
+               search_binary_handler
+               load_elf_binary
+               elf_load
+               vm_munmap
+               __vm_munmap
+               do_vmi_munmap
+               do_vmi_align_munmap
+               mas_store_gfp
+               mas_wr_store_entry.isra.0
+               mas_wr_modify
+               mas_wr_node_store
+               mas_node_count_gfp
+               mas_alloc_nodes
+               kmem_cache_alloc
+               ___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+    99.77%     0.00%  with_cache_pref  [kernel.kallsyms]  [k] bprm_execve
+            |
+            ---bprm_execve
+               bprm_execve.part.0
+               exec_binprm
+               search_binary_handler
+               load_elf_binary
+               elf_load
+               vm_munmap
+               __vm_munmap
+               do_vmi_munmap
+               do_vmi_align_munmap
+               mas_store_gfp
+               mas_wr_store_entry.isra.0
+               mas_wr_modify
+               mas_wr_node_store
+               mas_node_count_gfp
+               mas_alloc_nodes
+               kmem_cache_alloc
+               ___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+    99.77%     0.00%  with_cache_pref  [kernel.kallsyms]  [k] bprm_execve.part.0
+            |
+            ---bprm_execve.part.0
+               exec_binprm
+               search_binary_handler
+               load_elf_binary
+               elf_load
+               vm_munmap
+               __vm_munmap
+               do_vmi_munmap
+               do_vmi_align_munmap
+               mas_store_gfp
+               mas_wr_store_entry.isra.0
+               mas_wr_modify
+               mas_wr_node_store
+               mas_node_count_gfp
+               mas_alloc_nodes
+               kmem_cache_alloc
+               ___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+    99.77%     0.00%  with_cache_pref  [kernel.kallsyms]  [k] exec_binprm
+            |
+            ---exec_binprm
+               search_binary_handler
+               load_elf_binary
+               elf_load
+               vm_munmap
+               __vm_munmap
+               do_vmi_munmap
+               do_vmi_align_munmap
+               mas_store_gfp
+               mas_wr_store_entry.isra.0
+               mas_wr_modify
+               mas_wr_node_store
+               mas_node_count_gfp
+               mas_alloc_nodes
+               kmem_cache_alloc
+               ___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+    99.77%     0.00%  with_cache_pref  [kernel.kallsyms]  [k] search_binary_handler
+            |
+            ---search_binary_handler
+               load_elf_binary
+               elf_load
+               vm_munmap
+               __vm_munmap
+               do_vmi_munmap
+               do_vmi_align_munmap
+               mas_store_gfp
+               mas_wr_store_entry.isra.0
+               mas_wr_modify
+               mas_wr_node_store
+               mas_node_count_gfp
+               mas_alloc_nodes
+               kmem_cache_alloc
+               ___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+    99.77%     0.00%  with_cache_pref  [kernel.kallsyms]  [k] load_elf_binary
+            |
+            ---load_elf_binary
+               elf_load
+               vm_munmap
+               __vm_munmap
+               do_vmi_munmap
+               do_vmi_align_munmap
+               mas_store_gfp
+               mas_wr_store_entry.isra.0
+               mas_wr_modify
+               mas_wr_node_store
+               mas_node_count_gfp
+               mas_alloc_nodes
+               kmem_cache_alloc
+               ___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+    99.77%     0.00%  with_cache_pref  [kernel.kallsyms]  [k] elf_load
+            |
+            ---elf_load
+               vm_munmap
+               __vm_munmap
+               do_vmi_munmap
+               do_vmi_align_munmap
+               mas_store_gfp
+               mas_wr_store_entry.isra.0
+               mas_wr_modify
+               mas_wr_node_store
+               mas_node_count_gfp
+               mas_alloc_nodes
+               kmem_cache_alloc
+               ___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+    99.77%     0.00%  with_cache_pref  [kernel.kallsyms]  [k] vm_munmap
+            |
+            ---vm_munmap
+               __vm_munmap
+               do_vmi_munmap
+               do_vmi_align_munmap
+               mas_store_gfp
+               mas_wr_store_entry.isra.0
+               mas_wr_modify
+               mas_wr_node_store
+               mas_node_count_gfp
+               mas_alloc_nodes
+               kmem_cache_alloc
+               ___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+    99.77%     0.00%  with_cache_pref  [kernel.kallsyms]  [k] __vm_munmap
+            |
+            ---__vm_munmap
+               do_vmi_munmap
+               do_vmi_align_munmap
+               mas_store_gfp
+               mas_wr_store_entry.isra.0
+               mas_wr_modify
+               mas_wr_node_store
+               mas_node_count_gfp
+               mas_alloc_nodes
+               kmem_cache_alloc
+               ___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+    99.77%     0.00%  with_cache_pref  [kernel.kallsyms]  [k] do_vmi_munmap
+            |
+            ---do_vmi_munmap
+               do_vmi_align_munmap
+               mas_store_gfp
+               mas_wr_store_entry.isra.0
+               mas_wr_modify
+               mas_wr_node_store
+               mas_node_count_gfp
+               mas_alloc_nodes
+               kmem_cache_alloc
+               ___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+    99.77%     0.00%  with_cache_pref  [kernel.kallsyms]  [k] do_vmi_align_munmap
+            |
+            ---do_vmi_align_munmap
+               mas_store_gfp
+               mas_wr_store_entry.isra.0
+               mas_wr_modify
+               mas_wr_node_store
+               mas_node_count_gfp
+               mas_alloc_nodes
+               kmem_cache_alloc
+               ___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+    99.77%     0.00%  with_cache_pref  [kernel.kallsyms]  [k] mas_store_gfp
+            |
+            ---mas_store_gfp
+               mas_wr_store_entry.isra.0
+               mas_wr_modify
+               mas_wr_node_store
+               mas_node_count_gfp
+               mas_alloc_nodes
+               kmem_cache_alloc
+               ___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+    99.77%     0.00%  with_cache_pref  [kernel.kallsyms]  [k] mas_wr_store_entry.isra.0
+            |
+            ---mas_wr_store_entry.isra.0
+               mas_wr_modify
+               mas_wr_node_store
+               mas_node_count_gfp
+               mas_alloc_nodes
+               kmem_cache_alloc
+               ___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+    99.77%     0.00%  with_cache_pref  [kernel.kallsyms]  [k] mas_wr_modify
+            |
+            ---mas_wr_modify
+               mas_wr_node_store
+               mas_node_count_gfp
+               mas_alloc_nodes
+               kmem_cache_alloc
+               ___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+    99.77%     0.00%  with_cache_pref  [kernel.kallsyms]  [k] mas_wr_node_store
+            |
+            ---mas_wr_node_store
+               mas_node_count_gfp
+               mas_alloc_nodes
+               kmem_cache_alloc
+               ___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+    99.77%     0.00%  with_cache_pref  [kernel.kallsyms]  [k] mas_node_count_gfp
+            |
+            ---mas_node_count_gfp
+               mas_alloc_nodes
+               kmem_cache_alloc
+               ___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+    99.77%     0.00%  with_cache_pref  [kernel.kallsyms]  [k] mas_alloc_nodes
+            |
+            ---mas_alloc_nodes
+               kmem_cache_alloc
+               ___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+    99.77%     0.00%  with_cache_pref  [kernel.kallsyms]  [k] kmem_cache_alloc
+            |
+            ---kmem_cache_alloc
+               ___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+    99.77%     0.00%  with_cache_pref  [kernel.kallsyms]  [k] ___slab_alloc
+            |
+            ---___slab_alloc
+               slab_update_freelist.constprop.0.isra.0
+
+     0.23%     0.00%  perf-exec        [kernel.kallsyms]  [k] perf_event_enable_on_exec
+     0.23%     0.00%  perf-exec        [unknown]          [k] 0x00001239b1ceb08b
+     0.23%     0.00%  perf-exec        [kernel.kallsyms]  [k] entry_SYSCALL_64
+     0.23%     0.00%  perf-exec        [kernel.kallsyms]  [k] do_syscall_64
+     0.23%     0.00%  perf-exec        [kernel.kallsyms]  [k] x64_sys_call
+     0.23%     0.00%  perf-exec        [kernel.kallsyms]  [k] __x64_sys_execve
+     0.23%     0.00%  perf-exec        [kernel.kallsyms]  [k] do_execveat_common.isra.0
+     0.23%     0.00%  perf-exec        [kernel.kallsyms]  [k] bprm_execve
+     0.23%     0.00%  perf-exec        [kernel.kallsyms]  [k] bprm_execve.part.0
+     0.23%     0.00%  perf-exec        [kernel.kallsyms]  [k] exec_binprm
+     0.23%     0.00%  perf-exec        [kernel.kallsyms]  [k] search_binary_handler
+     0.23%     0.00%  perf-exec        [kernel.kallsyms]  [k] load_elf_binary
+     0.23%     0.00%  perf-exec        [kernel.kallsyms]  [k] begin_new_exec
+     0.23%     0.00%  perf-exec        [kernel.kallsyms]  [k] perf_event_exec
+     0.23%     0.23%  perf-exec        [kernel.kallsyms]  [k] native_write_msr
+     0.00%     0.00%  perf-exec        [kernel.kallsyms]  [k] intel_bts_enable_local
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

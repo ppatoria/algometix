@@ -1,0 +1,323 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 11  of event 'cycles:P'
+# Event count (approx.): 334314791
+#
+# Children      Self  Command          Shared Object           Symbol                                                                                                                                                                              
+# ........  ........  ...............  ......................  ....................................................................................................................................................................................
+#
+    69.59%    69.59%  without_cache_p  libc.so.6               [.] malloc
+            |
+            ---malloc
+
+    30.35%     0.00%  without_cache_p  [kernel.kallsyms]       [k] entry_SYSCALL_64
+            |
+            ---entry_SYSCALL_64
+               do_syscall_64
+               |          
+               |--16.96%--__x64_sys_brk
+               |          
+                --13.39%--x64_sys_call
+                          __x64_sys_execve
+                          do_execveat_common.isra.0
+                          bprm_execve
+                          bprm_execve.part.0
+                          exec_binprm
+                          search_binary_handler
+                          load_elf_binary
+                          elf_load
+                          vm_mmap
+                          vm_mmap_pgoff
+                          do_mmap
+                          mmap_region
+                          mas_prev
+                          mas_prev_slot
+
+    30.35%     0.00%  without_cache_p  [kernel.kallsyms]       [k] do_syscall_64
+            |
+            ---do_syscall_64
+               |          
+               |--16.96%--__x64_sys_brk
+               |          
+                --13.39%--x64_sys_call
+                          __x64_sys_execve
+                          do_execveat_common.isra.0
+                          bprm_execve
+                          bprm_execve.part.0
+                          exec_binprm
+                          search_binary_handler
+                          load_elf_binary
+                          elf_load
+                          vm_mmap
+                          vm_mmap_pgoff
+                          do_mmap
+                          mmap_region
+                          mas_prev
+                          mas_prev_slot
+
+    30.35%    16.96%  without_cache_p  [kernel.kallsyms]       [k] x64_sys_call
+            |          
+            |--16.96%--0
+            |          __brk
+            |          entry_SYSCALL_64
+            |          do_syscall_64
+            |          __x64_sys_brk
+            |          
+             --13.39%--x64_sys_call
+                       __x64_sys_execve
+                       do_execveat_common.isra.0
+                       bprm_execve
+                       bprm_execve.part.0
+                       exec_binprm
+                       search_binary_handler
+                       load_elf_binary
+                       elf_load
+                       vm_mmap
+                       vm_mmap_pgoff
+                       do_mmap
+                       mmap_region
+                       mas_prev
+                       mas_prev_slot
+
+    16.96%     0.00%  without_cache_p  [unknown]               [k] 0000000000000000
+            |
+            ---0
+               __brk
+               entry_SYSCALL_64
+               do_syscall_64
+               __x64_sys_brk
+
+    16.96%     0.00%  without_cache_p  libc.so.6               [.] __brk
+            |
+            ---__brk
+               entry_SYSCALL_64
+               do_syscall_64
+               __x64_sys_brk
+
+    16.96%     0.00%  without_cache_p  [kernel.kallsyms]       [k] __x64_sys_brk
+            |
+            ---__x64_sys_brk
+
+    13.39%    13.39%  without_cache_p  [kernel.kallsyms]       [k] mas_prev_slot
+            |
+            ---0x14b3ae2eb08b
+               entry_SYSCALL_64
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_execve
+               do_execveat_common.isra.0
+               bprm_execve
+               bprm_execve.part.0
+               exec_binprm
+               search_binary_handler
+               load_elf_binary
+               elf_load
+               vm_mmap
+               vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               mas_prev
+               mas_prev_slot
+
+    13.39%     0.00%  without_cache_p  [unknown]               [k] 0x000014b3ae2eb08b
+            |
+            ---0x14b3ae2eb08b
+               entry_SYSCALL_64
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_execve
+               do_execveat_common.isra.0
+               bprm_execve
+               bprm_execve.part.0
+               exec_binprm
+               search_binary_handler
+               load_elf_binary
+               elf_load
+               vm_mmap
+               vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               mas_prev
+               mas_prev_slot
+
+    13.39%     0.00%  without_cache_p  [kernel.kallsyms]       [k] __x64_sys_execve
+            |
+            ---__x64_sys_execve
+               do_execveat_common.isra.0
+               bprm_execve
+               bprm_execve.part.0
+               exec_binprm
+               search_binary_handler
+               load_elf_binary
+               elf_load
+               vm_mmap
+               vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               mas_prev
+               mas_prev_slot
+
+    13.39%     0.00%  without_cache_p  [kernel.kallsyms]       [k] do_execveat_common.isra.0
+            |
+            ---do_execveat_common.isra.0
+               bprm_execve
+               bprm_execve.part.0
+               exec_binprm
+               search_binary_handler
+               load_elf_binary
+               elf_load
+               vm_mmap
+               vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               mas_prev
+               mas_prev_slot
+
+    13.39%     0.00%  without_cache_p  [kernel.kallsyms]       [k] bprm_execve
+            |
+            ---bprm_execve
+               bprm_execve.part.0
+               exec_binprm
+               search_binary_handler
+               load_elf_binary
+               elf_load
+               vm_mmap
+               vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               mas_prev
+               mas_prev_slot
+
+    13.39%     0.00%  without_cache_p  [kernel.kallsyms]       [k] bprm_execve.part.0
+            |
+            ---bprm_execve.part.0
+               exec_binprm
+               search_binary_handler
+               load_elf_binary
+               elf_load
+               vm_mmap
+               vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               mas_prev
+               mas_prev_slot
+
+    13.39%     0.00%  without_cache_p  [kernel.kallsyms]       [k] exec_binprm
+            |
+            ---exec_binprm
+               search_binary_handler
+               load_elf_binary
+               elf_load
+               vm_mmap
+               vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               mas_prev
+               mas_prev_slot
+
+    13.39%     0.00%  without_cache_p  [kernel.kallsyms]       [k] search_binary_handler
+            |
+            ---search_binary_handler
+               load_elf_binary
+               elf_load
+               vm_mmap
+               vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               mas_prev
+               mas_prev_slot
+
+    13.39%     0.00%  without_cache_p  [kernel.kallsyms]       [k] load_elf_binary
+            |
+            ---load_elf_binary
+               elf_load
+               vm_mmap
+               vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               mas_prev
+               mas_prev_slot
+
+    13.39%     0.00%  without_cache_p  [kernel.kallsyms]       [k] elf_load
+            |
+            ---elf_load
+               vm_mmap
+               vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               mas_prev
+               mas_prev_slot
+
+    13.39%     0.00%  without_cache_p  [kernel.kallsyms]       [k] vm_mmap
+            |
+            ---vm_mmap
+               vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               mas_prev
+               mas_prev_slot
+
+    13.39%     0.00%  without_cache_p  [kernel.kallsyms]       [k] vm_mmap_pgoff
+            |
+            ---vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               mas_prev
+               mas_prev_slot
+
+    13.39%     0.00%  without_cache_p  [kernel.kallsyms]       [k] do_mmap
+            |
+            ---do_mmap
+               mmap_region
+               mas_prev
+               mas_prev_slot
+
+    13.39%     0.00%  without_cache_p  [kernel.kallsyms]       [k] mmap_region
+            |
+            ---mmap_region
+               mas_prev
+               mas_prev_slot
+
+    13.39%     0.00%  without_cache_p  [kernel.kallsyms]       [k] mas_prev
+            |
+            ---mas_prev
+               mas_prev_slot
+
+     0.03%     0.00%  without_cache_p  [kernel.kallsyms]       [k] perf_ctx_enable
+     0.03%     0.00%  without_cache_p  libc.so.6               [.] __libc_start_call_main
+     0.03%     0.00%  without_cache_p  without_cache_prefetch  [.] std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::operator()()
+     0.03%     0.00%  without_cache_p  [kernel.kallsyms]       [k] asm_sysvec_apic_timer_interrupt
+     0.03%     0.00%  without_cache_p  [kernel.kallsyms]       [k] sysvec_apic_timer_interrupt
+     0.03%     0.00%  without_cache_p  [kernel.kallsyms]       [k] irqentry_exit
+     0.03%     0.00%  without_cache_p  [kernel.kallsyms]       [k] irqentry_exit_to_user_mode
+     0.03%     0.00%  without_cache_p  [kernel.kallsyms]       [k] schedule
+     0.03%     0.00%  without_cache_p  [kernel.kallsyms]       [k] __schedule
+     0.03%     0.00%  without_cache_p  [kernel.kallsyms]       [k] finish_task_switch.isra.0
+     0.03%     0.00%  without_cache_p  [kernel.kallsyms]       [k] __perf_event_task_sched_in
+     0.03%     0.03%  without_cache_p  [kernel.kallsyms]       [k] native_write_msr
+     0.03%     0.00%  perf-exec        [kernel.kallsyms]       [k] perf_event_enable_on_exec
+     0.03%     0.00%  perf-exec        [unknown]               [k] 0x000014b3ae2eb08b
+     0.03%     0.00%  perf-exec        [kernel.kallsyms]       [k] entry_SYSCALL_64
+     0.03%     0.00%  perf-exec        [kernel.kallsyms]       [k] do_syscall_64
+     0.03%     0.00%  perf-exec        [kernel.kallsyms]       [k] x64_sys_call
+     0.03%     0.00%  perf-exec        [kernel.kallsyms]       [k] __x64_sys_execve
+     0.03%     0.00%  perf-exec        [kernel.kallsyms]       [k] do_execveat_common.isra.0
+     0.03%     0.00%  perf-exec        [kernel.kallsyms]       [k] bprm_execve
+     0.03%     0.00%  perf-exec        [kernel.kallsyms]       [k] bprm_execve.part.0
+     0.03%     0.00%  perf-exec        [kernel.kallsyms]       [k] exec_binprm
+     0.03%     0.00%  perf-exec        [kernel.kallsyms]       [k] search_binary_handler
+     0.03%     0.00%  perf-exec        [kernel.kallsyms]       [k] load_elf_binary
+     0.03%     0.00%  perf-exec        [kernel.kallsyms]       [k] begin_new_exec
+     0.03%     0.00%  perf-exec        [kernel.kallsyms]       [k] perf_event_exec
+     0.03%     0.03%  perf-exec        [kernel.kallsyms]       [k] native_write_msr
+     0.00%     0.00%  without_cache_p  [kernel.kallsyms]       [k] intel_pmu_handle_irq
+     0.00%     0.00%  perf-exec        [kernel.kallsyms]       [k] intel_bts_enable_local
+     0.00%     0.00%  without_cache_p  [kernel.kallsyms]       [k] intel_bts_enable_local
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

@@ -1,0 +1,326 @@
+ Percent |	Source code & Disassembly of vmlinux-6.8.0-52-generic for cycles:P (1 samples, percent: local period)
+---------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3                Disassembly of section .text:
+         :
+         : 5                ffffffff81455b10 <slab_update_freelist.constprop.0.isra.0>:
+    0.00 :   ffffffff81455b10:       push   %rbp
+    0.00 :   ffffffff81455b11:       and    $0x40000000,%edi
+    0.00 :   ffffffff81455b17:       mov    %rsi,%r10
+    0.00 :   ffffffff81455b1a:       mov    %rdx,%r11
+    0.00 :   ffffffff81455b1d:       mov    %rsp,%rbp
+    0.00 :   ffffffff81455b20:       push   %r13
+    0.00 :   ffffffff81455b22:       push   %r12
+    0.00 :   ffffffff81455b24:       mov    %rcx,%r12
+    0.00 :   ffffffff81455b27:       push   %rbx
+    0.00 :   ffffffff81455b28:       mov    %r8,%rbx
+    0.00 :   ffffffff81455b2b:       je     ffffffff81455b67 <slab_update_freelist.constprop.0.isra.0+0x57>
+    0.00 :   ffffffff81455b2d:       mov    %rdx,%rax
+  100.00 :   ffffffff81455b30:       mov    %rcx,%rdx
+    0.00 :   ffffffff81455b33:       mov    %r9,%rcx
+    0.00 :   ffffffff81455b36:       lock cmpxchg16b 0x20(%rsi)
+    0.00 :   ffffffff81455b3c:       sete   %r13b
+    0.00 :   ffffffff81455b40:       test   %r13b,%r13b
+    0.00 :   ffffffff81455b43:       je     ffffffff81455bb0 <slab_update_freelist.constprop.0.isra.0+0xa0>
+    0.00 :   ffffffff81455b45:       pop    %rbx
+    0.00 :   ffffffff81455b46:       mov    %r13d,%eax
+    0.00 :   ffffffff81455b49:       pop    %r12
+    0.00 :   ffffffff81455b4b:       pop    %r13
+    0.00 :   ffffffff81455b4d:       pop    %rbp
+    0.00 :   ffffffff81455b4e:       xor    %edx,%edx
+    0.00 :   ffffffff81455b50:       xor    %ecx,%ecx
+    0.00 :   ffffffff81455b52:       xor    %esi,%esi
+    0.00 :   ffffffff81455b54:       xor    %edi,%edi
+    0.00 :   ffffffff81455b56:       xor    %r8d,%r8d
+    0.00 :   ffffffff81455b59:       xor    %r9d,%r9d
+    0.00 :   ffffffff81455b5c:       xor    %r10d,%r10d
+    0.00 :   ffffffff81455b5f:       xor    %r11d,%r11d
+    0.00 :   ffffffff81455b62:       jmp    ffffffff82226160 <__x86_return_thunk>
+    0.00 :   ffffffff81455b67:       call   *0x2012703(%rip)        # ffffffff83468270 <pv_ops+0xf0>
+    0.00 :   ffffffff81455b6d:       mov    %rax,%r8
+    0.00 :   ffffffff81455b70:       call   *0x2012702(%rip)        # ffffffff83468278 <pv_ops+0xf8>
+    0.00 :   ffffffff81455b76:       incl   %gs:0x7ebde7cb(%rip)        # 34348 <pcpu_hot+0x8>
+    0.00 :   ffffffff81455b7d:       lock btsq $0x0,(%r10)
+    0.00 :   ffffffff81455b83:       jb     ffffffff81455bf1 <slab_update_freelist.constprop.0.isra.0+0xe1>
+    0.00 :   ffffffff81455b85:       xor    %r13d,%r13d
+    0.00 :   ffffffff81455b88:       cmp    0x20(%r10),%r11
+    0.00 :   ffffffff81455b8c:       je     ffffffff81455bd4 <slab_update_freelist.constprop.0.isra.0+0xc4>
+    0.00 :   ffffffff81455b8e:       lock andb $0xfe,(%r10)
+    0.00 :   ffffffff81455b93:       decl   %gs:0x7ebde7ae(%rip)        # 34348 <pcpu_hot+0x8>
+    0.00 :   ffffffff81455b9a:       je     ffffffff81455bea <slab_update_freelist.constprop.0.isra.0+0xda>
+    0.00 :   ffffffff81455b9c:       test   $0x200,%r8d
+    0.00 :   ffffffff81455ba3:       je     ffffffff81455b40 <slab_update_freelist.constprop.0.isra.0+0x30>
+    0.00 :   ffffffff81455ba5:       call   *0x20126d5(%rip)        # ffffffff83468280 <pv_ops+0x100>
+    0.00 :   ffffffff81455bab:       test   %r13b,%r13b
+    0.00 :   ffffffff81455bae:       jne    ffffffff81455b45 <slab_update_freelist.constprop.0.isra.0+0x35>
+    0.00 :   ffffffff81455bb0:       pause
+    0.00 :   ffffffff81455bb2:       pop    %rbx
+    0.00 :   ffffffff81455bb3:       mov    %r13d,%eax
+    0.00 :   ffffffff81455bb6:       pop    %r12
+    0.00 :   ffffffff81455bb8:       pop    %r13
+    0.00 :   ffffffff81455bba:       pop    %rbp
+    0.00 :   ffffffff81455bbb:       xor    %edx,%edx
+    0.00 :   ffffffff81455bbd:       xor    %ecx,%ecx
+    0.00 :   ffffffff81455bbf:       xor    %esi,%esi
+    0.00 :   ffffffff81455bc1:       xor    %edi,%edi
+    0.00 :   ffffffff81455bc3:       xor    %r8d,%r8d
+    0.00 :   ffffffff81455bc6:       xor    %r9d,%r9d
+    0.00 :   ffffffff81455bc9:       xor    %r10d,%r10d
+    0.00 :   ffffffff81455bcc:       xor    %r11d,%r11d
+    0.00 :   ffffffff81455bcf:       jmp    ffffffff82226160 <__x86_return_thunk>
+    0.00 :   ffffffff81455bd4:       cmp    0x28(%r10),%r12
+    0.00 :   ffffffff81455bd8:       jne    ffffffff81455b8e <slab_update_freelist.constprop.0.isra.0+0x7e>
+    0.00 :   ffffffff81455bda:       mov    %rbx,0x20(%r10)
+    0.00 :   ffffffff81455bde:       mov    $0x1,%r13d
+    0.00 :   ffffffff81455be4:       mov    %r9,0x28(%r10)
+    0.00 :   ffffffff81455be8:       jmp    ffffffff81455b8e <slab_update_freelist.constprop.0.isra.0+0x7e>
+    0.00 :   ffffffff81455bea:       call   ffffffff822267c8 <__SCT__preempt_schedule>
+    0.00 :   ffffffff81455bef:       jmp    ffffffff81455b9c <slab_update_freelist.constprop.0.isra.0+0x8c>
+    0.00 :   ffffffff81455bf1:       decl   %gs:0x7ebde750(%rip)        # 34348 <pcpu_hot+0x8>
+    0.00 :   ffffffff81455bf8:       je     ffffffff81455c08 <slab_update_freelist.constprop.0.isra.0+0xf8>
+    0.00 :   ffffffff81455bfa:       pause
+    0.00 :   ffffffff81455bfc:       mov    (%r10),%rax
+    0.00 :   ffffffff81455bff:       test   $0x1,%al
+    0.00 :   ffffffff81455c01:       jne    ffffffff81455bfa <slab_update_freelist.constprop.0.isra.0+0xea>
+    0.00 :   ffffffff81455c03:       jmp    ffffffff81455b76 <slab_update_freelist.constprop.0.isra.0+0x66>
+    0.00 :   ffffffff81455c08:       call   ffffffff822267c8 <__SCT__preempt_schedule>
+    0.00 :   ffffffff81455c0d:       jmp    ffffffff81455bfa <slab_update_freelist.constprop.0.isra.0+0xea>
+ Percent |	Source code & Disassembly of vmlinux-6.8.0-52-generic for cycles:P (2 samples, percent: local period)
+---------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3                Disassembly of section .text:
+         :
+         : 5                ffffffff810c49f0 <native_write_msr>:
+    0.00 :   ffffffff810c49f0:       mov    %esi,%eax
+    0.00 :   ffffffff810c49f2:       mov    %edi,%ecx
+  100.00 :   ffffffff810c49f4:       wrmsr
+    0.00 :   ffffffff810c49f6:       xchg   %ax,%ax
+    0.00 :   ffffffff810c49f8:       xor    %eax,%eax
+    0.00 :   ffffffff810c49fa:       xor    %edx,%edx
+    0.00 :   ffffffff810c49fc:       xor    %ecx,%ecx
+    0.00 :   ffffffff810c49fe:       xor    %esi,%esi
+    0.00 :   ffffffff810c4a00:       xor    %edi,%edi
+    0.00 :   ffffffff810c4a02:       jmp    ffffffff82226160 <__x86_return_thunk>
+    0.00 :   ffffffff810c4a07:       push   %rbp
+    0.00 :   ffffffff810c4a08:       shl    $0x20,%rdx
+    0.00 :   ffffffff810c4a0c:       mov    %rdx,%rsi
+    0.00 :   ffffffff810c4a0f:       xor    %edx,%edx
+    0.00 :   ffffffff810c4a11:       or     %rax,%rsi
+    0.00 :   ffffffff810c4a14:       mov    %rsp,%rbp
+    0.00 :   ffffffff810c4a17:       call   ffffffff81911590 <do_trace_write_msr>
+    0.00 :   ffffffff810c4a1c:       pop    %rbp
+    0.00 :   ffffffff810c4a1d:       xor    %eax,%eax
+    0.00 :   ffffffff810c4a1f:       xor    %edx,%edx
+    0.00 :   ffffffff810c4a21:       xor    %ecx,%ecx
+    0.00 :   ffffffff810c4a23:       xor    %esi,%esi
+    0.00 :   ffffffff810c4a25:       xor    %edi,%edi
+    0.00 :   ffffffff810c4a27:       jmp    ffffffff82226160 <__x86_return_thunk>
+ Percent |	Source code & Disassembly of vmlinux-6.8.0-52-generic for cycles:P (1 samples, percent: local period)
+---------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3                Disassembly of section .text:
+         :
+         : 5                ffffffff8101e450 <intel_bts_enable_local>:
+    0.00 :   ffffffff8101e450:       call   ffffffff810b6910 <__fentry__>
+    0.00 :   ffffffff8101e455:       mov    $0x1c000,%rax
+    0.00 :   ffffffff8101e45c:       add    %gs:0x7effb5c4(%rip),%rax        # 19a28 <this_cpu_off>
+    0.00 :   ffffffff8101e464:       mov    0x2000(%rax),%edx
+    0.00 :   ffffffff8101e46a:       cmp    $0x2,%edx
+    0.00 :   ffffffff8101e46d:       je     ffffffff8101e49b <intel_bts_enable_local+0x4b>
+    0.00 :   ffffffff8101e46f:       test   %edx,%edx
+    0.00 :   ffffffff8101e471:       je     ffffffff8101e490 <intel_bts_enable_local+0x40>
+    0.00 :   ffffffff8101e473:       mov    (%rax),%rdi
+    0.00 :   ffffffff8101e476:       test   %rdi,%rdi
+    0.00 :   ffffffff8101e479:       je     ffffffff8101e490 <intel_bts_enable_local+0x40>
+    0.00 :   ffffffff8101e47b:       push   %rbp
+    0.00 :   ffffffff8101e47c:       mov    %rsp,%rbp
+    0.00 :   ffffffff8101e47f:       call   ffffffff8101e070 <__bts_event_start>
+    0.00 :   ffffffff8101e484:       pop    %rbp
+    0.00 :   ffffffff8101e485:       xor    %eax,%eax
+    0.00 :   ffffffff8101e487:       xor    %edx,%edx
+    0.00 :   ffffffff8101e489:       xor    %edi,%edi
+    0.00 :   ffffffff8101e48b:       jmp    ffffffff82226160 <__x86_return_thunk>
+  100.00 :   ffffffff8101e490:       xor    %eax,%eax
+    0.00 :   ffffffff8101e492:       xor    %edx,%edx
+    0.00 :   ffffffff8101e494:       xor    %edi,%edi
+    0.00 :   ffffffff8101e496:       jmp    ffffffff82226160 <__x86_return_thunk>
+    0.00 :   ffffffff8101e49b:       ud2
+    0.00 :   ffffffff8101e49d:       xor    %eax,%eax
+    0.00 :   ffffffff8101e49f:       xor    %edx,%edx
+    0.00 :   ffffffff8101e4a1:       xor    %edi,%edi
+    0.00 :   ffffffff8101e4a3:       jmp    ffffffff82226160 <__x86_return_thunk>
+ Percent |	Source code & Disassembly of vmlinux-6.8.0-52-generic for cycles:P (1 samples, percent: local period)
+---------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3                Disassembly of section .text:
+         :
+         : 5                ffffffff8139ce60 <perf_event_enable_on_exec>:
+    0.00 :   ffffffff8139ce60:       call   ffffffff810b6910 <__fentry__>
+    0.00 :   ffffffff8139ce65:       push   %rbp
+    0.00 :   ffffffff8139ce66:       mov    %rsp,%rbp
+    0.00 :   ffffffff8139ce69:       push   %r15
+    0.00 :   ffffffff8139ce6b:       push   %r14
+    0.00 :   ffffffff8139ce6d:       push   %r13
+    0.00 :   ffffffff8139ce6f:       push   %r12
+    0.00 :   ffffffff8139ce71:       mov    %rdi,%r12
+    0.00 :   ffffffff8139ce74:       push   %rbx
+    0.00 :   ffffffff8139ce75:       sub    $0x10,%rsp
+    0.00 :   ffffffff8139ce79:       call   *0x20cb3f1(%rip)        # ffffffff83468270 <pv_ops+0xf0>
+    0.00 :   ffffffff8139ce7f:       mov    %rax,%r13
+    0.00 :   ffffffff8139ce82:       call   *0x20cb3f0(%rip)        # ffffffff83468278 <pv_ops+0xf8>
+    0.00 :   ffffffff8139ce88:       mov    %gs:0x34340,%rax
+    0.00 :   ffffffff8139ce91:       cmp    %r12,0xea0(%rax)
+    0.00 :   ffffffff8139ce98:       jne    ffffffff8139d08d <perf_event_enable_on_exec+0x22d>
+    0.00 :   ffffffff8139ce9e:       mov    %r13,%rax
+    0.00 :   ffffffff8139cea1:       mov    0x68(%r12),%ecx
+    0.00 :   ffffffff8139cea6:       and    $0x200,%eax
+    0.00 :   ffffffff8139ceab:       mov    %rax,-0x30(%rbp)
+    0.00 :   ffffffff8139ceaf:       test   %ecx,%ecx
+    0.00 :   ffffffff8139ceb1:       jne    ffffffff8139ceea <perf_event_enable_on_exec+0x8a>
+    0.00 :   ffffffff8139ceb3:       test   %rax,%rax
+    0.00 :   ffffffff8139ceb6:       je     ffffffff8139cecd <perf_event_enable_on_exec+0x6d>
+    0.00 :   ffffffff8139ceb8:       xor    %ebx,%ebx
+    0.00 :   ffffffff8139ceba:       call   *0x20cb3c0(%rip)        # ffffffff83468280 <pv_ops+0x100>
+    0.00 :   ffffffff8139cec0:       test   %rbx,%rbx
+    0.00 :   ffffffff8139cec3:       je     ffffffff8139cecd <perf_event_enable_on_exec+0x6d>
+    0.00 :   ffffffff8139cec5:       mov    %rbx,%rdi
+    0.00 :   ffffffff8139cec8:       call   ffffffff813949f0 <put_ctx>
+    0.00 :   ffffffff8139cecd:       add    $0x10,%rsp
+    0.00 :   ffffffff8139ced1:       pop    %rbx
+    0.00 :   ffffffff8139ced2:       pop    %r12
+    0.00 :   ffffffff8139ced4:       pop    %r13
+    0.00 :   ffffffff8139ced6:       pop    %r14
+    0.00 :   ffffffff8139ced8:       pop    %r15
+    0.00 :   ffffffff8139ceda:       pop    %rbp
+    0.00 :   ffffffff8139cedb:       xor    %eax,%eax
+    0.00 :   ffffffff8139cedd:       xor    %edx,%edx
+    0.00 :   ffffffff8139cedf:       xor    %ecx,%ecx
+    0.00 :   ffffffff8139cee1:       xor    %esi,%esi
+    0.00 :   ffffffff8139cee3:       xor    %edi,%edi
+    0.00 :   ffffffff8139cee5:       jmp    ffffffff82226160 <__x86_return_thunk>
+    0.00 :   ffffffff8139ceea:       mov    $0x2fd20,%rax
+    0.00 :   ffffffff8139cef1:       add    %gs:0x7ec7cb2f(%rip),%rax        # 19a28 <this_cpu_off>
+    0.00 :   ffffffff8139cef9:       mov    %rax,%rdi
+    0.00 :   ffffffff8139cefc:       mov    %rax,-0x38(%rbp)
+    0.00 :   ffffffff8139cf00:       call   ffffffff82224c20 <_raw_spin_lock>
+    0.00 :   ffffffff8139cf05:       test   %r12,%r12
+    0.00 :   ffffffff8139cf08:       je     ffffffff8139d030 <perf_event_enable_on_exec+0x1d0>
+    0.00 :   ffffffff8139cf0e:       mov    %r12,%rdi
+    0.00 :   ffffffff8139cf11:       lea    0x58(%r12),%r13
+    0.00 :   ffffffff8139cf16:       call   ffffffff82224c20 <_raw_spin_lock>
+    0.00 :   ffffffff8139cf1b:       mov    $0x4,%esi
+    0.00 :   ffffffff8139cf20:       mov    %r12,%rdi
+    0.00 :   ffffffff8139cf23:       call   ffffffff81398c90 <ctx_sched_out>
+    0.00 :   ffffffff8139cf28:       mov    0x58(%r12),%rbx
+    0.00 :   ffffffff8139cf2d:       cmp    %rbx,%r13
+    0.00 :   ffffffff8139cf30:       je     ffffffff8139d0d4 <perf_event_enable_on_exec+0x274>
+    0.00 :   ffffffff8139cf36:       xor    %edi,%edi
+    0.00 :   ffffffff8139cf38:       xor    %r15d,%r15d
+    0.00 :   ffffffff8139cf3b:       jmp    ffffffff8139cf48 <perf_event_enable_on_exec+0xe8>
+    0.00 :   ffffffff8139cf3d:       mov    (%rbx),%rbx
+    0.00 :   ffffffff8139cf40:       or     %edx,%r15d
+    0.00 :   ffffffff8139cf43:       cmp    %r13,%rbx
+    0.00 :   ffffffff8139cf46:       je     ffffffff8139cf9f <perf_event_enable_on_exec+0x13f>
+    0.00 :   ffffffff8139cf48:       movzbl 0x101(%rbx),%eax
+    0.00 :   ffffffff8139cf4f:       test   $0x10,%al
+    0.00 :   ffffffff8139cf51:       je     ffffffff8139cf6a <perf_event_enable_on_exec+0x10a>
+    0.00 :   ffffffff8139cf53:       mov    0xa8(%rbx),%edx
+    0.00 :   ffffffff8139cf59:       and    $0xffffffef,%eax
+    0.00 :   ffffffff8139cf5c:       mov    %al,0x101(%rbx)
+    0.00 :   ffffffff8139cf62:       test   %edx,%edx
+    0.00 :   ffffffff8139cf64:       js     ffffffff8139cffe <perf_event_enable_on_exec+0x19e>
+    0.00 :   ffffffff8139cf6a:       mov    0x90(%rbx),%rax
+    0.00 :   ffffffff8139cf71:       xor    %edx,%edx
+    0.00 :   ffffffff8139cf73:       mov    0x228(%rbx),%rcx
+    0.00 :   ffffffff8139cf7a:       testb  $0x4,0x100(%rax)
+    0.00 :   ffffffff8139cf81:       setne  %dl
+    0.00 :   ffffffff8139cf84:       add    $0x1,%edx
+    0.00 :   ffffffff8139cf87:       cmpq   $0x0,0x88(%rcx)
+    0.00 :   ffffffff8139cf8f:       jne    ffffffff8139cf3d <perf_event_enable_on_exec+0xdd>
+    0.00 :   ffffffff8139cf91:       mov    (%rbx),%rbx
+    0.00 :   ffffffff8139cf94:       or     $0x8,%edx
+    0.00 :   ffffffff8139cf97:       or     %edx,%r15d
+    0.00 :   ffffffff8139cf9a:       cmp    %r13,%rbx
+    0.00 :   ffffffff8139cf9d:       jne    ffffffff8139cf48 <perf_event_enable_on_exec+0xe8>
+    0.00 :   ffffffff8139cf9f:       test   %edi,%edi
+    0.00 :   ffffffff8139cfa1:       je     ffffffff8139d0a1 <perf_event_enable_on_exec+0x241>
+    0.00 :   ffffffff8139cfa7:       mov    0xa8(%r12),%rbx
+    0.00 :   ffffffff8139cfaf:       test   %rbx,%rbx
+    0.00 :   ffffffff8139cfb2:       je     ffffffff8139cfc0 <perf_event_enable_on_exec+0x160>
+    0.00 :   ffffffff8139cfb4:       movq   $0x0,0xa8(%r12)
+    0.00 :   ffffffff8139cfc0:       addq   $0x1,0xb8(%r12)
+    0.00 :   ffffffff8139cfc9:       mov    -0x38(%rbp),%rdi
+    0.00 :   ffffffff8139cfcd:       mov    %r15d,%edx
+    0.00 :   ffffffff8139cfd0:       mov    %r12,%rsi
+    0.00 :   ffffffff8139cfd3:       call   ffffffff8139cad0 <ctx_resched>
+  100.00 :   ffffffff8139cfd8:       test   %r12,%r12
+    0.00 :   ffffffff8139cfdb:       je     ffffffff8139cfe5 <perf_event_enable_on_exec+0x185>
+    0.00 :   ffffffff8139cfdd:       mov    %r12,%rdi
+    0.00 :   ffffffff8139cfe0:       call   ffffffff82224d60 <_raw_spin_unlock>
+    0.00 :   ffffffff8139cfe5:       mov    -0x38(%rbp),%rdi
+    0.00 :   ffffffff8139cfe9:       call   ffffffff82224d60 <_raw_spin_unlock>
+    0.00 :   ffffffff8139cfee:       cmpq   $0x0,-0x30(%rbp)
+    0.00 :   ffffffff8139cff3:       je     ffffffff8139cec0 <perf_event_enable_on_exec+0x60>
+    0.00 :   ffffffff8139cff9:       jmp    ffffffff8139ceba <perf_event_enable_on_exec+0x5a>
+    0.00 :   ffffffff8139cffe:       mov    %rbx,%rdi
+    0.00 :   ffffffff8139d001:       call   ffffffff813906a0 <perf_event_update_time>
+    0.00 :   ffffffff8139d006:       mov    0xa8(%rbx),%eax
+    0.00 :   ffffffff8139d00c:       test   %eax,%eax
+    0.00 :   ffffffff8139d00e:       mov    0x90(%rbx),%rax
+    0.00 :   ffffffff8139d015:       jns    ffffffff8139d01c <perf_event_enable_on_exec+0x1bc>
+    0.00 :   ffffffff8139d017:       cmp    %rbx,%rax
+    0.00 :   ffffffff8139d01a:       je     ffffffff8139d062 <perf_event_enable_on_exec+0x202>
+    0.00 :   ffffffff8139d01c:       movl   $0x0,0xa8(%rbx)
+    0.00 :   ffffffff8139d026:       mov    $0x1,%edi
+    0.00 :   ffffffff8139d02b:       jmp    ffffffff8139cf71 <perf_event_enable_on_exec+0x111>
+    0.00 :   ffffffff8139d030:       mov    $0x4,%esi
+    0.00 :   ffffffff8139d035:       xor    %edi,%edi
+    0.00 :   ffffffff8139d037:       mov    $0x58,%r13d
+    0.00 :   ffffffff8139d03d:       call   ffffffff81398c90 <ctx_sched_out>
+    0.00 :   ffffffff8139d042:       mov    0x58,%rbx
+    0.00 :   ffffffff8139d04a:       cmp    $0x58,%rbx
+    0.00 :   ffffffff8139d04e:       jne    ffffffff8139cf36 <perf_event_enable_on_exec+0xd6>
+    0.00 :   ffffffff8139d054:       mov    $0x4,%esi
+    0.00 :   ffffffff8139d059:       xor    %edi,%edi
+    0.00 :   ffffffff8139d05b:       call   ffffffff8139c4f0 <ctx_sched_in>
+    0.00 :   ffffffff8139d060:       jmp    ffffffff8139d0bb <perf_event_enable_on_exec+0x25b>
+    0.00 :   ffffffff8139d062:       mov    0x10(%rbx),%rsi
+    0.00 :   ffffffff8139d066:       lea    -0x10(%rsi),%r14
+    0.00 :   ffffffff8139d06a:       cmp    %rbx,%r14
+    0.00 :   ffffffff8139d06d:       je     ffffffff8139d01c <perf_event_enable_on_exec+0x1bc>
+    0.00 :   ffffffff8139d06f:       mov    %r14,%rdi
+    0.00 :   ffffffff8139d072:       call   ffffffff813906a0 <perf_event_update_time>
+    0.00 :   ffffffff8139d077:       mov    0x10(%r14),%rdx
+    0.00 :   ffffffff8139d07b:       lea    -0x10(%rdx),%r14
+    0.00 :   ffffffff8139d07f:       cmp    %rbx,%r14
+    0.00 :   ffffffff8139d082:       jne    ffffffff8139d06f <perf_event_enable_on_exec+0x20f>
+    0.00 :   ffffffff8139d084:       mov    0x90(%rbx),%rax
+    0.00 :   ffffffff8139d08b:       jmp    ffffffff8139d01c <perf_event_enable_on_exec+0x1bc>
+    0.00 :   ffffffff8139d08d:       ud2
+    0.00 :   ffffffff8139d08f:       test   $0x200,%r13d
+    0.00 :   ffffffff8139d096:       je     ffffffff8139cecd <perf_event_enable_on_exec+0x6d>
+    0.00 :   ffffffff8139d09c:       jmp    ffffffff8139ceb8 <perf_event_enable_on_exec+0x58>
+    0.00 :   ffffffff8139d0a1:       mov    $0x4,%esi
+    0.00 :   ffffffff8139d0a6:       mov    %r12,%rdi
+    0.00 :   ffffffff8139d0a9:       call   ffffffff8139c4f0 <ctx_sched_in>
+    0.00 :   ffffffff8139d0ae:       test   %r12,%r12
+    0.00 :   ffffffff8139d0b1:       je     ffffffff8139d0bb <perf_event_enable_on_exec+0x25b>
+    0.00 :   ffffffff8139d0b3:       mov    %r12,%rdi
+    0.00 :   ffffffff8139d0b6:       call   ffffffff82224d60 <_raw_spin_unlock>
+    0.00 :   ffffffff8139d0bb:       mov    -0x38(%rbp),%rdi
+    0.00 :   ffffffff8139d0bf:       call   ffffffff82224d60 <_raw_spin_unlock>
+    0.00 :   ffffffff8139d0c4:       cmpq   $0x0,-0x30(%rbp)
+    0.00 :   ffffffff8139d0c9:       jne    ffffffff8139ceb8 <perf_event_enable_on_exec+0x58>
+    0.00 :   ffffffff8139d0cf:       jmp    ffffffff8139cecd <perf_event_enable_on_exec+0x6d>
+    0.00 :   ffffffff8139d0d4:       mov    $0x4,%esi
+    0.00 :   ffffffff8139d0d9:       mov    %r12,%rdi
+    0.00 :   ffffffff8139d0dc:       call   ffffffff8139c4f0 <ctx_sched_in>
+    0.00 :   ffffffff8139d0e1:       jmp    ffffffff8139d0b3 <perf_event_enable_on_exec+0x253>
