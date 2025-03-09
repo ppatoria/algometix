@@ -71,8 +71,10 @@ public:
 
   void match(){
     while(!bids.empty() && !asks.empty()){
+
       auto bidIter = bids.rbegin();
       auto askIter = asks.begin();
+
       auto &[bestBidPrice, bidOrder] = *bidIter;
       auto &[bestAskPrice, askOrder] = *askIter;
 
@@ -91,6 +93,42 @@ public:
         asks.erase(askIter);
     } 
   }
+
+  void execute(order& order1, order& order2){
+    auto matchQuantity = std::min(order1.quantity, order2.quantity);
+    order1.quantity -= matchQuantity;
+    order2.quantity -= matchQuantity;
+  }
+
+  void cleanup(PriceLevel::iterator orderIter){
+    if (orderIter->second.quantity == 0){
+
+      (orderIter->second.side == Side::Buy)
+          ? bids.erase(orderIter)
+          : asks.erase(orderIter);
+    }
+  }
+
+  void match(order& ord){
+    if(ord.side == Side::Buy){
+      while ( ord.quantity > 0 ) {
+        auto iter = asks.begin();
+        if(iter == asks.end())
+          return;
+        auto&[bestAskPrice, bestAskOrder] = *iter;
+        execute(ord, bestAskOrder);
+        cleanup(iter);
+      }
+    }else{
+      while (ord.quantity > 0) {
+        auto iter = bids.rbegin();
+        if (iter == bids.rend())
+          return;
+        auto &[bestBidPrice, bestBidOrder] = *iter;
+        execute(ord, bestBidOrder);
+        cleanup(std::prev(iter.base()));
+      }
+    }
 };
 
 
