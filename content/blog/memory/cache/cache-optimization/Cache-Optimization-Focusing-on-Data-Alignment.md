@@ -121,11 +121,17 @@ struct alignas(64) MarketDataAligned {
 
 ---
 
-### **Further Improvement by Aligning Containers to Cache Line**
-Efficient batch processing requires that arrays or vectors of data are also cache-aligned.
+Here's the revised version with the requested changes and expanded explanation for `std::vector<MarketDataAligned>` in C++17+.  
 
-#### **Using Aligned Arrays**
-Aligned arrays ensure contiguous, cache-friendly storage for fixed-size data.
+---
+
+### **Further Improvement by Aligning Containers to Cache Line**  
+Efficient batch processing requires that arrays or vectors of data are also cache-aligned.  
+
+---
+
+#### **Using Aligned Arrays**  
+For **fixed-size storage**, `std::array<T, N>` must be wrapped in a structure with explicit `alignas(64)` to enforce alignment at the **container level**.  
 
 ```cpp
 template <typename T, std::size_t N>
@@ -133,48 +139,54 @@ struct AlignedArray {
     alignas(64) std::array<T, N> data;
 };
 
-using AlignedMarketDataArray = AlignedArray<MarketDataReordered, 1000>;
+using AlignedMarketDataArray = AlignedArray<MarketDataAligned, 1000>;
 ```
 
-#### **Explanation**
-- **Field Sizes and Padding:**
-  - Each `MarketDataReordered` instance is 16 bytes.
-  - The total size of the array is a multiple of 64 bytes, ensuring cache alignment.
-- **Cache Line Fit:**
-  - Sequential processing of `AlignedMarketDataArray` leverages cache lines effectively, reducing cache misses.
+##### **Why Explicit `alignas(64)` on `std::array`?**  
+- **`std::array` itself does not guarantee 64-byte alignment**.  
+- `alignas(64)` ensures that the entire array starts at a **cache-line boundary**.  
+- Useful for **batch processing** where aligned access reduces cache misses.  
 
-#### **C-Style Aligned Arrays**
-For applications requiring C-style arrays, similar alignment can be achieved using explicit memory alignment.
+---
+
+#### **C-Style Aligned Arrays**  
+For applications requiring raw arrays, explicit alignment ensures cache-friendly memory layout.  
 
 ```cpp
 struct AlignedCArray {
-    alignas(64) MarketDataReordered data[1000];
+    alignas(64) MarketDataAligned data[1000];
 };
 ```
+- **Similar to `std::array`**, the structure-level `alignas(64)` ensures the starting address is **cache-aligned**.  
+- However, like `std::array`, without `alignas(64)`, **the base address is not guaranteed to be aligned**.  
 
-#### **Using Aligned Vectors**
-Dynamic arrays can also benefit from cache alignment by using a custom aligned allocator.
+---
+
+#### **Using Aligned Vectors**  
+
+##### **For `std::vector<MarketDataAligned>` in C++17+**  
+
+Unlike `std::array`, `std::vector` does **not** require explicit `alignas(64)`.  
+
+- **Element Alignment:**  
+  - Each `MarketDataAligned` object will be **64-byte aligned** (respects `alignas(64)`).  
+  - Guaranteed by the standard—**no misaligned elements**.  
+
+- **Memory Block Alignment:**  
+  - The vector's underlying array (`vector.data()`) will **also** start at a **64-byte boundary**.  
+  - This is automatic because `std::allocator` respects the element’s alignment since C++17.  
 
 ```cpp
-template <typename T, std::size_t Alignment>
-struct aligned_allocator {
-    using value_type = T;
-
-    T* allocate(std::size_t n) {
-        void* ptr = nullptr;
-        if (posix_memalign(&ptr, Alignment, n * sizeof(T)) != 0) throw std::bad_alloc();
-        return static_cast<T*>(ptr);
-    }
-
-    void deallocate(T* ptr, std::size_t) { free(ptr); }
-};
-
-using AlignedVector = std::vector<MarketDataReordered, aligned_allocator<MarketDataReordered, 64>>;
+std::vector<MarketDataAligned> alignedData(1000); // Properly aligned in C++17+
+assert(reinterpret_cast<std::uintptr_t>(alignedData.data()) % 64 == 0);
 ```
 
-#### **Explanation**
-- **Dynamic Size Flexibility:**
-  - While dynamic allocation adds overhead, the aligned allocator ensures that data is cache-aligned for efficient access.
+---
+
+#### **Final Takeaways**  
+- **C++17+ `std::vector<T>` respects `alignas(N)`**, so **manual allocators are no longer needed**.  
+- Use `alignas(64) std::array<T, N>` or `alignas(64) T[N]` for **stack-based** storage.  
+- `std::array<T, N>` and C-style arrays **require explicit `alignas(64)`** for proper alignment.  
 
 ---
 

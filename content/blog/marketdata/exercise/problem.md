@@ -1,4 +1,8 @@
 ---
+title: "Market Data Parser"
+author: "Pralay Patoria"
+draft: true
+---
 
 **Question:**  
 You're designing a high-performance market data parser for the NYSE Pillar feed, which consists of structured binary messages. The feed contains different message types such as Quotes (MsgType 140), Trades (MsgType 220), and Stock Summary messages (MsgType 223). Each message starts with a common header and follows a specific binary format.
